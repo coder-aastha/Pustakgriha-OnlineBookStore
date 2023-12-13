@@ -43,6 +43,17 @@ const UserRegister = () => {
                 </a>
               </div>
 
+              
+              <div className="inputbox">
+                <input type="confirmpassword" required />
+                <label>Confirm Password</label>
+                <a href="#">
+                  <span className="user-icon-register">
+                    <RiLockPasswordFill />
+                  </span>
+                </a>
+              </div>
+
               <div className="conditions">
                 <label>
                   <input type="checkbox" />I agree the terms & conditions
