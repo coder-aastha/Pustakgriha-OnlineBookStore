@@ -1,10 +1,44 @@
-import React from "react";
+import React, {useState} from "react";
 import "../css/UserRegister.css";
 import { FaUser } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { RiLockPasswordFill } from "react-icons/ri";
+import axios from 'axios'
+import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
+
+
 
 const UserRegister = () => {
+  const navigate = useNavigate();
+  const [data, setData] = useState({
+    username:'',
+    email:'',
+    password:'',
+    confirmpassword:'',
+  })
+
+  const registerUser =  async(e) =>{
+    e.preventDefault();
+    const {username,email,password,confirmpassword}=data
+    try{
+      const {data}=await axios.post('/register',{
+        username,email,password,confirmpassword
+      })
+      if(data.error){
+        toast.error(data.error)
+      } else{
+        setData({})
+        toast.success('register Successful.welcome!')
+        navigate('/login')
+      }
+    } catch (error){
+      console.log(error)
+
+    }
+    
+  }
+
   return (
     <>
       <div>
@@ -12,9 +46,13 @@ const UserRegister = () => {
           <div className="form-box register">
             <h2>Register</h2>
 
-            <form action="#">
+            <form onSubmit={registerUser}>
               <div className="inputbox">
-                <input type="username" required />
+                <input type="username" 
+                value={data.username}
+                onChange={(e) => setData({ ...data, username: e.target.value })}
+                required
+                 />
                 <label>Username</label>
                 <a href="#">
                   <span className="user-icon-register">
@@ -24,7 +62,11 @@ const UserRegister = () => {
               </div>
 
               <div className="inputbox">
-                <input type="email" required />
+                <input type="email" 
+                value={data.email}
+                onChange={(e) => setData({ ...data, email: e.target.value })}
+               required
+                />
                 <label>Email</label>
                 <a href="#">
                   <span className="user-icon-register">
@@ -34,7 +76,11 @@ const UserRegister = () => {
               </div>
 
               <div className="inputbox">
-                <input type="password" required />
+                <input type="password"
+                  value={data.password}
+                  onChange={(e) => setData({ ...data, password: e.target.value })}
+                  required 
+                  />
                 <label>Password</label>
                 <a href="#">
                   <span className="user-icon-register">
@@ -45,7 +91,10 @@ const UserRegister = () => {
 
               
               <div className="inputbox">
-                <input type="confirmpassword" required />
+                <input type="confirmpassword" 
+                value={data.confirmpassword}
+                onChange={(e) => setData({ ...data, confirmpassword: e.target.value })}
+                required />
                 <label>Confirm Password</label>
                 <a href="#">
                   <span className="user-icon-register">
