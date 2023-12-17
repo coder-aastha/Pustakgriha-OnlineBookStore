@@ -108,7 +108,44 @@ const deleteById = async (req, res) => {
     }
 };
 
-
+const searchBooks = async (req, res) => {
+    try {
+        const { searchTerm } = req.query;
+ 
+        if (!searchTerm) {
+            return res.status(400).json({ error: 'Search term is required' });
+        }
+       
+        const regex = new RegExp(searchTerm, 'i');
+        const book = await Booklisting.find({
+            $or: [
+                { bookTitle: regex },
+                { authorName: regex },
+                {category:regex},
+            ],
+        });
+ 
+        if (!book || book.length == 0) {
+            return res.status(404).json({ message: 'No matching books found' });
+        }
+ 
+        const bookWithCategory = book.map(book => ({
+            _id: book._id,
+            bookTitle: book.bookTitle,
+            authorName: book.authorName,
+            category: book.category,
+            bookDescription: book.bookDescription,
+            imageURL: book.imageURL,
+            price: book.price,
+            available: book.available,
+        }));
+ 
+        return res.status(200).json({ book: bookWithCategory });
+    } catch (error) {
+        console.error('Error searching books:', error);
+        res.status(500).json({ error: 'An error occurred while searching for books' });
+    }
+};
 
 module.exports = {
     book,
@@ -116,5 +153,6 @@ module.exports = {
     getById,
     updateById,
     deleteById,
+    searchBooks
     
 };
