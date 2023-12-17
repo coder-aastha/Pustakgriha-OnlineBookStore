@@ -1,51 +1,27 @@
-import {useState} from "react";
+import React from "react";
 import "../css/UserLogin.css";
 import { MdEmail } from "react-icons/md";
 import { IoCloseCircle } from "react-icons/io5";
-import axios from 'axios'
-import toast from 'react-hot-toast';
-import { useNavigate } from 'react-router-dom';
-// import UserRegister from "./UserRegister";
  
-function UserLogin() {
-  const navigate = useNavigate()
-  const[data,setData]=useState({
-    email:'',
-    password:'',
-  })
-const loginUser = async (e) =>{
-  e.preventDefault()
-  const {email,password} = data
-  try{
-    const{data}= await axios.post('/login',{
-      email,
-      password
-    });
-    if(data.error){
-      toast.error(data.error)
-    }
-    else{
-      setData({});
-      navigate('/')
-    }
-  }catch (error){
-    console.log(error)
-  }  
-}
+ 
+const UserLogin = () => {
   return (
-    <>
     <div className="main-login-wrapper">
       <div className="wrapper">
         <div className="form-box login">
           <h2>Login</h2>
-
  
-          <form onSubmit={loginUser}>
+          <div className="close-icon-login">
+            <a href="#">
+              <span className="close-icon-login">
+                <IoCloseCircle />
+              </span>
+            </a>
+          </div>
+ 
+          <form action="#">
             <div className="input-box">
-              <input type="email"
-              value={data.email}
-              onChange={(e) => setData({ ...data, email: e.target.value })}
-              required />
+              <input type="email" required />
               <label>Email</label>
               <a href="#">
                 <span className="email-icon-login">
@@ -55,10 +31,7 @@ const loginUser = async (e) =>{
             </div>
  
             <div className="input-box">
-              <input type="password"
-              value={data.password}
-              onChange={(e) => setData({ ...data, password: e.target.value })}
-               required />
+              <input type="password" required />
               <label>Password</label>
             </div>
  
@@ -78,7 +51,7 @@ const loginUser = async (e) =>{
               <p>
                 Don't have an account?
                 <a href="register" className="Login-link">
-                  {" "}
+                  {''}
                   Register
                 </a>
               </p>
@@ -86,8 +59,7 @@ const loginUser = async (e) =>{
           </form>
         </div>
       </div>
-      </div>
-    </>
+    </div>
   );
 };
  
