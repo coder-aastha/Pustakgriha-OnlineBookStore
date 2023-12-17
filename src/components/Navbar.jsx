@@ -6,6 +6,7 @@ import { LuUser } from "react-icons/lu";
 import main_logo from "../images/main_logo.png";
 import { TbWorld } from "react-icons/tb";
 import React, {useEffect, useState} from 'react';
+import axios from "axios";
 
 
 const Navbar = () => {
@@ -41,7 +42,7 @@ const Navbar = () => {
             <form onSubmit ={handleSubmit}>
             <input
               type="text"
-              placeholder="&nbsp; Search for books you love and explore your exp..."
+              placeholder="&nbsp; Search for books you love and explore your explore our extensive collection..."
               value={searchTerm}
               className='search-input'
               onChange={(e) => setsearchTerm(e.target.value)}
