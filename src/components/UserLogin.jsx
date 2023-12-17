@@ -1,4 +1,4 @@
-import React from "react";
+import {useState} from "react";
 import "../css/UserLogin.css";
 import { MdEmail } from "react-icons/md";
 import { IoCloseCircle } from "react-icons/io5";
@@ -26,7 +26,7 @@ const loginUser = async (e) =>{
     }
     else{
       setData({});
-      navigate('/home')
+      navigate('/')
     }
   }catch (error){
     console.log(error)
@@ -34,17 +34,11 @@ const loginUser = async (e) =>{
 }
   return (
     <>
+    <div className="main-login-wrapper">
       <div className="wrapper">
         <div className="form-box login">
           <h2>Login</h2>
- 
-          <div className="close-icon-login">
-            <a href="#">
-              <span className="close-icon-login">
-                <IoCloseCircle />
-              </span>
-            </a>
-          </div>
+
  
           <form onSubmit={loginUser}>
             <div className="input-box">
@@ -83,7 +77,7 @@ const loginUser = async (e) =>{
             <div className="register">
               <p>
                 Don't have an account?
-                <a href="<UserRegister />" className="Login-link">
+                <a href="register" className="Login-link">
                   {" "}
                   Register
                 </a>
@@ -91,6 +85,7 @@ const loginUser = async (e) =>{
             </div>
           </form>
         </div>
+      </div>
       </div>
     </>
   );
