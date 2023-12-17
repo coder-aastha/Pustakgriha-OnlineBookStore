@@ -5,8 +5,26 @@ import { LuUser } from "react-icons/lu";
 import main_logo from "../images/main_logo.png";
 import { TbWorld } from "react-icons/tb";
 import UserLogin from "./UserLogin";
+import { useEffect, useState } from "react";
+import '../css/App.css';
 
 const Navbar = () => {
+
+  const [theme, setTheme] = useState("light-theme");
+
+  const toggleTheme = () => {
+    if(theme === "dark-theme") {
+      setTheme("light-theme");
+    }
+    else {
+      setTheme("dark-theme");
+    }
+  }
+
+  useEffect( () => {
+    document.body.className = theme;
+  }, [theme]);
+
   return (
     <>
       <header className="main-container">
@@ -40,7 +58,9 @@ const Navbar = () => {
             </span>
           </button>
 
-          <button>
+          <button className="light-theme" onClick={
+            () => toggleTheme()
+          }>
             <span className="icon">
               <MdOutlineLightMode />
             </span>

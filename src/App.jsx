@@ -7,9 +7,6 @@ import BestSellers from "./components/BestSellers";
 import NewArrivals from "./components/NewArrivals";
 import Author from "./components/Author";
 import FooterUI from "./components/FooterUI";
-import DeliveryLocationDay from "./components/DeliveryLocationDay";
-// import UserLogin from "./components/UserLogin";
-// import UserRegister from "./components/UserRegister";
 
 function App() {
   return (
@@ -21,9 +18,6 @@ function App() {
       <NewArrivals />
       <Author />
       <FooterUI />
-      <DeliveryLocationDay />
-      {/* <UserLogin />
-      <UserRegister /> */}
     </>
   );
 }
