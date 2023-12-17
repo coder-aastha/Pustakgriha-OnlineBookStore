@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React from "react";
+import { NavLink } from "react-router-dom";
 import { IoSearchOutline } from "react-icons/io5";
 import { MdOutlineLightMode } from "react-icons/md";
 import { PiShoppingCartSimpleBold } from "react-icons/pi";
 import { LuUser } from "react-icons/lu";
 import main_logo from "../images/main_logo.png";
 import { TbWorld } from "react-icons/tb";
-import UserLogin from "./UserLogin";
-import axios from 'axios';
+
 
 const Navbar = () => {
   const [book, setBook] = useState([]);
@@ -31,7 +31,9 @@ const Navbar = () => {
     <>
       <header className="main-container">
         <div className="logo-div">
+        <NavLink to="/" className="nav-link">
           <img className="logo-img" src={main_logo} alt="Pustakgriha" />
+          </NavLink>
         </div>
 
         <div className="search-bar">
@@ -72,29 +74,21 @@ const Navbar = () => {
         </div>
 
         <div className="icon-right">
-          <button onClick={UserLogin}>
-            <span className="icon">
-              <LuUser />
-            </span>
-          </button>
+          <NavLink to="/login" className="nav-link">
+            <LuUser />
+          </NavLink>
 
-          <button>
-            <span className="icon">
-              <PiShoppingCartSimpleBold />
-            </span>
-          </button>
+          <NavLink to="/shopping-cart" className="nav-link">
+            <PiShoppingCartSimpleBold />
+          </NavLink>
 
-          <button>
-            <span className="icon">
-              <MdOutlineLightMode />
-            </span>
-          </button>
+          <NavLink to="/light-mode" className="nav-link">
+            <MdOutlineLightMode />
+          </NavLink>
 
-          <button>
-            <span className="icon">
-              <TbWorld />
-            </span>
-          </button>
+          <NavLink to="/world" className="nav-link">
+            <TbWorld />
+          </NavLink>
         </div>
       </header>
     </>

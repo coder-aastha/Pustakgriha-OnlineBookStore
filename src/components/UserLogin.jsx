@@ -1,4 +1,4 @@
-import React from "react";
+import {useState} from "react";
 import "../css/UserLogin.css";
 import { MdEmail } from "react-icons/md";
 import { IoCloseCircle } from "react-icons/io5";
@@ -6,7 +6,7 @@ import axios from 'axios'
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 // import UserRegister from "./UserRegister";
-
+ 
 function UserLogin() {
   const navigate = useNavigate()
   const[data,setData]=useState({
@@ -26,30 +26,24 @@ const loginUser = async (e) =>{
     }
     else{
       setData({});
-      navigate('/home')
+      navigate('/')
     }
   }catch (error){
     console.log(error)
-  }   
+  }  
 }
   return (
     <>
+    <div className="main-login-wrapper">
       <div className="wrapper">
         <div className="form-box login">
           <h2>Login</h2>
 
-          <div className="close-icon-login">
-            <a href="#">
-              <span className="close-icon-login">
-                <IoCloseCircle />
-              </span>
-            </a>
-          </div>
-
+ 
           <form onSubmit={loginUser}>
             <div className="input-box">
-              <input type="email" 
-              value={data.email} 
+              <input type="email"
+              value={data.email}
               onChange={(e) => setData({ ...data, email: e.target.value })}
               required />
               <label>Email</label>
@@ -59,15 +53,15 @@ const loginUser = async (e) =>{
                 </span>
               </a>
             </div>
-
+ 
             <div className="input-box">
               <input type="password"
-              value={data.password} 
+              value={data.password}
               onChange={(e) => setData({ ...data, password: e.target.value })}
                required />
               <label>Password</label>
             </div>
-
+ 
             <div className="remember-forgot">
               <label>
                 <input type="checkbox" />
@@ -75,15 +69,15 @@ const loginUser = async (e) =>{
               </label>
               <a href="#">Forgot Password?</a>
             </div>
-
+ 
             <button type="submit" className="btn">
               Login
             </button>
-
+ 
             <div className="register">
               <p>
                 Don't have an account?
-                <a href="<UserRegister />" className="Login-link">
+                <a href="register" className="Login-link">
                   {" "}
                   Register
                 </a>
@@ -92,8 +86,9 @@ const loginUser = async (e) =>{
           </form>
         </div>
       </div>
+      </div>
     </>
   );
 };
-
+ 
 export default UserLogin;
