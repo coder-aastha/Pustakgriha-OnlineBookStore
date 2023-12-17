@@ -75,13 +75,13 @@ li {
   height: auto;
 }
 
-.search-results {
-  /* margin-top: 20px; */
+/* .search-results {
+  margin-top: 20px;
   display: flex;
   flex-wrap: wrap;
   justify-content: left;
   flex-direction: column;
-}
+} */
 
 .bookView-content {
   position: relative;
