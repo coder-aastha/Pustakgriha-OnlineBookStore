@@ -61,7 +61,7 @@
   margin-right: 10px;
   margin-bottom: 0px;
   border-radius: 0px 4px 4px 0px;
-  padding: 2px
+  padding: 2px;
 
 }
 
@@ -957,11 +957,6 @@ span {
   }
 }
 
-.dark-theme {
-  :root {
-    background-color: black;
-  }
-}
 
 
 
