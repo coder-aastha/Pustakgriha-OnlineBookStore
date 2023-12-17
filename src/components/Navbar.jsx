@@ -6,21 +6,22 @@ import { LuUser } from "react-icons/lu";
 import main_logo from "../images/main_logo.png";
 import { TbWorld } from "react-icons/tb";
 import React, {useEffect, useState} from 'react';
+import axios from "axios";
 
+// const Navbar = () => {
+//   const [book, setBook] = useState([]);
+//   const [searchTerm, setsearchTerm] = useState('');
 
-const Navbar = () => {
-  const [book, setBook] = useState([]);
-  const [searchTerm, setsearchTerm] = useState('');
-
-  useEffect(() => {
-    try {
-      axios.get(`/book/search?searchTerm=${searchTerm}`)
-        .then(response => setBook(response.data.book))
-        .catch(error => console.error('Axios Error:', error));
-    } catch (error) {
-      console.error('Error:', error);
-    }
-  }, [searchTerm]);
+//   useEffect(() => {
+//     const fetchBooks =async () =>{}
+//     try {
+//       axios.get(`http://localhost:3001/book/search?searchTerm=${searchTerm}`)
+//         .then(response => setBook(response.data.book))
+//         .catch(error => console.error('Axios Error:', error));
+//     } catch (error) {
+//       console.error('Error:', error);
+//     }
+//   }, [searchTerm]);
   
  
   const handleSubmit = (e) => {
@@ -41,16 +42,15 @@ const Navbar = () => {
             <form onSubmit ={handleSubmit}>
             <input
               type="text"
-              placeholder="&nbsp; Search for books you love and explore your exp..."
+              placeholder="&nbsp; Search for books you love and explore our exp..."
               value={searchTerm}
-              className='search-input'
               onChange={(e) => setsearchTerm(e.target.value)}
             />
             <span className="search-icon">
               <IoSearchOutline />
             </span>
             </form>
-          </div>
+        
 
           <div className='bookView-content'>
           <div className='book-main'>
@@ -70,7 +70,7 @@ const Navbar = () => {
             </div>
             </div>
 
-        
+          </div>
         </div>
 
         <div className="icon-right">
