@@ -1,56 +1,99 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
-import { IoSearchOutline } from "react-icons/io5";
-import { MdOutlineLightMode } from "react-icons/md";
-import { PiShoppingCartSimpleBold } from "react-icons/pi";
-import { LuUser } from "react-icons/lu";
-import { TbWorld } from "react-icons/tb";
-import main_logo from "../images/main_logo.png";
-
-
-const Navbar = () => {
+import "../css/UserLogin.css";
+import { MdEmail } from "react-icons/md";
+import { IoCloseCircle } from "react-icons/io5";
+import axios from 'axios'
+import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
+// import UserRegister from "./UserRegister";
+ 
+function UserLogin() {
+  const navigate = useNavigate()
+  const[data,setData]=useState({
+    email:'',
+    password:'',
+  })
+const loginUser = async (e) =>{
+  e.preventDefault()
+  const {email,password} = data
+  try{
+    const{data}= await axios.post('/login',{
+      email,
+      password
+    });
+    if(data.error){
+      toast.error(data.error)
+    }
+    else{
+      setData({});
+      navigate('/home')
+    }
+  }catch (error){
+    console.log(error)
+  }  
+}
   return (
     <>
-      <header className="main-container">
-        <div className="logo-div">
-          <NavLink to="/" className="nav-link">
-            <img className="logo-img" src={main_logo} alt="Pustakgriha" />
-          </NavLink>
-        </div>
-
-        <div className="search-bar">
-          <div className="search-input">
-            <input
-              type="text"
-              placeholder="&nbsp; Search for books you love and explore our extensive collection..."
-              className="search-input"
-            />
+      <div className="wrapper">
+        <div className="form-box login">
+          <h2>Login</h2>
+ 
+          <div className="close-icon-login">
+            <a href="#">
+              <span className="close-icon-login">
+                <IoCloseCircle />
+              </span>
+            </a>
           </div>
-          <span className="search-icon">
-            <IoSearchOutline />
-          </span>
+ 
+          <form onSubmit={loginUser}>
+            <div className="input-box">
+              <input type="email"
+              value={data.email}
+              onChange={(e) => setData({ ...data, email: e.target.value })}
+              required />
+              <label>Email</label>
+              <a href="#">
+                <span className="email-icon-login">
+                  <MdEmail />
+                </span>
+              </a>
+            </div>
+ 
+            <div className="input-box">
+              <input type="password"
+              value={data.password}
+              onChange={(e) => setData({ ...data, password: e.target.value })}
+               required />
+              <label>Password</label>
+            </div>
+ 
+            <div className="remember-forgot">
+              <label>
+                <input type="checkbox" />
+                Remember me
+              </label>
+              <a href="#">Forgot Password?</a>
+            </div>
+ 
+            <button type="submit" className="btn">
+              Login
+            </button>
+ 
+            <div className="register">
+              <p>
+                Don't have an account?
+                <a href="<UserRegister />" className="Login-link">
+                  {" "}
+                  Register
+                </a>
+              </p>
+            </div>
+          </form>
         </div>
-
-        <div className="icon-right">
-          <NavLink to="/login" className="nav-link">
-            <LuUser />
-          </NavLink>
-
-          <NavLink to="/shopping-cart" className="nav-link">
-            <PiShoppingCartSimpleBold />
-          </NavLink>
-
-          <NavLink to="/light-mode" className="nav-link">
-            <MdOutlineLightMode />
-          </NavLink>
-
-          <NavLink to="/world" className="nav-link">
-            <TbWorld />
-          </NavLink>
-        </div>
-      </header>
+      </div>
     </>
   );
 };
-
-export default Navbar;
+ 
+export default UserLogin;
