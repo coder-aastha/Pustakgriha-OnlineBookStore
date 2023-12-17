@@ -1,7 +1,8 @@
 const express =require('express');
 const router = express.Router();
 const cors = require('cors')
-const {test,registerUser} =require('../controller/authController')
+const {test,registerUser,loginUser} =require('../controller/authController')
+const {getAllBooks,book,getById,updateById,deleteById} =require('../controller/bookController')
 
 
 router.use(
@@ -13,6 +14,13 @@ router.use(
 )
 router.get('/',test)
 router.post('/register',registerUser)
+router.post('/login',loginUser)
+router.post('/upload-book',book)
+router.get('/booklisting' ,getAllBooks)
+router.get('/booklisting/:id' ,getById)
+router.patch('/booklisting/:id',updateById)
+router.delete('/booklisting/:id', deleteById)
+
 
 
 

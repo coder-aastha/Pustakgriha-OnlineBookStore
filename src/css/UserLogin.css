@@ -4,6 +4,13 @@
     box-sizing: border-box;
 }
 
+.main-login-wrapper{
+    display: flex;
+    justify-content: center;
+    height: 87vh;
+    align-items: center;
+}
+
  .wrapper{
     position: relative;
     width: 400px;
@@ -25,23 +32,6 @@
     width: 100%;
     padding: 40px;
   
-}
-
-.wrapper .close-icon-login{
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 30px;
-    height: 30px;
-    background:#162938;
-    font-size: 1em;
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-bottom-left-radius: 10px;
-    cursor: pointer;
-    z-index: 1;
 }
 
 .form-box h2{
