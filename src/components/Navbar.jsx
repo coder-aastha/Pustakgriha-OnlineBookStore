@@ -1,4 +1,3 @@
-import React from "react";
 import { NavLink } from "react-router-dom";
 import { IoSearchOutline } from "react-icons/io5";
 import { MdOutlineLightMode } from "react-icons/md";
@@ -6,6 +5,7 @@ import { PiShoppingCartSimpleBold } from "react-icons/pi";
 import { LuUser } from "react-icons/lu";
 import main_logo from "../images/main_logo.png";
 import { TbWorld } from "react-icons/tb";
+import React, {useEffect, useState} from 'react';
 
 
 const Navbar = () => {
