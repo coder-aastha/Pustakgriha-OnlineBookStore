@@ -6,7 +6,7 @@ const FooterUI = () => {
     <>
       {/* <p>
         "buy books online in nepal, online bookstore nepal, largest online
-        bookstore in Nepal, buy books nepal, buy nepali books online, online
+        bookstore in Nepal, buy books nepal, buy nepali books online, onlinegit 
         bookshop nepal, buy books online nepal, bookshop, Shop books"
       </p> */}
 

@@ -8,6 +8,7 @@ import NewArrivals from "./components/NewArrivals";
 import Author from "./components/Author";
 import FooterUI from "./components/FooterUI";
 import DeliveryLocationDay from "./components/DeliveryLocationDay";
+// import UserLogin from "./components/forgotPassword";
 // import UserLogin from "./components/UserLogin";
 // import UserRegister from "./components/UserRegister";
 
