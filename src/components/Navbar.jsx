@@ -8,26 +8,28 @@ import { TbWorld } from "react-icons/tb";
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
 
-// const Navbar = () => {
-//   const [book, setBook] = useState([]);
-//   const [searchTerm, setsearchTerm] = useState('');
+const Navbar = () => {
+  const [book, setBook] = useState([]);
+  const [searchTerm, setsearchTerm] = useState('');
 
-//   useEffect(() => {
-//     const fetchBooks =async () =>{}
-//     try {
-//       axios.get(`http://localhost:3001/book/search?searchTerm=${searchTerm}`)
-//         .then(response => setBook(response.data.book))
-//         .catch(error => console.error('Axios Error:', error));
-//     } catch (error) {
-//       console.error('Error:', error);
-//     }
-//   }, [searchTerm]);
-  
- 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  useEffect(() => {
+    const fetchBooks =async () =>{
+    try {
+      const response = await axios.get(`http://localhost:3001/book/search?searchTerm=${searchTerm}`)
+      setBook(response.data.book);
+    } catch (error) {
+      console.error('Axios Error:', error);
+    }
   };
- 
+
+  // Call the fetchBooks function
+  fetchBooks();
+}, [searchTerm]);
+
+const handleSubmit = (e) => {
+  e.preventDefault();
+  // You can add additional logic here if needed
+};
   return (
     <>
       <header className="main-container">
@@ -44,12 +46,14 @@ import axios from "axios";
               type="text"
               placeholder="&nbsp; Search for books you love and explore our exp..."
               value={searchTerm}
+              className="search-input"
               onChange={(e) => setsearchTerm(e.target.value)}
             />
             <span className="search-icon">
               <IoSearchOutline />
             </span>
             </form>
+          </div>
         
 
           <div className='bookView-content'>
@@ -71,7 +75,7 @@ import axios from "axios";
             </div>
 
           </div>
-        </div>
+        
 
         <div className="icon-right">
           <NavLink to="/login" className="nav-link">
