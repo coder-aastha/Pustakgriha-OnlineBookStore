@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { IoSearchOutline } from "react-icons/io5";
-import { PiShoppingCartSimpleBold } from "react-icons/pi";
+// import { PiShoppingCartSimpleBold } from "react-icons/pi";
+import { BiCartAdd } from "react-icons/bi";
 import { LuUser } from "react-icons/lu";
 import main_logo from "../images/main_logo.png";
 import { TbWorld } from "react-icons/tb";
@@ -78,8 +79,12 @@ const Navbar = () => {
             <LuUser />
           </NavLink>
 
-          <NavLink to="/shopping-cart" className="nav-link">
+          {/* <NavLink to="/shopping-cart" className="nav-link">
             <PiShoppingCartSimpleBold />
+          </NavLink> */}
+
+          <NavLink to="/shopping-cart" className="nav-link">
+            <BiCartAdd />
           </NavLink>
 
           <NavLink to="/world" className="nav-link">

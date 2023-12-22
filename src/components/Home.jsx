@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 // import Navbar from './Navbar';
@@ -9,20 +9,17 @@ import NewArrivals from ".//NewArrivals";
 import Author from "./Author";
 import FooterUI from "./FooterUI";
 
-
 export const Home = () => {
   return (
     <div>
-       
       <ImageSlider />
       <Genres />
-       
       <BestSellers />
       <NewArrivals />
       <Author />
       <FooterUI />
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
