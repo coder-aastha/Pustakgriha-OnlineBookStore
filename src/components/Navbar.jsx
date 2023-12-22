@@ -1,31 +1,47 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Route} from "react-router-dom";
 import { IoSearchOutline } from "react-icons/io5";
-import { MdOutlineLightMode } from "react-icons/md";
 import { PiShoppingCartSimpleBold } from "react-icons/pi";
 import { LuUser } from "react-icons/lu";
 import main_logo from "../images/main_logo.png";
 import { TbWorld } from "react-icons/tb";
 import React, {useEffect, useState} from 'react';
+import axios from "axios";
+import UserLogin from './UserLogin';
+import {Link} from 'react-router-dom'
 
-
-const Navbar = () => {
+const SearchBar = () => {
   const [book, setBook] = useState([]);
   const [searchTerm, setsearchTerm] = useState('');
-
+  const [isActive, setIsActive] = useState(false);
+ 
   useEffect(() => {
-    try {
-      axios.get(`/book/search?searchTerm=${searchTerm}`)
-        .then(response => setBook(response.data.book))
-        .catch(error => console.error('Axios Error:', error));
-    } catch (error) {
-      console.error('Error:', error);
+    if(searchTerm.trim() !== ""){
+      try {
+        axios.get(`/book/search?searchTerm=${searchTerm}`)
+          .then(response => setBook(response.data.book))
+          .catch(error => console.error('Axios Error:', error));
+      } catch (error) {
+        console.error('Error:', error);
+      }
+    } else{
+      setBook([]);
     }
   }, [searchTerm]);
+
+  
+  const handleSearchClick = () => {
+    setIsActive(!isActive);
+  };
   
  
   const handleSubmit = (e) => {
     e.preventDefault();
   };
+
+  const handleBookClick =() => {
+    setsearchTerm('');
+    setBook([]);
+  }
  
   return (
     <>
@@ -37,41 +53,41 @@ const Navbar = () => {
         </div>
 
         <div className="search-bar">
-          <div className="search-input">
+          <div className={`search-input ${isActive ? "active" : ""}`}>
             <form onSubmit ={handleSubmit}>
             <input
               type="text"
-              placeholder="&nbsp; Search for books you love and explore your exp..."
+              placeholder="&nbsp; Search for books you love and explore your explore our extensive collection..."
               value={searchTerm}
-              className='search-input'
+              className="search-input"
               onChange={(e) => setsearchTerm(e.target.value)}
+              onFocus={handleSearchClick}
             />
-            <span className="search-icon">
+            <span className="search-icon" onClick={handleSearchClick}>
+              
               <IoSearchOutline />
             </span>
             </form>
           </div>
-
-          <div className='bookView-content'>
-          <div className='book-main'>
-          {book && book.map(book => (
-          <li key={book._id}>
-            <div className="book-img">
-              <img src={book.imageURL} alt={book.bookTitle} />
-            </div>
-            <h4>{book.bookTitle}</h4>
-            <p>By: {book.authorName}</p>
-            {/* <p>Category: {book.category}</p>
-            <p>price: {book.price}</p>
-            <p>available: {book.available}</p> */}
-            </li>
-          
-            ))}
-            </div>
-            </div>
-
         
+          {isActive && book.length > 0 && (
+          <div className="search-results-container">         
+            {book.map((book) => (
+              <Link to={`/booklisting/${book._id}`} key={book._id} className="book-card" onClick={handleBookClick}>
+                
+                <div className="book-img">
+                  <img src={book.imageURL} alt={book.bookTitle} />
+                </div>
+                <h5>{book.bookTitle}</h5>
+                <p>By: {book.authorName}</p>
+              </Link>
+            ))}
+
+
         </div>
+          )}  
+      </div>
+        
 
         <div className="icon-right">
           <NavLink to="/login" className="nav-link">
@@ -82,17 +98,14 @@ const Navbar = () => {
             <PiShoppingCartSimpleBold />
           </NavLink>
 
-          <NavLink to="/light-mode" className="nav-link">
-            <MdOutlineLightMode />
-          </NavLink>
-
           <NavLink to="/world" className="nav-link">
             <TbWorld />
           </NavLink>
         </div>
       </header>
+
     </>
   );
 };
 
-export default Navbar;
+export default SearchBar;
