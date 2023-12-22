@@ -10,8 +10,8 @@
     height: 87vh;
     align-items: center;
 }
- 
- .wrapper{
+
+.wrapper{
     position: relative;
     width: 400px;
     height: 440px;
@@ -74,7 +74,7 @@
     color: #162938;
     font-weight: 500;
     pointer-events: none;
-    transition: -5s;
+    transition: -0.2s;
 }
  
 .input-box input:focus~label,
