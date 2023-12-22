@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import "../css/bookdetail.css";
 import DeliveryLocationDay from './DeliveryLocationDay';
+import Review from './Review';
 
 const BookDetail = () => {
   const [book, setBook] = useState({});
@@ -24,6 +25,7 @@ const BookDetail = () => {
   }
 
   return (
+    <>
     <div className='main-book-details-container'>
     <div className="book-detail-container">
       <div className="book-details-wrapper">
@@ -37,15 +39,24 @@ const BookDetail = () => {
           </div>
         </div>
         
-        
         {/* <p className="book-price">Price: {book.price}</p> */}
         <p className="book-availability">Availability: {book.available ? 'Available' : 'Not Available'}</p>
       </div>
     </div>
+
+      <div className="review-delivery">
       <div>
         <DeliveryLocationDay />
       </div>
+
+      <div>
+        <Review />
+      </div>
+      </div>
+
     </div>
+
+      </>
   );
 };
 
