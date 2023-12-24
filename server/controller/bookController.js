@@ -107,7 +107,24 @@ const deleteById = async (req, res) => {
     }
 };
 
-
+const category = async (req, res) => {
+    try {
+      const { category } = req.params;
+    //   console.log('Received category:', category);
+ 
+      if (!category) {
+        return res.status(400).json({ error: 'Category is required' });
+      }
+      const books = await Booklisting.find({ category: category });
+      if (!books || books.length === 0) {
+        return res.status(404).json({ message: 'No books found in the specified category' });
+      }
+      res.json({ books });
+    } catch (error) {
+      console.error('Error fetching books by category:', error);
+      res.status(500).json({ error: 'Internal Server Error' });
+    }
+  };
 
 const searchBooks = async (req, res) => {
     try {
@@ -170,6 +187,7 @@ module.exports = {
     updateById,
     deleteById,
     searchBooks,
-    reviewSchema
+    reviewSchema,
+    category
     
 };
