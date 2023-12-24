@@ -1,51 +1,40 @@
 const Cart = require('../models/Cart');
 
+const cartModel = require('../models/cartModel');
+ 
+exports.addToCart = (req, res) => {
 
-const cartbook = async (req, res) => {
+  const newItem = req.body;
+
+  const updatedCart = cartModel.addToCart(newItem);
+
+  res.json({ success: true, cartItems: updatedCart });
+
+};
+ 
+exports.getCartItems = (req, res) => {
+
+  const currentCart = cartModel.getCartItems();
+
+  res.json({ cartItems: currentCart });
+
+};
+
+const deleteFromCart = async (req, res) => {
     try {
-        // Destructuring values from the request body
-        const {quantity,price, imageURL, bookTitle,} = req.body;
-
-        // Creating a new booklisting using the Booklisting model
-        const cart = await Cart.create({
-          quantity,
-          price,
-          bookTitle,
-          imageURL,
-        });
-
-        // Sending the created booklisting as the response
-        res.send(cart);
+        const { bookId } = req.body;
+        res.status(200).json({ message: 'Book removed from cart successfully' });
     } catch (error) {
-        // Handling errors
-        console.error('Error uploading book:', error);
-        res.status(500).json({ error: 'An error occurred while uploading the book' });
+        console.error('Error removing book from cart:', error);
+        res.status(500).json({ error: 'An error occurred while removing the book from the cart' });
     }
 };
 
 
-
-const deleteByCartId = async (req, res) => {
-    try {
-        const id = req.params.id;
-
-        // Find the book by ID and delete it using the Booklisting model
-        const deletedBook = await Cart.findByIdAndDelete(id);
-
-        if (!deletedBook) {
-            return res.status(404).json({ error: 'Book not found' });
-        }
-
-        // Send a success message as the response
-        res.json({ message: 'Book deleted successfully' });
-    } catch (error) {
-        console.error('Error deleting book by ID:', error);
-        res.status(500).json({ error: 'An error occurred while deleting the book by ID' });
-    }
-};
 
 
 module.exports = {
-    cartbook,
-    deleteByCartId,
+    addToCart,
+    deleteFromCart
+    
 };

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const CartSchem = new mongoose.Schema({
+const CartSchema = new mongoose.Schema({
    quantity:{
       type:Number,
       required:true,
@@ -19,5 +19,5 @@ const CartSchem = new mongoose.Schema({
    }, 
 })
 
-const CartModel = mongoose.model(" Cart",CartSchem);
+const CartModel = mongoose.model(" Cart",CartSchema);
 module.exports=CartModel;

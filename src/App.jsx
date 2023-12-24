@@ -18,6 +18,7 @@ import UserRegister from "./components/UserRegister";
 import BookDetail from './components/BookDetail'
 import "../src/css/UserRegister.css";
 import "../src/css/UserLogin.css";
+import Categories from "./components/Categories";
 
 
 
@@ -34,6 +35,7 @@ function App() {
     <Route path='/login' element={<UserLogin />}/>
     <Route path='/' element={<Home />}/>
     <Route path="/booklisting/:id" element={<BookDetail />} />
+    <Route path='/category/:category' element={<Categories />}/>
     
     
     </Routes>
