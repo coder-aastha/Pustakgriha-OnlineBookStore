@@ -9,10 +9,6 @@ const CartSchem = new mongoose.Schema({
       type:Number,
       required:true,
    },
-  //  addToCart:{
-  //     type:String,
-  //     required:true,
-  //  },
    bookTitle:{
       type:String,
       required:true,
@@ -20,16 +16,7 @@ const CartSchem = new mongoose.Schema({
    imageURL:{
       type:String,
       required:true,
-   },
-  //  price: {
-  //     type: Number,
-  //     required: true,
-  //  },
-  //  available: {
-  //     type: Boolean,
-  //     required: true,
-  //  },
-   
+   }, 
 })
 
 const CartModel = mongoose.model(" Cart",CartSchem);
