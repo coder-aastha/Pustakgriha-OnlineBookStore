@@ -7,8 +7,8 @@ const app=express();
 
 
 // database connection
-// const MONGO_URL='mongodb+srv://bookstore:cjqGsLFpAufADozn@cluster0.3n2offn.mongodb.net/?retryWrites=true&w=majority'
-const MONGO_URL="mongodb://127.0.0.1:27017/bookstore"
+const MONGO_URL='mongodb+srv://bookstore:cjqGsLFpAufADozn@cluster0.3n2offn.mongodb.net/?retryWrites=true&w=majority'
+// const MONGO_URL="mongodb://127.0.0.1:27017/bookstore"
 
 mongoose.connect(MONGO_URL)
 .then(()=>console.log('Database connected'))
