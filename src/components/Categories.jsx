@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
-// import Navbar from "./Navbar";
 import FooterUI from "./FooterUI";
 import "../css/Categories.css";
 
@@ -27,7 +26,6 @@ const Categories = () => {
 
   return (
     <>
-      {/* <Navbar /> */}
       <body>
         <div className="container">
           <div className="contents">
