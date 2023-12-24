@@ -44,6 +44,7 @@
 .search-input {
   display: flex;
   font-size: 13px;
+  width: 625px;
   height: 40px;
   border: none;
   margin-bottom:4px;
@@ -53,8 +54,12 @@
 
 .search-icon {
   margin-right: 10px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-bottom: 4px;
-  padding: 8px;
+  padding: 2px;
   border-radius: 0px 4px 4px 0px;
 }
 
