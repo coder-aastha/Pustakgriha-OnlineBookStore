@@ -279,13 +279,12 @@ span {
   width: 150px;
   height: 200px;
 }
-
+/* 
 .best-seller-items .book-text {
   /* flex-wrap: wrap; */
   color: black;
-  margin-left: 10px;
-  margin-top: 18px;
-  
+  margin-left: 100px;
+  margin-top: 18px; */
 }
 
 .best-seller-items .book-text p {
@@ -757,7 +756,7 @@ span {
     display: flex;
     flex-wrap: wrap;
     padding-left: 10px;
-    justify-content: space-around;
+    justify-content: space-between;
   }
   .best-seller-main {
     height:450px;
@@ -794,7 +793,7 @@ span {
   .best-seller-items .book-text {
     /* flex-wrap: wrap; */
     color: black;
-    margin-left: 10px;
+    margin-left: 100px;
     margin-top: 18px;
     
   }
