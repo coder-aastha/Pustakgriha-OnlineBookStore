@@ -1,8 +1,8 @@
 const express =require('express');
 const router = require('express').Router();
 const cors = require('cors')
-const {test,registerUser,loginUser,forgotPassword,resetPassword} =require('../controller/authController')
-const {getAllBooks,book,getById,updateById,deleteById,searchBooks,reviewSchema} =require('../controller/bookController');
+const {test,registerUser,loginUser} =require('../controller/authController')
+const {getAllBooks,book,getById,updateById,deleteById,searchBooks,reviewSchema,category} =require('../controller/bookController');
 // const {reviewSchema} = require('../models/reviewModel');
 // const { default: SearchBar } = require('../../src/components/Navbar');
 
@@ -23,6 +23,7 @@ router.patch('/booklisting/:id',updateById)
 router.delete('/booklisting/:id', deleteById)
 router.get('/book/search',searchBooks)
 router.post('/reviews', reviewSchema)
+router.get('/books/:category', category)
 
 router.post('/forgotpassword',forgotPassword);
 router.post('/resetpassword', resetPassword)

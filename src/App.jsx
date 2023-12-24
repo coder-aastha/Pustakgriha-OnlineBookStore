@@ -19,7 +19,8 @@ import BookDetail from './components/BookDetail'
 import "../src/css/UserRegister.css";
 import "../src/css/UserLogin.css";
 import UserForgotPassword from './components/UserForgotPassword';
-import UserResetPassword from './components/UserResetPasspord';
+import UserResetPassword from './components/UserResetPasspord';import Categories from "./components/Categories";
+
 
 axios.defaults.baseURL ='http://localhost:3001';
 axios.defaults.withCredentials = true
@@ -36,6 +37,7 @@ function App() {
     <Route path="/booklisting/:id" element={<BookDetail />} />
     <Route path="/forgotpassword" element={<UserForgotPassword />}/>
     <Route path='/resetpassword/:id' element={<UserResetPassword />} />
+    <Route path='/category/:category' element={<Categories />}/>
    
     </Routes>
 

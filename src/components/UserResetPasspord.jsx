@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import'../css/UserResetPassword.css';
 
 function ResetPassword() {
   const [email, setEmail] = useState('');
@@ -29,9 +30,11 @@ function ResetPassword() {
       setError('An error occurred. Please try again.');
       setSuccessMessage('');
     }
+    
   };
 
   return (
+    <div className='main-Reset-wrapper'>
     <div className="wrapper">
       <div className="form-box login">
         <h4>Reset Password</h4>
@@ -66,6 +69,7 @@ function ResetPassword() {
           </button>
         </form>
       </div>
+    </div>
     </div>
   );
 }

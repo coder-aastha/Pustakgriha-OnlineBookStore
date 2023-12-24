@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-// import './UserLogin.css';
+import '../css/UserForgotPassword.css';
 import toast from 'react-hot-toast';
 
 const ForgotPassword = () => {
@@ -37,6 +37,8 @@ const forgotPassword = async (e) => {
 };
 
 return (
+    
+    <div className="main-Forgot-wrapper">
     <div className="wrapper">
     <div className="form-box login">
         <h4>Forgot Password</h4>
@@ -54,10 +56,11 @@ return (
             onChange={(e) => setData({ ...data, email: e.target.value })}
             />
         </div>
-        <button type="submit" className="btn btn-success w-100 rounded-0">
+        <button type="submit" className="btn ">
             Send
         </button>
         </form>
+    </div>
     </div>
     </div>
 );

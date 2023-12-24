@@ -69,7 +69,7 @@ const loginUser = async (e) =>{
               </label>
               <a href="forgotpassword" className="forgetpassword">
                 {""}
-                forgetpassword
+                Forgot Password ?
               </a>
             </div>
  
