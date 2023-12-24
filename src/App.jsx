@@ -18,8 +18,8 @@ import UserRegister from "./components/UserRegister";
 import BookDetail from './components/BookDetail'
 import "../src/css/UserRegister.css";
 import "../src/css/UserLogin.css";
-import UserForgotPassword from './components/ForgotPassword';
-import UserResetPassword from './components/ResetPassword';
+import UserForgotPassword from './components/UserForgotPassword';
+import UserResetPassword from './components/UserResetPasspord';
 
 axios.defaults.baseURL ='http://localhost:3001';
 axios.defaults.withCredentials = true

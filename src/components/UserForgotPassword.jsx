@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import './ForgotPassword.css';
+// import './UserLogin.css';
 import toast from 'react-hot-toast';
 
 const ForgotPassword = () => {
@@ -29,7 +29,7 @@ const forgotPassword = async (e) => {
     }
     } catch (error) {
       // Log the error for debugging
-    console.error(error);
+    console.error();
 
       // Set an error message for display
     setError('An error occurred. Please try again.');
