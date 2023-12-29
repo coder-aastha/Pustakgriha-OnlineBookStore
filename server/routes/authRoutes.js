@@ -2,7 +2,7 @@ const express =require('express');
 const router = require('express').Router();
 const cors = require('cors')
 const {test,registerUser,loginUser,forgotPassword,resetPassword} =require('../controller/authController')
-const {getAllBooks,book,getById,updateById,deleteById,searchBooks,reviewSchema,category} =require('../controller/bookController');
+const {getAllBooks,book,getById,updateById,deleteById,searchBooks,reviewSchema,category,authorName} =require('../controller/bookController');
 // const {reviewSchema} = require('../models/reviewModel');
 // const { default: SearchBar } = require('../../src/components/Navbar');
 
@@ -24,7 +24,7 @@ router.delete('/booklisting/:id', deleteById)
 router.get('/book/search',searchBooks)
 router.post('/reviews', reviewSchema)
 router.get('/books/:category', category)
-
+router.get('/authorbooks/:authorName', authorName)
 router.post('/forgotpassword',forgotPassword);
 router.post('/resetpassword', resetPassword);
 

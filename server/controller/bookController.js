@@ -126,6 +126,27 @@ const category = async (req, res) => {
     }
   };
 
+  const authorName = async (req, res) => {
+    try {
+        const { authorName } = req.params;
+
+        if (!authorName) {
+            return res.status(400).json({ error: 'Author is required' });
+        }
+
+        const authorbooks = await Booklisting.find({ authorName: authorName });
+
+        if (!authorbooks || authorbooks.length === 0) {
+            return res.status(404).json({ message: 'No books found for the specific author' });
+        }
+
+        res.json({ authorbooks });
+    } catch (error) {
+        console.error('Error fetching books by authorname:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+};
+
 const searchBooks = async (req, res) => {
     try {
         const { searchTerm } = req.query;
@@ -188,6 +209,6 @@ module.exports = {
     deleteById,
     searchBooks,
     reviewSchema,
-    category
-    
+    category,
+    authorName
 };
