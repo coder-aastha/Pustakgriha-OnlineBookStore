@@ -53,7 +53,6 @@ const AuthorName = () => {
                   ))}
                 </div>
               </div>
-      <FooterUI />
     </>
   );
 };
