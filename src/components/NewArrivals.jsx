@@ -1,57 +1,27 @@
-import image4 from "../images/image4.png";
-import image10 from "../images/image10.png";
-import image3 from "../images/image3.png";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import Bookcards from '../components/Bookcards';
 
 const NewArrivals = () => {
+  const [book, setNewArrivals] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("http://localhost:3001/book/newArrival");
+        setNewArrivals(response.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
-    <>
-      <h5 className="new-arrivals-title">NEW ARRIVALS</h5>
-      <div className="new-arrivals-main">
-        <div className="best-seller-items">
-          <a href="#">
-            <div className="book-img">
-              <img src={image4} alt="" />
-            </div>
-            <div className="book-text">
-              <h4>VERITY</h4>
-              <p>Colleen Hoover</p>
-              <p>Rs. 698</p>
-              <button className="add-to-cart-btn">ADD TO CART</button>
-            </div>
-          </a>
-        </div>
-
-        <div className="best-seller-items">
-          <a href="#">
-            <div className="book-img">
-              <img src={image3} alt="" />
-            </div>
-            <div className="book-text">
-              <h4>THE CRUEL</h4>
-              <h4>PRINCE</h4>
-              <p>Holly Black</p>
-              <p>Rs. 589</p>
-              <button className="add-to-cart-btn">ADD TO CART</button>
-            </div>
-          </a>
-        </div>
-
-        <div className="best-seller-items">
-          <a href="#">
-            <div className="book-img">
-              <img src={image10} alt="" />
-            </div>
-            <div className="book-text">
-              <h4>GIRL IN PIECES</h4>
-              {/* <h4>BLOOD</h4> */}
-              <p>Cathleen Glasgon</p>
-              <p>Rs. 638</p>
-              <button className="add-to-cart-btn">ADD TO CART</button>
-            </div>
-          </a>
-        </div>
-      </div>
-    </>
+    <div>
+      <Bookcards book={book} headline="New Arrival Books" />
+    </div>
   );
 };
 

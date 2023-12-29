@@ -2,7 +2,7 @@ const express =require('express');
 const router = require('express').Router();
 const cors = require('cors')
 const {test,registerUser,loginUser,forgotPassword,resetPassword} =require('../controller/authController')
-const {getAllBooks,book,getById,updateById,deleteById,searchBooks,reviewSchema,category,authorName} =require('../controller/bookController');
+const {getAllBooks,book,getById,updateById,deleteById,searchBooks,reviewSchema,category,authorName,getBooksBySection} =require('../controller/bookController');
 const {addToCart, deleteFromCart} = require('../controller/CartController')
 // const {reviewSchema} = require('../models/reviewModel');
 // const { default: SearchBar } = require('../../src/components/Navbar');
@@ -30,5 +30,6 @@ router.get('/books/:category', category)
 router.get('/authorbooks/:authorName', authorName)
 router.post('/forgotpassword',forgotPassword);
 router.post('/resetpassword', resetPassword);
+router.get('/book/:section', getBooksBySection);
 
 module.exports=router
