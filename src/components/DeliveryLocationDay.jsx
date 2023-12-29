@@ -1,6 +1,4 @@
-//DeliveryLocation.jsx
-// Import necessary dependencies
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import axios from 'axios';
 import { FaMinus } from 'react-icons/fa6';
 import { MdOutlineAdd } from 'react-icons/md';

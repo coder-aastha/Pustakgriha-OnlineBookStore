@@ -9,12 +9,17 @@ import React, {useEffect, useState} from 'react';
 import axios from "axios";
 import UserLogin from './UserLogin';
 import {Link} from 'react-router-dom'
+import { MdOutlineFavoriteBorder } from "react-icons/md";
+import Wishlist from "./Wishlist";
+// import Wishlist from "./Wishlist";
+
 
 const SearchBar = () => {
   const [book, setBook] = useState([]);
   const [searchTerm, setsearchTerm] = useState('');
   const [isActive, setIsActive] = useState(false);
  
+  
   useEffect(() => {
     if(searchTerm.trim() !== ""){
       try {
@@ -44,6 +49,10 @@ const SearchBar = () => {
     setBook([]);
   }
  
+  // const handleAddToWishlist = (bookItem) => {
+  //   addToWishlist(bookItem);
+  // };
+
   return (
     <>
       <header className="main-container">
@@ -101,6 +110,11 @@ const SearchBar = () => {
 
           <NavLink to="/shopping-cart" className="nav-link">
             <BiCartAdd />
+          </NavLink>
+
+          <NavLink to="/WishlistDetails" className="nav-link" onClick={Wishlist}>
+            <MdOutlineFavoriteBorder />
+            
           </NavLink>
 
           <NavLink to="/world" className="nav-link">

@@ -18,6 +18,7 @@ import Categories from "./components/Categories";
 import AboutUs from "./components/AboutUs";
 import FooterUI from "./components/FooterUI";
 import AuthorName from "./components/AuthorName";
+import WishlistDetails from "./components/WishlistDetails";
 
 
 axios.defaults.baseURL ='http://localhost:3001';
@@ -38,6 +39,7 @@ function App() {
     <Route path='/category/:category' element={<Categories />}/>
     <Route path="/AboutUs" element={<AboutUs />} />
     <Route path='/author/:authorName' element={<AuthorName />}/>
+    <Route path="/WishlistDetails" element={<WishlistDetails />}/>
 
     </Routes>
     <FooterUI/>

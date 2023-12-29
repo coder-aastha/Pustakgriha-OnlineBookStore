@@ -3,12 +3,19 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import "../css/bookcard.css";
 
+
 const Bookcards = ({ headline, book }) => {
   const [visibleBooks, setVisibleBooks] = useState(3);
 
   const handleSeeMore = () => {
     setVisibleBooks((prevVisibleBooks) => prevVisibleBooks + 3);
   };
+
+  if (!Array.isArray(book)) {
+    console.error("Invalid 'book' prop:", book);
+    return <p>Error: Invalid book data.</p>;
+  }
+
 
   return (
     <div className='bookcards-container'>

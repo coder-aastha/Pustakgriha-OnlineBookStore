@@ -6,9 +6,13 @@ import "../css/bookdetail.css";
 import DeliveryLocationDay from './DeliveryLocationDay';
 import Review from './Review';
 
+
+
+
 const BookDetail = () => {
   const [book, setBook] = useState({});
   const { id } = useParams();
+  
 
   useEffect(() => {
     axios.get(`/booklisting/${id}`)
@@ -52,10 +56,10 @@ const BookDetail = () => {
       <div>
         <Review />
       </div>
+
       </div>
-
+      
     </div>
-
       </>
   );
 };
