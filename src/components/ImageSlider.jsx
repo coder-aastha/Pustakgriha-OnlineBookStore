@@ -1,79 +1,63 @@
-import React from "react";
-// import image1 from "../images/image1.jpg";
-// import image2 from "../images/image2.jpeg";
-// import image3 from "../images/image3.png";
-// import image4 from "../images/image4.png";
-// import image5 from "../images/image5.png";
-// import image6 from "../images/image6.png";
-// import image7 from "../images/image7.jpg";
-// import image10 from "../images/image10.png";
-import image11 from "../images/image11.png";
-import "bootstrap/dist/css/bootstrap.min.css";
-import Carousel from "react-bootstrap/Carousel";
-// import ExampleCarouselImage from "components/ExampleCarouselImage";
+// Slider.js
+import React, { useState } from "react";
+import { IoIosArrowForward } from "react-icons/io";
+import { IoIosArrowBack } from "react-icons/io";
 
-const ImageSlider = () => {
+import "../css/Slider.css";
+
+const Slider = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const slides = [
+    {
+      heading: "''Sometimes the one who loves  you is the one who hurts you the most''",
+      paragraph:
+        "- COLLEN HOVER",
+        content: <img src="src/images/SliderImage3.png" alt="first Slide" />,
+    },
+    {
+      heading: "20% discount",
+      paragraph: "Pustakgriha not only empowers consumers to be safer online but also enables companies to provide a better privacy experience to their customers",
+      content: <img src="src/images/SliderImage4.jpg" alt="Second Slide" />,
+    },
+    {
+      heading: "A book a day keeps reality away",
+      paragraph: "Marieke Nijkamp",
+      content: <img src="src/images/SliderImage1.jpg" alt="Third Slide" />,
+    },
+  ];
+
+  const nextSlide = () => {
+    setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prevSlide) => (prevSlide - 1 + slides.length) % slides.length);
+  };
+
   return (
-    <>
-      <div
-        id="carouselExampleSlidesOnly"
-        className="carousel slide"
-        data-bs-ride="carousel"
-        data-bs-interval={1000}
-        data-bs-pause="hover"
-      >
-        <div className="carousel-inner">
-          <div className="carousel-item active">
-            <img
-              src={image11}
-              className="d-block w-100 slider-image"
-              alt="..."
-            />
-          </div>
-          <div className="carousel-item" style={{ backgroundColor: "green" }}>
-            {/* Replace the "..." with the actual source of your image */}
-            <img
-              src="path/to/your/image2.jpg"
-              className="d-block w-100"
-              alt="..."
-            />
-          </div>
-          <div className="carousel-item" style={{ backgroundColor: "yellow" }}>
-            {/* Replace the "..." with the actual source of your image */}
-            <img
-              src="path/to/your/image3.jpg"
-              className="d-block w-100"
-              alt="..."
-            />
-          </div>
+    <div className="slider-container">
+      <div className="content-container">
+        {/* left side */}
+        <div className="left-side">
+          <h2 className="heading">{slides[currentSlide].heading}</h2>
+          <p className="paragraph">{slides[currentSlide].paragraph}</p>
         </div>
-        <button
-          className="carousel-control-prev"
-          type="button"
-          data-bs-target="#carouselExampleSlidesOnly"
-          data-bs-slide="prev"
-        >
-          <span
-            className="carousel-control-prev-icon"
-            aria-hidden="true"
-          ></span>
-          <span className="visually-hidden">Previous</span>
-        </button>
-        <button
-          className="carousel-control-next"
-          type="button"
-          data-bs-target="#carouselExampleSlidesOnly"
-          data-bs-slide="next"
-        >
-          <span
-            className="carousel-control-next-icon"
-            aria-hidden="true"
-          ></span>
-          <span className="visually-hidden">Next</span>
-        </button>
+        {/* right side */}
+        <div className="right-side">
+          {slides[currentSlide].content}
+        </div>
       </div>
-    </>
+
+      {/* Navigation buttons */}
+      <div className="slider-navigation">
+        <IoIosArrowBack onClick={prevSlide} className="slider-arrow left-arrow" />
+        <IoIosArrowForward onClick={nextSlide} className="slider-arrow right-arrow" />
+      </div>
+    </div>
   );
 };
 
-export default ImageSlider;
+export default Slider;
+Slider.js
+

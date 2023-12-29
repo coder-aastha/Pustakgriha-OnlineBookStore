@@ -1,3 +1,5 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
 import logo1 from "../images/logo1.png";
 import logo2 from "../images/logo2.webp";
 import logo3 from "../images/logo3.jpeg";
@@ -12,48 +14,48 @@ const Genres = () => {
     <h5 className="genre-title">GENRES</h5>
       <div className="main-genre-container">
         <div className="logo-and-text">
-          <a href="#">
-            <img src={logo1} />
+        <Link to="/category/Fiction">
+            <img src={logo1} alt="Fiction"/>
             <div className="logo-text">Fiction</div>
-          </a>
+          </Link>
         </div>
 
         <div className="logo-and-text">
-          <a href="#">
-            <img src={logo2} />
+        <Link to="/category/Biography">
+            <img src={logo2} alt="Biography"/>
             <div className="logo-text">Biography</div>
-          </a>
+            </Link>
         </div>
 
         <div className="logo-and-text">
-          <a href="#">
-            <img src={logo3} />
+        <Link to="/category/Historical">
+            <img src={logo3} alt="Historical"/>
             <div className="logo-text">Historical</div>
-          </a>
+            </Link>
         </div>
         <div className="logo-and-text">
-          <a href="#">
-            <img src={logo4} />
+        <Link to="/category/Kids & Teen">
+            <img src={logo4} alt="Kids & Teen"/>
             <div className="logo-text">Kids & Teen</div>
-          </a>
+            </Link>
         </div>
         <div className="logo-and-text">
-          <a href="#">
-            <img src={logo9} />
+        <Link to="/category/Photography">
+            <img src={logo9} alt="Photography"/>
             <div className="logo-text">Photography</div>
-          </a>
+            </Link>
         </div>
         <div className="logo-and-text">
-          <a href="#">
-            <img src={logo6} />
+        <Link to="/category/Inventory">
+            <img src={logo6} alt="Inventory"/>
             <div className="logo-text">Inventory</div>
-          </a>
+            </Link>
         </div>
         <div className="logo-and-text">
-          <a href="#">
-            <img src={logo7} />
+        <Link to="/category/Improvement">
+            <img src={logo7} alt="Improvement" />
             <div className="logo-text">Improvement</div>
-          </a>
+            </Link>
         </div>
       </div>
     </>

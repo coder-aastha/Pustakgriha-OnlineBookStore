@@ -1,12 +1,15 @@
 import khalti from "../images/khalti.png";
 import cashOnDelivery from "../images/cashOnDelivery.png";
+import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+import AboutUs from "./AboutUs";
 
 const FooterUI = () => {
   return (
     <>
       {/* <p>
         "buy books online in nepal, online bookstore nepal, largest online
-        bookstore in Nepal, buy books nepal, buy nepali books online, online
+        bookstore in Nepal, buy books nepal, buy nepali books online, onlinegit 
         bookshop nepal, buy books online nepal, bookshop, Shop books"
       </p> */}
 
@@ -28,24 +31,18 @@ const FooterUI = () => {
             </a>
           </div>
 
-          <div>
+          <div className="support">
             <h5>Support</h5>
-            <a href="#">
-              <p>Mobile</p>
-            </a>
-            <a href="#">
-              <p>Email</p>
-            </a>
+            <p>01-890786</p>
+              <p>pustak1@gmail.com</p>
           </div>
 
-          <div className="footer-right-end-section">
+          <div className="footer-right-end-section" id="about_section">
             <h5>About</h5>
-            <a href="#">
-              <p>About Us</p>
-            </a>
-            <a href="#">
-              <p>Contact Us</p>
-            </a>
+            
+            <NavLink to="/AboutUs" className="AboutUs-link">
+          About Us
+        </NavLink>
           </div>
         </div>
 

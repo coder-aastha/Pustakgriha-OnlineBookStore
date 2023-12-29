@@ -5,6 +5,8 @@ const comparePassword =(password,hashed)=> {
 }
 
 module.exports={
-    comparePassword
+    // hashPassword,
+    comparePassword,
+    
 
 }
