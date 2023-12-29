@@ -19,7 +19,9 @@ import BookDetail from './components/BookDetail'
 import "../src/css/UserRegister.css";
 import "../src/css/UserLogin.css";
 import UserForgotPassword from './components/UserForgotPassword';
-import UserResetPassword from './components/UserResetPasspord';import Categories from "./components/Categories";
+import UserResetPassword from './components/UserResetPasspord';
+import Categories from "./components/Categories";
+import AuthorName from "./components/AuthorName";
 
 
 axios.defaults.baseURL ='http://localhost:3001';
@@ -38,7 +40,8 @@ function App() {
     <Route path="/forgotpassword" element={<UserForgotPassword />}/>
     <Route path='/resetpassword/:id' element={<UserResetPassword />} />
     <Route path='/category/:category' element={<Categories />}/>
-   
+    <Route path='/author/:authorName' element={<AuthorName />}/>
+
     </Routes>
 
     </>
