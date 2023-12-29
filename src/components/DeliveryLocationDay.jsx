@@ -1,3 +1,4 @@
+import React, {useState} from 'react';
 import { FaTruck } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import { PiPencilSimpleLineFill } from "react-icons/pi";
@@ -5,8 +6,37 @@ import { FaMinus } from "react-icons/fa6";
 import { MdOutlineAdd } from "react-icons/md";
 import { BsInfoCircle } from "react-icons/bs";
 import "../css/App.css";
+import axios from 'axios';
 
 const DeliveryLocationDay = () => {
+
+  // // const{ addTOCart } = useCart();
+  // const [itemName, setItemName] = useState(0);
+  // const[quantity, setQuantity] = useState(1);
+  // const [price, setPrice] = useState(0);
+
+
+  // const addToCart = () =>{
+  //    axios.post('/addToCart', {
+  //     itemName: itemName,
+  //     quantity: quantity,
+  //     price: price,
+  //    })
+  //     // alert('Item added to cart successfully');
+  //     .then((response) => {
+  //       console.log('Item added successfully:', response.data);
+  //       toast.success('Item added successfully');
+  //     })
+  //     .catch((error) => {
+  //       console.error('Error adding Items:', error);
+  //     });
+  // };
+
+  // const handleAddToCart = () =>{
+  //   const newItem ={ itemName, quantity, price};
+  //   addToCart(newItem);
+  // }
+
   return (
     <div className="mainDeliveryLocation">
       <h6 className="deliveryTitle">Get Estimated Arrival Time</h6>

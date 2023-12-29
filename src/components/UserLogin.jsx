@@ -61,6 +61,7 @@ import "../css/UserLogin.css";
 import axios from 'axios'
 import toast from 'react-hot-toast'
 import { useNavigate} from 'react-router-dom'
+import { MdEmail } from "react-icons/md";
  
  
 function Login() {
@@ -98,14 +99,21 @@ function Login() {
         <form onSubmit={loginUser}>
         <div className="inputbox" >
             <input type="email"
+            id='email'
+            name='email'
+            autoComplete='email'
              value={data.email}
              onChange={(e) => setData({ ...data, email: e.target.value })}
             required />
             <label>Email</label>
+            
           </div>
  
           <div className="inputbox">
             <input type="password"
+            id='password'
+            name='password'
+            autoComplete='current-password'
             value={data.password}
             onChange={(e) => setData({ ...data, password: e.target.value })}
             required />

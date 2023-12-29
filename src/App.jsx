@@ -18,6 +18,7 @@ import UserRegister from "./components/UserRegister";
 import BookDetail from './components/BookDetail'
 import "../src/css/UserRegister.css";
 import "../src/css/UserLogin.css";
+import WishlistDetails from "./components/WishlistDetails";
 
 
 axios.defaults.baseURL ='http://localhost:3001';
@@ -33,6 +34,7 @@ function App() {
     <Route path='/login' element={<UserLogin />}/>
     <Route path='/' element={<Home />}/>
     <Route path="/booklisting/:id" element={<BookDetail />} />
+    <Route path="/WishlistDetails" element={<WishlistDetails />}/>
     
     </Routes>
 

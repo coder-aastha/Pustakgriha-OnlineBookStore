@@ -10,17 +10,17 @@ import Author from "./Author";
 import FooterUI from "./FooterUI";
 
 
+
 export const Home = () => {
   return (
     <div>
-       
       <ImageSlider />
       <Genres />
-       
       <BestSellers />
       <NewArrivals />
       <Author />
       <FooterUI />
+      
     </div>
   )
 }

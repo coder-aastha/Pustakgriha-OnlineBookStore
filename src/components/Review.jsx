@@ -49,7 +49,7 @@ const Review = ({ bookId }) => {
       })
       .then((response) => {
         console.log('Review submitted successfully:', response.data);
-        toast.success('Review addedsuccessfully');
+        toast.success('Review submitted successfully');
       })
       .catch((error) => {
         console.error('Error submitting review:', error);

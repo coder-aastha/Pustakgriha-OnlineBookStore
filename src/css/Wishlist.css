@@ -1,0 +1,37 @@
+
+
+.wishlist-button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    
+}
+
+.wishlist{
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    justify-content: space-around;
+}
+  
+.wishlist-button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+  
+.wishlist-button:hover {
+    background-color: #2980b9;
+}
+  
+.wishlist-message {
+    color: #27ae60;
+    font-size: 14px;
+    margin-top: 10px;
+}
+  
