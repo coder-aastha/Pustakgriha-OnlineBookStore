@@ -59,7 +59,7 @@
   margin-bottom: 4px;
   padding: 2px;
   border-radius: 0px 4px 4px 0px;
-  padding: 2px
+  padding: 2px;
 
 }
 
@@ -80,7 +80,7 @@
 }
 
 .book-img img {
-  width: 100%;
+  width: 100%; 
   height: auto;
   /* object-fit: cover;
   border-radius: 5px; */
@@ -417,6 +417,58 @@ span {
   justify-content: space-between;
 }
 
+.support {
+  text-align: center;
+}
+
+#about_section {
+  top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-bottom: 42px;
+}
+
+.aboutUs-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.aboutUs-main h4 {
+  margin-top: 20px;
+}
+
+.aboutUs-first-heading {
+  padding-top: 30px;
+}
+
+.aboutUs-main p {
+  color:#696e79;
+  margin-bottom: 2rem;
+  line-height: 2;
+}
+
+.aboutUs-main p strong {
+  color: black;
+}
 
 
+/* Main Service Custom CSS */
+
+.main-ourServices {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-ourServices .service-icon {
+  font-size: 150px;
+  margin-right: 90px;
+}
+.main-aboutUs-div h2 {
+  padding-top: 67px;
+  font-weight: 700;
+}
 

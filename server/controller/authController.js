@@ -11,7 +11,7 @@ const test = (req, res) => {
 
 const registerUser = async (req, res) => {
     try {
-        const { username, email, password,confirmpassword} = req.body;
+        const { username, email, password, confirmpassword} = req.body;
 
         if (!username || !email || !password || !confirmpassword) {
             return res.json({
