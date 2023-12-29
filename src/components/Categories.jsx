@@ -26,15 +26,12 @@ const Categories = () => {
 
   return (
     <>
-      <body>
-        <div className="container">
           <div className="contents">
             <div className="content-column">
               <div className="list-title">
                 <h3> Genres</h3>
               </div>
               <div className="list-box">
-                {/* Categories links can be reused here */}
                 <Link className="category-link" to="/category/Fiction">Fiction</Link>
                 <Link className="category-link" to="/category/Biography">Biography</Link>
                 <Link className="category-link" to="/category/Historical">Historical</Link>
@@ -69,8 +66,6 @@ const Categories = () => {
               </div>
             </div>
           </div>
-        </div>
-      </body>
       <FooterUI />
     </>
   );
