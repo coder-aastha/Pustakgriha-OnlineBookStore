@@ -3,6 +3,7 @@ const router = require('express').Router();
 const cors = require('cors')
 const {test,registerUser,loginUser,forgotPassword,resetPassword} =require('../controller/authController')
 const {getAllBooks,book,getById,updateById,deleteById,searchBooks,reviewSchema,category,authorName} =require('../controller/bookController');
+const {addToCart, deleteFromCart} = require('../controller/CartController')
 // const {reviewSchema} = require('../models/reviewModel');
 // const { default: SearchBar } = require('../../src/components/Navbar');
 
@@ -21,6 +22,8 @@ router.get('/booklisting' ,getAllBooks)
 router.get('/booklisting/:id' ,getById)
 router.patch('/booklisting/:id',updateById)
 router.delete('/booklisting/:id', deleteById)
+router.delete('/Cart', deleteFromCart)
+router.post('/shopping-cart', addToCart)
 router.get('/book/search',searchBooks)
 router.post('/reviews', reviewSchema)
 router.get('/books/:category', category)
