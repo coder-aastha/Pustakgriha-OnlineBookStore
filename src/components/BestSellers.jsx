@@ -1,15 +1,16 @@
+// Bestsellers.jsx
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import Bookcards from './Bookcards';
+import Bookcards from '../components/Bookcards';
 
-const BestSellers = () => {
-  const [book, setBook] = useState([]);
+const Bestsellers = () => {
+  const [book, setBestsellers] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:3001/booklisting");
-        setBook(response.data.book); 
+        const response = await axios.get("http://localhost:3001/book/bestseller");
+        setBestsellers(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -20,10 +21,9 @@ const BestSellers = () => {
 
   return (
     <div>
-      <Bookcards book={book} headline="Best Seller Books" />
+      <Bookcards book={book} headline="Bestseller Books" />
     </div>
   );
 };
 
-
-export default BestSellers;
+export default Bestsellers;

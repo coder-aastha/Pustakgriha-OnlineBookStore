@@ -29,6 +29,11 @@ const booklistingSchem = new mongoose.Schema({
       type: Boolean,
       required: true,
    },
+   section: {
+      type: String,
+      required: true,
+  }
+   
    
 })
 

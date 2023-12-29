@@ -13,7 +13,7 @@ const Slider = () => {
       heading: "''Sometimes the one who loves  you is the one who hurts you the most''",
       paragraph:
         "- COLLEN HOVER",
-        content: <img src="src/images/SliderImage3.png" alt="Second Slide" />,
+        content: <img src="src/images/SliderImage3.png" alt="first Slide" />,
     },
     {
       heading: "20% discount",

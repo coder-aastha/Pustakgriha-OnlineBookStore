@@ -200,6 +200,21 @@ const reviewSchema = async (req, res) => {
       res.status(500).json({ error: 'Internal Server Error' });
     }
   };
+  const getBooksBySection = async (req, res) => {
+    try {
+        const { section } = req.params;
+        const books = await Booklisting.find({ section :section});
+
+        if (!books || books.length === 0) {
+            return res.status(404).json({ error: 'No books found for the specified section' });
+        }
+
+        res.send(books);
+    } catch (error) {
+        console.error('Error getting books by section:', error);
+        res.status(500).json({ error: 'An error occurred while getting books by section' });
+    }
+};
   
 
 module.exports = {
@@ -211,5 +226,6 @@ module.exports = {
     searchBooks,
     reviewSchema,
     category,
-    authorName
+    authorName,
+    getBooksBySection 
 };
