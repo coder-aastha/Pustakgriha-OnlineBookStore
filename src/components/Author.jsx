@@ -1,3 +1,5 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
 import author_img1 from "../images/author_img1.jpeg";
 import author_img2 from "../images/author_img2.jpeg";
 import author_img3 from "../images/author_img3.webp";
@@ -12,48 +14,48 @@ const Author = () => {
       <h5 className="author-title">AUTHOR</h5>
       <div className="main-author-container">
         <div className="logo-and-text">
-          <a href="#">
-            <img src={author_img1} />
+          <Link to="/author/Colleen Hoover" >
+            <img src={author_img1} alt="Colleen Hoover"/>
             <div className="logo-text">Colleen Hoover</div>
-          </a>
+          </Link>
         </div>
 
         <div className="logo-and-text">
-          <a href="#">
-            <img src={author_img2} />
+          <Link to="/author/Holly Jackson">
+            <img src={author_img2} alt="Holly Jackson"/>
             <div className="logo-text">Holly Jackson</div>
-          </a>
+          </Link>
         </div>
 
         <div className="logo-and-text">
-          <a href="#">
-            <img src={author_img3} />
+          <Link to="/author/John Green">
+            <img src={author_img3} alt='John Green'/>
             <div className="logo-text">John Green</div>
-          </a>
+          </Link>
         </div>
         <div className="logo-and-text">
-          <a href="#">
-            <img src={author_img4} />
+          <Link to="/author/Tahereh Mafi">
+            <img src={author_img4} alt='Tahereh Mafi'/>
             <div className="logo-text">Tahereh Mafi</div>
-          </a>
+          </Link>
         </div>
         <div className="logo-and-text">
-          <a href="#">
-            <img src={author_img8} />
+          <Link to="/author/Kathleen Glasgow">
+            <img src={author_img8} alt='Kathleen Glasgow'/>
             <div className="logo-text">Kathleen Glasgow</div>
-          </a>
+          </Link>
         </div>
         <div className="logo-and-text">
-          <a href="#">
-            <img src={author_img6} />
+          <Link to="/author/Naomi Alderman">
+            <img src={author_img6} alt='Naomi Alderman'/>
             <div className="logo-text">Naomi Alderman</div>
-          </a>
+          </Link>
         </div>
         <div className="logo-and-text">
-          <a href="#">
-            <img src={author_img7} />
+          <Link to="/author/Adam Silvera">
+            <img src={author_img7} alt='Adam Silvera'/>
             <div className="logo-text">Adam Silvera</div>
-          </a>
+          </Link>
         </div>
       </div>
     </>
