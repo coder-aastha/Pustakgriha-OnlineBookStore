@@ -1,20 +1,20 @@
-const Cart = require('../models/Cart');
+// const Cart = require('../models/Cart');
 
-const cartModel = require('../models/cartModel');
+// const cartModel = require('../models/cartModel');
  
-exports.addToCart = (req, res) => {
+const addToCart = (req, res) => {
 
   const newItem = req.body;
 
-  const updatedCart = cartModel.addToCart(newItem);
+//   const updatedCart = cartModel.addToCart(newItem);
 
   res.json({ success: true, cartItems: updatedCart });
 
 };
  
-exports.getCartItems = (req, res) => {
+const getCartItems = (req, res) => {
 
-  const currentCart = cartModel.getCartItems();
+//   const currentCart = cartModel.getCartItems();
 
   res.json({ cartItems: currentCart });
 

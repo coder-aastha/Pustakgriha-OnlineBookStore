@@ -8,6 +8,7 @@ import BestSellers from "./BestSellers";
 import NewArrivals from ".//NewArrivals";
 import Author from "./Author";
 import FooterUI from "./FooterUI";
+import AboutUs from "./AboutUs";
 
 export const Home = () => {
   return (
@@ -17,7 +18,7 @@ export const Home = () => {
       <BestSellers />
       <NewArrivals />
       <Author />
-      <FooterUI />
+      {/* <FooterUI /> */}
     </div>
   );
 };

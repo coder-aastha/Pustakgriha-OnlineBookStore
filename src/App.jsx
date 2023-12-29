@@ -2,13 +2,6 @@ import React from "react";
 import "./css/App.css";
 //  import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./components/Navbar";
-// import ImageSlider from "./components/ImageSlider";
-// import Genres from "./components/Genres";
-// import BestSellers from "./components/BestSellers";
-// import NewArrivals from "./components/NewArrivals";
-// import Author from "./components/Author";
-// import FooterUI from "./components/FooterUI";
-// import DeliveryLocationDay from "./components/DeliveryLocationDay";
 import { Home } from "./components/Home";
 import axios from 'axios';
 import {Routes, Route} from'react-router-dom';
@@ -19,7 +12,10 @@ import BookDetail from './components/BookDetail'
 import "../src/css/UserRegister.css";
 import "../src/css/UserLogin.css";
 import UserForgotPassword from './components/UserForgotPassword';
-import UserResetPassword from './components/UserResetPasspord';import Categories from "./components/Categories";
+import UserResetPassword from './components/UserResetPasspord';
+import Categories from "./components/Categories";
+import AboutUs from "./components/AboutUs";
+import FooterUI from "./components/FooterUI";
 
 
 axios.defaults.baseURL ='http://localhost:3001';
@@ -38,8 +34,10 @@ function App() {
     <Route path="/forgotpassword" element={<UserForgotPassword />}/>
     <Route path='/resetpassword/:id' element={<UserResetPassword />} />
     <Route path='/category/:category' element={<Categories />}/>
+    <Route path="/AboutUs" element={<AboutUs />} />
    
     </Routes>
+    <FooterUI/>
 
     </>
   );
