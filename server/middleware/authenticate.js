@@ -1,6 +1,10 @@
+// import { faL } from "@fortawesome/free-solid-svg-icons";
+
 const jwt = require("jsonwebtoken");
 const userdb = require("../models/userSchema");
+// const { createContext, useState, useContext } = require("react");
 const keysecret = process.env.SECRET_KEY
+
 
 
 const authenticate = async(req,res,next)=>{

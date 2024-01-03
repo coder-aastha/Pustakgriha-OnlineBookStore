@@ -1,12 +1,10 @@
 
 const mongoose = require('mongoose');
 
-const WishlistSchema = new mongoose.Schema({
-  
-bookId:String
-
+const wishlistSchema = new mongoose.Schema({
+    bookId:String,
 });
 
-const Wishlist = mongoose.model('Wishlist', WishlistSchema);
+const WishlistModel = mongoose.model('Wishlist', wishlistSchema);
 
-module.exports = Wishlist;
+module.exports = WishlistModel;

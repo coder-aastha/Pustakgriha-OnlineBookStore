@@ -33,7 +33,7 @@ router.post('/forgotpassword',forgotPassword);
 router.post('/resetpassword', resetPassword);
 router.get('/book/:section', getBooksBySection);
 router.post('/wishlist/add', addToWishlist);
-router.delete('/wishlist/remove', removeFromWishlist);
+router.delete('/remove', removeFromWishlist);
 router.get('/wishlist', getWishlist);
 
 

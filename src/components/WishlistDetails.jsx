@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import  '../css/WishlistDetails.css';
 
 const WishlistDetails = () => {
   const [wishlist, setWishlist] = useState([]);
@@ -21,20 +22,20 @@ const WishlistDetails = () => {
   }, []);
 
   return (
-    <div>
+    <div className='wishlist-container'>
       <h2>My Wishlist</h2>
       {wishlist.length === 0 ? (
         <p>Your wishlist is empty.</p>
       ) : (
         <ul>
-          {wishlist.map((book) => (
-            <li key={book._id}>
-              <Link to={`/booklisting/${book._id}`}>
+          {wishlist.map((bookItem) => (
+            <li key={bookItem._id}>
+              <Link to={`/booklisting/${bookItem._id}`}>
                 <div className="book-img">
-                  <img src={book.imageURL} alt={book.bookTitle} />
+                  <img src={bookItem.imageURL} alt={bookItem.bookTitle} />
                 </div>
-                <h5>{book.bookTitle}</h5>
-                <p>By: {book.authorName}</p>
+                <h5>{bookItem.bookTitle}</h5>
+                <p>By: {bookItem.authorName}</p>
               </Link>
             </li>
           ))}

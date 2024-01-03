@@ -7,21 +7,23 @@
  
 .main-Reset-wrapper{
     display: flex;
-    justify-content: center;
     height: 87vh;
     align-items: center;
+    justify-content: center;
 }
 
 
 .wrapper1{
     position: relative;
-    width: 400px;
+    width: 80%;
+    max-width: 400px;
     background: transparent;
     border: 2px solid rgba(24, 23, 23, 0.5);
     border-radius: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0 auto;
 }
 
 .wrapper1.active{
@@ -158,11 +160,72 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5em; /* Adjust the font size as needed */
+    font-size: 1.5em; 
     position: absolute;
-    right: 10px; /* Adjust the position as needed */
+    right: 10px; 
     top: 50%;
     transform: translateY(-50%);
     color: #162938;
 
+}
+
+@media(max-width:768px){
+    .form-box{
+        width: 90%;
+        /* margin: 0 auto; */
+    }
+}
+
+@media(max-width:480px) {
+    .wrapper1{
+        width: 50%;
+        height: auto;
+    }
+
+    .wrapper.active{
+        height: auto;
+    }
+
+    /* .wrapper1 .form-box{
+        padding: 15px;
+    } */
+    
+    .form-box h2{
+        font-size: 1.5em;
+    }
+
+    .inputbox{
+        height: 35px;
+        margin: 15px 0;
+    }
+
+    .inputbox label{
+        font-size: 0.8em;
+    }
+
+    .inputbox input{
+        font-size: 0.9em;
+    }
+
+    .inputbox .user-icon-register{
+        font-size: small;
+    }
+
+    .conditions{
+        font-size: 0.7em;
+    }
+
+    .register-btn{
+        height: 30px;
+        font-size: 0.8em;
+    }
+
+    .login{
+        font-size: 0.7em;
+        margin: 10px 0 5px;
+    }
+
+    .login p a{
+        font-size: small;
+    }
 }

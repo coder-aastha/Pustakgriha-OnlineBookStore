@@ -19,14 +19,16 @@ import AboutUs from "./components/AboutUs";
 import FooterUI from "./components/FooterUI";
 import AuthorName from "./components/AuthorName";
 import WishlistDetails from "./components/WishlistDetails";
+import { AuthProvider } from "./components/AuthContext";
 
 
 axios.defaults.baseURL ='http://localhost:3001';
 axios.defaults.withCredentials = true
 
-function App() {
+const App =()=> {
   return (
     <>
+    <AuthProvider>
       <Navbar />
       <Toaster position='bottom-right' toastOptions={{duration:2000}} />
     <Routes>
@@ -40,9 +42,11 @@ function App() {
     <Route path="/AboutUs" element={<AboutUs />} />
     <Route path='/author/:authorName' element={<AuthorName />}/>
     <Route path="/WishlistDetails" element={<WishlistDetails />}/>
+   
 
     </Routes>
     <FooterUI/>
+    </AuthProvider>
 
     </>
   );
