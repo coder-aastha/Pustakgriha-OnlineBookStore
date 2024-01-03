@@ -5,7 +5,7 @@ import axios from 'axios';
 import "../css/bookdetail.css";
 import DeliveryLocationDay from './DeliveryLocationDay';
 import Review from './Review';
-
+import Wishlist from './Wishlist';
 
 
 
@@ -58,6 +58,10 @@ const BookDetail = () => {
       </div>
 
       </div>
+
+      <div>
+      <Wishlist/>
+     </div>
       
     </div>
       </>

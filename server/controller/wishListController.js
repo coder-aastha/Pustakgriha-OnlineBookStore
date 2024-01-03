@@ -4,9 +4,9 @@ const getWishlist = async (req, res) => {
   try {
     // const userId = req.userid;
     const wishlist = await Wishlist.find();
-    if(!wishlist){
-      return res.status(404).json({error: 'Wishlist not found'});
-    }
+    // if(!wishlist){
+    //   return res.status(404).json({error: 'Wishlist not found'});
+    // }
     
     res.json({ wishlist });
   } catch (error) {
