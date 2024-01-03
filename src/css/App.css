@@ -5,12 +5,6 @@
 
 /* //////////// Header ///////////////// */
 
-.main-container {
-  height: 70px;
-  width: 100%;
-  /* background-color: aqua; */
-}
-
 .logo-div {
   width: 18%;
   margin-left: 10px;
@@ -23,6 +17,8 @@
 }
 
 .main-container {
+  height: 70px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -35,10 +31,7 @@
 
 .search-bar {
   display: flex;
-  /* margin-left:10px; */
-  /* min-width: 100px; */
-  align-items: center;
-  /* justify-content: center; */
+  /* align-items: center; */
 }
 
 .search-input {
