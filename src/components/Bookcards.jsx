@@ -46,7 +46,7 @@ const Bookcards = ({ headline, book }) => {
               </Link>
                 <div className="book-actions">
                   <button onClick={() => handleAddToCart(bookItem)}
-                  className='add-to-cart-button'
+                  className='add-to-cart-btn'
                   >
                     Add to Cart
                   </button>
