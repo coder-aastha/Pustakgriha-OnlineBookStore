@@ -174,9 +174,11 @@ h5{
   color: #ff5733;
 }
 
-/* @media screen {
-  
-} */
+@media (max-width: 768) {
+  header .main-container{
+    background-color: blue;
+  }
+}
 
 /* ///////////////// End of Navbar ///////////////////// */
 
