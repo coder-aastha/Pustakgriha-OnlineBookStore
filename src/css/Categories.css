@@ -1,5 +1,5 @@
 .contents {
-  width: 1500px;
+  width: 100%;
   height:100%;
   background: white;
   display: flex;
@@ -8,7 +8,7 @@
 
 .content-column {
     position: relative;
-    width: 250px;
+    width: 30%;
     height: 650px;
     background: white;
     display: flex;
@@ -65,7 +65,7 @@
 
 .booksView-content {
   position: relative;
-  width: 1285px;
+  width: 70%;
   height: 650px; /* Set a maximum height */
   overflow-y: auto; /* Enable vertical scrolling if content exceeds the height */
   background: white;

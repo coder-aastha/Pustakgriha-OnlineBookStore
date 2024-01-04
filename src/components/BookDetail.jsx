@@ -50,7 +50,7 @@ const BookDetail = () => {
 
       <div className="review-delivery">
       <div>
-        <DeliveryLocationDay />
+        <DeliveryLocationDay book={book} />
       </div>
 
       <div>

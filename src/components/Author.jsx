@@ -11,7 +11,7 @@ import author_img7 from "../images/author_img7.jpeg";
 const Author = () => {
   return (
     <>
-      <h5 className="author-title">AUTHOR</h5>
+      <h5 className="author-title">Author</h5>
       <div className="main-author-container">
         <div className="logo-and-text">
           <Link to="/author/Colleen Hoover" >

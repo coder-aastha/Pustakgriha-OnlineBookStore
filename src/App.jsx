@@ -20,6 +20,7 @@ import FooterUI from "./components/FooterUI";
 import AuthorName from "./components/AuthorName";
 import WishlistDetails from "./components/WishlistDetails";
 import { AuthProvider } from "./components/AuthContext";
+import ShoppingCart from "./components/shoppingCart";
 
 
 axios.defaults.baseURL ='http://localhost:3001';
@@ -42,7 +43,7 @@ const App =()=> {
     <Route path="/AboutUs" element={<AboutUs />} />
     <Route path='/author/:authorName' element={<AuthorName />}/>
     <Route path="/WishlistDetails" element={<WishlistDetails />}/>
-   
+    <Route path="/shopping-cart" element={<ShoppingCart />} />
 
     </Routes>
     <FooterUI/>

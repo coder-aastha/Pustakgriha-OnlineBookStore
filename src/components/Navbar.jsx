@@ -15,6 +15,7 @@ import Wishlist from "./Wishlist";
 import WishlistDetails from "./WishlistDetails";
 import { useAuth } from "./AuthContext";
 import { Button } from "bootstrap";
+import { useCart } from "./CartContext";
 
 
 const SearchBar = () => {
@@ -23,6 +24,7 @@ const SearchBar = () => {
   const [isActive, setIsActive] = useState(false);
   const navigate = useNavigate();
   const { isLoggedIn, logout, isAuthenticated, user} = useAuth();
+  const {totalQuantity} = useCart();
 
   
   useEffect(() => {
@@ -86,7 +88,7 @@ const SearchBar = () => {
               onFocus={handleSearchClick}
             />
             <span className="search-icon" onClick={handleSearchClick}>
-              
+
               <IoSearchOutline />
             </span>
             </form>
@@ -125,17 +127,13 @@ const SearchBar = () => {
             </NavLink>
           )}
 
-          {/* <NavLink to="/shopping-cart" className="nav-link">
-            <PiShoppingCartSimpleBold />
-          </NavLink> */}
-
-          <NavLink to="/shopping-cart" className="nav-link" onClick={handleShoppingCartClick}>
-            <BiCartAdd />
-          </NavLink>
+          <NavLink to="/shopping-cart" className="nav-link">
+          <BiCartAdd />
+          <span className="totalquantity">{totalQuantity}</span>
+         </NavLink>
 
           <NavLink to="/WishlistDetails" className="nav-link" onClick={WishlistDetails}>
             <MdOutlineFavoriteBorder />
-            
           </NavLink>
 
           <NavLink to="/world" className="nav-link">
