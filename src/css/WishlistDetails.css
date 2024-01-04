@@ -1,0 +1,40 @@
+.wishlist-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+.wishlist-container h2 {
+    font-size: 28px;
+    color: #333;
+  }
+  
+.wishlist-container ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+  
+.wishlist-container li {
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+  
+h5 {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #333;
+}
+  
+p {
+    font-size: 16px;
+    color: #555;
+}
+  
+
+  

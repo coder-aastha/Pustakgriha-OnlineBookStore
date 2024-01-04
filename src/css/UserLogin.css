@@ -52,7 +52,7 @@
 }
 
 .form-box h2{
-    font-size: 2em;
+    font-size: 1.8em;
     color: #162938;
     text-align: center;
 }
@@ -88,7 +88,7 @@
     background: transparent;
     border: none;
     outline: none;
-    font-size: 1em;
+    font-size: 0.5em;
     color: #162938;
     font-weight: 600;
     padding: 0 35px 0 5px;
@@ -146,11 +146,79 @@
     margin: 25px 0 10px;
 }
 
+
 .register p a{
     color: #162938;
     text-decoration: none;
     font-weight: 600;
+   
 }
 
 
 
+@media(min-width: 768px){
+    .wrapper{
+        width: 0px;
+        height: 740px;
+    }
+
+    .wrapper.active{
+        height: 820px;
+    }
+}
+
+@media (max-width:280px) {
+    .wrapper{
+        width: 30%;
+        height: auto;
+    }
+
+    .wrapper.active{
+        height: auto;
+    }
+
+    .form-box h2{
+        font-size: 1em;
+    }
+
+    .input-box{
+        height: 35px;
+        margin: 15px 0;
+    }
+
+    .input-box label{
+        font-size: 0.8em;
+    }
+
+    .input-box input{
+        font-size: 0.9em;
+    }
+    
+    .input-box .email-icon-login{
+        font-size: 1em;
+    }
+
+    .remember-forgot{
+        font-size: 0.7em;
+        margin: -10px 0 10px;
+    }
+
+    .btn{
+        height: 30px;
+        font-size: 0.9em;
+        width: 0.5px;
+    }
+
+    .register{
+        font-size: 0.7em;
+        margin: 10px 0 5px;
+    }
+
+    .register p{
+        font-size: small;
+    }
+
+    .register a{
+        font-size: small;
+    }
+}

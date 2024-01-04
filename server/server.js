@@ -2,6 +2,7 @@ const express = require('express');
 const dotenv = require('dotenv').config()
 const mongoose = require('mongoose')
 const cors=require('cors');
+const { useParams } = require('react-router-dom');
 
 const app=express();
 
@@ -18,7 +19,6 @@ mongoose.connect(MONGO_URL)
 app.use(express.json())
 
 app.use('/', require('./routes/authRoutes'))
-
 
 
 

@@ -1,4 +1,4 @@
-import { NavLink, Route} from "react-router-dom";
+import { NavLink, useNavigate} from "react-router-dom";
 import { IoSearchOutline } from "react-icons/io5";
 // import { PiShoppingCartSimpleBold } from "react-icons/pi";
 import { BiCartAdd } from "react-icons/bi";
@@ -12,13 +12,20 @@ import {Link} from 'react-router-dom'
 import { MdOutlineFavoriteBorder } from "react-icons/md";
 import Wishlist from "./Wishlist";
 // import Wishlist from "./Wishlist";
+import WishlistDetails from "./WishlistDetails";
+import { useAuth } from "./AuthContext";
+import { Button } from "bootstrap";
+import { useCart } from "./CartContext";
 
 
 const SearchBar = () => {
   const [book, setBook] = useState([]);
   const [searchTerm, setsearchTerm] = useState('');
   const [isActive, setIsActive] = useState(false);
- 
+  const navigate = useNavigate();
+  const { isLoggedIn, logout, isAuthenticated, user} = useAuth();
+  const {totalQuantity} = useCart();
+
   
   useEffect(() => {
     if(searchTerm.trim() !== ""){
@@ -48,15 +55,22 @@ const SearchBar = () => {
     setsearchTerm('');
     setBook([]);
   }
+
+  const handleShoppingCartClick =() =>{
+    if(!isLoggedIn){
+      navigate('/login');
+    }
+    else{
+      navigate('/shopping-cart');
+    }
+  }
  
-  // const handleAddToWishlist = (bookItem) => {
-  //   addToWishlist(bookItem);
-  // };
 
   return (
     <>
       <header className="main-container">
         <div className="logo-div">
+
         <NavLink to="/" className="nav-link">
           <img className="logo-img" src={main_logo} alt="Pustakgriha" />
           </NavLink>
@@ -74,7 +88,7 @@ const SearchBar = () => {
               onFocus={handleSearchClick}
             />
             <span className="search-icon" onClick={handleSearchClick}>
-              
+
               <IoSearchOutline />
             </span>
             </form>
@@ -100,21 +114,26 @@ const SearchBar = () => {
         
 
         <div className="icon-right">
-          <NavLink to="/login" className="nav-link">
-            <LuUser />
-          </NavLink>
-
-          {/* <NavLink to="/shopping-cart" className="nav-link">
-            <PiShoppingCartSimpleBold />
-          </NavLink> */}
+          {isAuthenticated && <p>{user.name}</p>}
+          {isAuthenticated ? (
+            <li>
+              <Button onClick ={()=>logout({returnTo:window.location.origin})}>
+                Logout
+              </Button>
+            </li>
+          ):(
+            <NavLink to="/login" className="nav-link">
+              <LuUser />
+            </NavLink>
+          )}
 
           <NavLink to="/shopping-cart" className="nav-link">
-            <BiCartAdd />
-          </NavLink>
+          <BiCartAdd />
+          <span className="totalquantity">{totalQuantity}</span>
+         </NavLink>
 
-          <NavLink to="/WishlistDetails" className="nav-link" onClick={Wishlist}>
+          <NavLink to="/WishlistDetails" className="nav-link" onClick={WishlistDetails}>
             <MdOutlineFavoriteBorder />
-            
           </NavLink>
 
           <NavLink to="/world" className="nav-link">

@@ -1,12 +1,12 @@
 import {useState} from "react";
 import "../css/UserLogin.css";
 import { MdEmail } from "react-icons/md";
-import { IoCloseCircle } from "react-icons/io5";
 import axios from 'axios'
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 // import UserRegister from "./UserRegister";
- 
+
+
 function UserLogin() {
   const navigate = useNavigate()
   const[data,setData]=useState({

@@ -9,7 +9,8 @@ const userSchem = new mongoose.Schema({
     },
     password:String,
     wishlist: [{type: mongoose.Schema.Types.ObjectId,
-    ref: 'Book'}],
+        ref: 'Book'}],
+   
 
 });
 

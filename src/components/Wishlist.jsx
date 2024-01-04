@@ -4,15 +4,15 @@ import toast from 'react-hot-toast';
 import '../css/wishlist.css';
 
 
+
 const Wishlist = () => {
   const[bookId, setBookId] = useState('');
-  // const [id] = useParams();
+  
   const addToWishlist = () => {
     axios
       .post('/wishlist/add', {
-        // bookId:'658bf20ba6756182ca49fa00',
-        bookId: bookId,
         
+        bookId: bookId,
 
       })
 
