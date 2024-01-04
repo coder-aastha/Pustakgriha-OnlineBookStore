@@ -11,7 +11,7 @@ import logo7 from "../images/logo7.jpeg";
 const Genres = () => {
   return (
     <>
-    <h5 className="genre-title">GENRES</h5>
+    <h5 className="genre-title">Genres</h5>
       <div className="main-genre-container">
         <div className="logo-and-text">
         <Link to="/category/Fiction">

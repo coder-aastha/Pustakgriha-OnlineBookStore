@@ -18,8 +18,9 @@ import Categories from "./components/Categories";
 import AboutUs from "./components/AboutUs";
 import FooterUI from "./components/FooterUI";
 import AuthorName from "./components/AuthorName";
-import WishlistDetails from "./components/WishlistDetails";
+import Wishlist from "./components/Wishlist";
 import { AuthProvider } from "./components/AuthContext";
+import ShoppingCart from "./components/shoppingCart";
 
 
 axios.defaults.baseURL ='http://localhost:3001';
@@ -41,8 +42,8 @@ const App =()=> {
     <Route path='/category/:category' element={<Categories />}/>
     <Route path="/AboutUs" element={<AboutUs />} />
     <Route path='/author/:authorName' element={<AuthorName />}/>
-    <Route path="/WishlistDetails" element={<WishlistDetails />}/>
-   
+    <Route path="/Wishlist" element={<Wishlist />}/>
+    <Route path="/shopping-cart" element={<ShoppingCart />} />
 
     </Routes>
     <FooterUI/>

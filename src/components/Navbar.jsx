@@ -12,10 +12,13 @@ import {Link} from 'react-router-dom'
 import { MdOutlineFavoriteBorder } from "react-icons/md";
 import Wishlist from "./Wishlist";
 // import Wishlist from "./Wishlist";
-import WishlistDetails from "./WishlistDetails";
+// import WishlistDetails from "./WishlistDetails";
 import { useAuth } from "./AuthContext";
+import { useCart } from "./CartContext";
 import { Button} from "bootstrap";
 import {Dropdown} from "react-bootstrap";
+import { FaRegHeart } from "react-icons/fa";
+
 
 
 const SearchBar = () => {
@@ -24,6 +27,7 @@ const SearchBar = () => {
   const [isActive, setIsActive] = useState(false);
   const navigate = useNavigate();
   const { isLoggedIn, logout, isAuthenticated, user} = useAuth();
+  const {totalQuantity} = useCart();
 
   
   useEffect(() => {
@@ -87,7 +91,7 @@ const SearchBar = () => {
               onFocus={handleSearchClick}
             />
             <span className="search-icon" onClick={handleSearchClick}>
-              
+
               <IoSearchOutline />
             </span>
             </form>
@@ -127,17 +131,13 @@ const SearchBar = () => {
           </Dropdown>
 
         
-          {/* <NavLink to="/shopping-cart" className="nav-link">
-            <PiShoppingCartSimpleBold />
-          </NavLink> */}
+          <NavLink to="/shopping-cart" className="nav-link">
+          <BiCartAdd />
+          <span className="totalquantity">{totalQuantity}</span>
+         </NavLink>
 
-          <NavLink to="/shopping-cart" className="nav-link" onClick={handleShoppingCartClick}>
-            <BiCartAdd />
-          </NavLink>
-
-          <NavLink to="/WishlistDetails" className="nav-link">
+          <NavLink to="/Wishlist" className="nav-link">
             <MdOutlineFavoriteBorder />
-            
           </NavLink>
 
           <NavLink to="/world" className="nav-link">

@@ -42,7 +42,6 @@ const BookDetail = () => {
             <p className="book-author"> by: {book.authorName}</p>
             <p className="book-category">Genres: {book.category}</p>
             <p className="book-description"> {book.bookDescription}</p>
-            <Wishlist bookId = {book}/>
           </div>
         </div>
         
@@ -54,7 +53,7 @@ const BookDetail = () => {
 
       <div className="review-delivery">
       <div>
-        <DeliveryLocationDay />
+        <DeliveryLocationDay book={book} />
       </div>
 
       <div>
