@@ -6,7 +6,8 @@ import "../css/bookdetail.css";
 import DeliveryLocationDay from './DeliveryLocationDay';
 import Review from './Review';
 import Wishlist from './Wishlist';
-
+import { FaRegHeart } from "react-icons/fa";
+// import Wishlist from './Wishlist';
 
 
 const BookDetail = () => {
@@ -35,6 +36,7 @@ const BookDetail = () => {
       <div className="book-details-wrapper">
         <div className="book-top-section">
           <img src={book.imageURL} alt={book.bookTitle} className="book-image" />
+          
           <div className="book-info">
             <h2 className="book-title">{book.bookTitle}</h2>
             <p className="book-author"> by: {book.authorName}</p>
@@ -48,6 +50,7 @@ const BookDetail = () => {
       </div>
     </div>
 
+
       <div className="review-delivery">
       <div>
         <DeliveryLocationDay book={book} />
@@ -59,9 +62,6 @@ const BookDetail = () => {
 
       </div>
 
-      <div>
-      <Wishlist/>
-     </div>
       
     </div>
       </>
