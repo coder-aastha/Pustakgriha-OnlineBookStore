@@ -24,7 +24,13 @@
     justify-content: center;
     align-items: center;
     margin: 0 auto;
+   
 }
+
+/* .bacground-images{
+    width: 50%;
+    height: 100%;
+} */
 
 .wrapper1.active{
     height: 520px;

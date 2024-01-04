@@ -9,7 +9,14 @@
     justify-content: center;
     height: 87vh;
     align-items: center;
+    background-image: url('../images/bgg.jpg');
+    background-size: cover;
 }
+
+/* .bacground-images{
+    width: 50%;
+    height: 100%;
+} */
 
 .wrapper{
     position: relative;
@@ -214,11 +221,7 @@
         margin: 10px 0 5px;
     }
 
-    .register p{
-        font-size: small;
-    }
-
-    .register a{
+    .register p a{
         font-size: small;
     }
 }

@@ -35,6 +35,19 @@
   .book-info {
     flex: 1;
   }
+
+  .book-info .fa-heart{
+    /* position: absolute; */
+    bottom: 30px;
+    left: 10px;
+    color: #ff0000;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+
+  .book-info .fa-heart:hover{
+    color: #ff7575;
+  }
    
   .book-title {
     font-size: 1.5em;

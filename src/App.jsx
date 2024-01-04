@@ -18,7 +18,7 @@ import Categories from "./components/Categories";
 import AboutUs from "./components/AboutUs";
 import FooterUI from "./components/FooterUI";
 import AuthorName from "./components/AuthorName";
-import WishlistDetails from "./components/WishlistDetails";
+import Wishlist from "./components/Wishlist";
 import { AuthProvider } from "./components/AuthContext";
 import ShoppingCart from "./components/shoppingCart";
 
@@ -33,7 +33,7 @@ const App =()=> {
       <Navbar />
       <Toaster position='bottom-right' toastOptions={{duration:2000}} />
     <Routes>
-      <Route path='/register' element={<UserRegister/>}/>
+    <Route path='/register' element={<UserRegister/>}/>
     <Route path='/login' element={<UserLogin />}/>
     <Route path='/' element={<Home />}/>
     <Route path="/booklisting/:id" element={<BookDetail />} />
@@ -42,7 +42,7 @@ const App =()=> {
     <Route path='/category/:category' element={<Categories />}/>
     <Route path="/AboutUs" element={<AboutUs />} />
     <Route path='/author/:authorName' element={<AuthorName />}/>
-    <Route path="/WishlistDetails" element={<WishlistDetails />}/>
+    <Route path="/Wishlist" element={<Wishlist />}/>
     <Route path="/shopping-cart" element={<ShoppingCart />} />
 
     </Routes>

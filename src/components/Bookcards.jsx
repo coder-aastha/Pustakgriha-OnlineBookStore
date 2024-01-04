@@ -3,10 +3,13 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import "../css/bookcard.css";
 import { useCart } from './CartContext';
+import { FaRegHeart } from "react-icons/fa";
+import { useWishlist } from './WishlistContext';
 
 const Bookcards = ({ headline, book }) => {
   const [visibleBooks, setVisibleBooks] = useState(3);
   const { addToCart } = useCart();
+  const{addToWishlist} =useWishlist();
 
   const handleSeeMore = () => {
     setVisibleBooks((prevVisibleBooks) => prevVisibleBooks + 3);
@@ -14,6 +17,10 @@ const Bookcards = ({ headline, book }) => {
 
   const handleAddToCart = (bookItem) => {
     addToCart(bookItem);
+  }
+
+  const handleAddToWishlist=(bookItem)=>{
+    addToWishlist(bookItem);
   }
 
   if (!Array.isArray(book)) {
@@ -43,12 +50,19 @@ const Bookcards = ({ headline, book }) => {
                   <h2 className="book-title">{bookItem.bookTitle}</h2>
                   <p className="book-author">by: {bookItem.authorName}</p>
                 </div>
+  
               </Link>
                 <div className="book-actions">
                   <button onClick={() => handleAddToCart(bookItem)}
                   className='add-to-cart-btn'
                   >
                     Add to Cart
+                  </button>
+
+                  <button onClick={() => handleAddToWishlist(bookItem)}
+                  className='add-to-Wishlist-btn'
+                  >
+                   <FaRegHeart />
                   </button>
                 </div>
               </div>

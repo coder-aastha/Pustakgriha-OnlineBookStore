@@ -35,6 +35,7 @@ const loginUser = async (e) =>{
   return (
     <>
     <div className="main-login-wrapper">
+      <div className="bacground-image"></div>
       <div className="wrapper">
         <div className="form-box login">
           <h2>Login</h2>

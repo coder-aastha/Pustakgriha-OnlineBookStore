@@ -12,10 +12,13 @@ import {Link} from 'react-router-dom'
 import { MdOutlineFavoriteBorder } from "react-icons/md";
 import Wishlist from "./Wishlist";
 // import Wishlist from "./Wishlist";
-import WishlistDetails from "./WishlistDetails";
+// import WishlistDetails from "./WishlistDetails";
 import { useAuth } from "./AuthContext";
-import { Button } from "bootstrap";
 import { useCart } from "./CartContext";
+import { Button} from "bootstrap";
+import {Dropdown} from "react-bootstrap";
+import { FaRegHeart } from "react-icons/fa";
+
 
 
 const SearchBar = () => {
@@ -64,7 +67,7 @@ const SearchBar = () => {
       navigate('/shopping-cart');
     }
   }
- 
+
 
   return (
     <>
@@ -99,7 +102,7 @@ const SearchBar = () => {
             {book.map((book) => (
               <Link to={`/booklisting/${book._id}`} key={book._id} className="book-card" onClick={handleBookClick}>
                 
-                <div className="book-img">
+                <div className="searchbar-book-img">
                   <img src={book.imageURL} alt={book.bookTitle} />
                 </div>
                 <h5>{book.bookTitle}</h5>
@@ -114,25 +117,26 @@ const SearchBar = () => {
         
 
         <div className="icon-right">
-          {isAuthenticated && <p>{user.name}</p>}
-          {isAuthenticated ? (
-            <li>
-              <Button onClick ={()=>logout({returnTo:window.location.origin})}>
-                Logout
-              </Button>
-            </li>
-          ):(
-            <NavLink to="/login" className="nav-link">
-              <LuUser />
-            </NavLink>
-          )}
+          <Dropdown>
+           
+            <Dropdown.Toggle variant="" id="dropdown-basic">
+              <LuUser/>
+            </Dropdown.Toggle>
 
+            <Dropdown.Menu>
+              <Dropdown.Item href="/login">Login</Dropdown.Item>
+              <Dropdown.Item href="/register">Register</Dropdown.Item>
+              <Dropdown.Item href="/home">Logout</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+
+        
           <NavLink to="/shopping-cart" className="nav-link">
           <BiCartAdd />
           <span className="totalquantity">{totalQuantity}</span>
          </NavLink>
 
-          <NavLink to="/WishlistDetails" className="nav-link" onClick={WishlistDetails}>
+          <NavLink to="/Wishlist" className="nav-link">
             <MdOutlineFavoriteBorder />
           </NavLink>
 

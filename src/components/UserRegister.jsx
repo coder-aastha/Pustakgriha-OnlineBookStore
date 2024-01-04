@@ -41,6 +41,7 @@ const UserRegister = () => {
 
   return (
     <div className="main-register-wrapper">
+      <div className="bacground-image"></div>
       <div>
         <div className="wrapper1">
           <div className="form-box register">
