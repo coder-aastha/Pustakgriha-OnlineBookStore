@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import "../css/bookcard.css";
-
+import { FaRegHeart } from "react-icons/fa";
 
 const Bookcards = ({ headline, book }) => {
   const [visibleBooks, setVisibleBooks] = useState(3);
@@ -38,6 +38,10 @@ const Bookcards = ({ headline, book }) => {
                   <p className="book-author">by: {bookItem.authorName}</p>
                 </div>
                 <button className="add-to-cart-btn">ADD TO CART</button>
+                <button className='add-to-wishlit'>
+                  <FaRegHeart />
+
+                </button>
               </Link>
             ))}
           </>

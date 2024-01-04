@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import '../css/wishlist.css';
-
+import { FaRegHeart } from "react-icons/fa";
 
 
 const Wishlist = () => {
@@ -34,7 +34,7 @@ const Wishlist = () => {
 
       <div className="wishlist-button-container">
         <button onClick={addToWishlist}>
-          Add to Wishlist
+        <FaRegHeart />
 
         </button>
       </div>

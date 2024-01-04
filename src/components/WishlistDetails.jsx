@@ -1,4 +1,4 @@
-// WishlistDetails.js
+
 
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -31,7 +31,7 @@ const WishlistDetails = () => {
           {wishlist.map((bookItem) => (
             <li key={bookItem._id}>
               <Link to={`/booklisting/${bookItem._id}`}>
-                <div className="book-img">
+                <div className="wishlist-book-img">
                   <img src={bookItem.imageURL} alt={bookItem.bookTitle} />
                 </div>
                 <h5>{bookItem.bookTitle}</h5>

@@ -32,7 +32,7 @@ const App =()=> {
       <Navbar />
       <Toaster position='bottom-right' toastOptions={{duration:2000}} />
     <Routes>
-      <Route path='/register' element={<UserRegister/>}/>
+    <Route path='/register' element={<UserRegister/>}/>
     <Route path='/login' element={<UserLogin />}/>
     <Route path='/' element={<Home />}/>
     <Route path="/booklisting/:id" element={<BookDetail />} />
