@@ -34,7 +34,7 @@ const FooterUI = () => {
           <div className="support">
             <h5>Support</h5>
             <p>01-890786</p>
-              <p>pustak1@gmail.com</p>
+              <p>putk1@gmail.com</p>
           </div>
 
           <div className="footer-right-end-section" id="about_section">
