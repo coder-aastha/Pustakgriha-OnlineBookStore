@@ -1,3 +1,4 @@
+/* Wishlist.css */
 
 .wishlist {
     margin: 20px;
@@ -17,21 +18,24 @@
 }
   
 .wishlist-item {
-    display: flex;
-    align-items: center;
     margin-bottom: 10px;
 }
   
-/* .wishlist-images {
-    margin-right: 10px;
-} */
-  
-.book-image__img {
-    width: 50px; 
-    height: 10px; 
-    border-radius: 4px;
-    object-fit: cover;
+.book-container {
+    display: flex;
+    align-items: center;
 }
   
-
+.book-image__img {
+    width: 50px;
+    height: 70px;
+    border-radius: 4px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+  
+.wishlist-details {
+    flex: 1;
+    
+}
   

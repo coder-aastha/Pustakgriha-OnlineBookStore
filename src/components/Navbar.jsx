@@ -18,7 +18,7 @@ import { useCart } from "./CartContext";
 import { Button} from "bootstrap";
 import {Dropdown} from "react-bootstrap";
 import { FaRegHeart } from "react-icons/fa";
-
+import { FiUserCheck } from "react-icons/fi";
 
 
 const SearchBar = () => {
@@ -26,7 +26,7 @@ const SearchBar = () => {
   const [searchTerm, setsearchTerm] = useState('');
   const [isActive, setIsActive] = useState(false);
   const navigate = useNavigate();
-  const { isLoggedIn, logout, isAuthenticated, user} = useAuth();
+  const { isLoggedIn, logout, user} = useAuth();
   const {totalQuantity} = useCart();
 
   
@@ -60,11 +60,11 @@ const SearchBar = () => {
   }
 
   const handleShoppingCartClick =() =>{
-    if(!isLoggedIn){
-      navigate('/login');
+    if(isLoggedIn){
+      navigate('/shopping-cart');
     }
     else{
-      navigate('/shopping-cart');
+      navigate('/login');
     }
   }
 
@@ -100,13 +100,17 @@ const SearchBar = () => {
           {isActive && book.length > 0 && (
           <div className="search-results-container">         
             {book.map((book) => (
-              <Link to={`/booklisting/${book._id}`} key={book._id} className="book-card" onClick={handleBookClick}>
+              <Link to={`/booklisting/${book._id}`} key={book._id} className="Search-book-card" onClick={handleBookClick}>
                 
-                <div className="searchbar-book-img">
+                <div className="searchbar-img">
                   <img src={book.imageURL} alt={book.bookTitle} />
                 </div>
+
+                <div className="searchbar-img-description">
                 <h5>{book.bookTitle}</h5>
                 <p>By: {book.authorName}</p>
+                </div>
+              
               </Link>
             ))}
 
@@ -119,19 +123,28 @@ const SearchBar = () => {
         <div className="icon-right">
           <Dropdown>
            
+          {isLoggedIn ? (
+            <>
             <Dropdown.Toggle variant="" id="dropdown-basic">
-              <LuUser/>
+            <FiUserCheck />
+            <span>{user && user.username}</span>
             </Dropdown.Toggle>
-
-            <Dropdown.Menu>
-              <Dropdown.Item href="/login">Login</Dropdown.Item>
-              <Dropdown.Item href="/register">Register</Dropdown.Item>
-              <Dropdown.Item href="/home">Logout</Dropdown.Item>
-            </Dropdown.Menu>
+            </>
+            ) : (
+            <>
+          <Dropdown.Toggle variant="" id="dropdown-basic">
+          <LuUser />
+          </Dropdown.Toggle>
+          <Dropdown.Menu>
+          <Dropdown.Item href="/login">Login</Dropdown.Item>
+          <Dropdown.Item href="/register">Register</Dropdown.Item>
+          {/* <Dropdown.Item href="/">Logout</Dropdown.Item> */}
+          </Dropdown.Menu>
+          </>
+          )}
           </Dropdown>
 
-        
-          <NavLink to="/shopping-cart" className="nav-link">
+          <NavLink to="/shopping-cart" className="nav-link"onClick={handleShoppingCartClick}>
           <BiCartAdd />
           <span className="totalquantity">{totalQuantity}</span>
          </NavLink>

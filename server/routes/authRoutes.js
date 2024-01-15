@@ -35,6 +35,7 @@ router.get('/book/:section', getBooksBySection);
 router.post('/wishlist/add', addToWishlist);
 router.delete('/remove', removeFromWishlist);
 router.get('/wishlist', getWishlist);
+// router.post('wishlist/add',addToWishlist)
 
 
 module.exports=router;

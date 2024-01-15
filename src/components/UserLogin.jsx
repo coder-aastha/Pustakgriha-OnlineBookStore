@@ -17,17 +17,27 @@ const loginUser = async (e) =>{
   e.preventDefault()
   const {email,password} = data
   try{
-    const{data}= await axios.post('/login',{
+    const{data:{token, user, error}}= await axios.post('/login',{ 
       email,
       password
     });
-    if(data.error){
-      toast.error(data.error)
-    }
+
+    if(error){
+      toast.error(error);
+    } 
     else{
+      localStorage.setItem('token',token);
+      localStorage.setItem('user',JSON.stringify(user));
       setData({});
-      navigate('/')
+      navigate('/');
     }
+    // if(data.error){
+    //   toast.error(data.error)
+    // }
+    // else{
+    //   setData({});
+    //   navigate('/')
+    // }
   }catch (error){
     console.log(error)
   }  
@@ -35,9 +45,10 @@ const loginUser = async (e) =>{
   return (
     <>
     <div className="main-login-wrapper">
-      <div className="bacground-image"></div>
-      <div className="wrapper">
-        <div className="form-box login">
+      {/* <div className="bacground-image"></div> */}
+      <div className="leftcontent_login"></div>
+      <div className="wrapperLogin">
+        <div className="form-box">
           <h2>Login</h2>
 
  
@@ -47,12 +58,12 @@ const loginUser = async (e) =>{
               value={data.email}
               onChange={(e) => setData({ ...data, email: e.target.value })}
               required />
-              <label>Email</label>
+              <label>Email </label>
               <a href="#">
-                <span className="email-icon-login">
-                  <MdEmail />
-                </span>
-              </a>
+                  <span className="user-icon-register">
+                    <MdEmail />
+                  </span>
+                </a>
             </div>
  
             <div className="input-box">

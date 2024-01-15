@@ -40,7 +40,7 @@ return (
     
     <div className="main-Forgot-wrapper">
     <div className="wrapper">
-    <div className="form-box login">
+    <div className="form-box-login">
         <h4>Forgot Password</h4>
         {/* Display error message if there's any */}
         {error && <div className="error-message">{error}</div>}
