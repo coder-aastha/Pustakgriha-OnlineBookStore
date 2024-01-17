@@ -1,11 +1,11 @@
 
-  .main-book-details-container {
+.main-book-details-container {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-  }
+}
 
-  .book-detail-container {
+.book-detail-container {
     display: flex;
     max-width: 600px;
     padding: 20px;
@@ -15,61 +15,83 @@
     align-items: flex-start;
     justify-content: flex-start;
   
-  }
+}
    
-  .book-details-wrapper {
+.book-details-wrapper {
     display: flex;
     flex-direction: column;
-  }
+}
    
-  .book-top-section {
+.book-top-section {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
-  }
+}
    
-  .book-image {
+.book-image {
     max-width: 150px;
-  }
+}
    
-  .book-info {
+.book-info {
     flex: 1;
-  }
+}
 
-  .book-info .fa-heart{
+.book-info .fa-heart{
     /* position: absolute; */
     bottom: 30px;
     left: 10px;
     color: #ff0000;
     cursor: pointer;
     transition: color 0.3s ease;
-  }
+}
 
-  .book-info .fa-heart:hover{
+.book-info .fa-heart:hover{
     color: #ff7575;
-  }
+}
    
-  .book-title {
+.book-title {
     font-size: 1.5em;
     margin-bottom: 5px;
-  }
+}
    
-  .book-category {
+.book-category {
     color: #777;
     margin-bottom: 10px;
-  }
+}
    
-  .book-description {
+.book-description {
     line-height: 1.4;
     margin-bottom: 20px;
-  }
+}
    
-  .book-price {
+.book-price {
     font-weight: bold;
     color: #333;
-  }
+}
    
-  .book-availability {
+.book-availability {
     color: #2ecc71; /* Green color for available */
     text-align: center;
+}
+
+.review-delivery{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.review-delivery > div {
+  flex: 1;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .book-detail-container {
+    max-width: 50%;
   }
+  
+  .review-delivery > div {
+    flex-basis: 48%;
+  }
+}

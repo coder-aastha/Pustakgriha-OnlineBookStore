@@ -45,6 +45,7 @@ const registerUser = async (req, res) => {
             username,
             email,
             password: hashedPassword,
+        
         });
 
         return res.json(user);
@@ -52,7 +53,7 @@ const registerUser = async (req, res) => {
         console.log(error);
         return res.json({
             error: 'An error occurred during registration',
-        });
+        }); 
     }
 };
 
@@ -71,8 +72,10 @@ const loginUser = async (req, res) => {
         const isPasswordMatch = await comparePassword(password, user.password);
  
         if (isPasswordMatch) {
+            const token = jwt.sign({ id: user._id }, "jwt_secret_key", { expiresIn: "1h" });
             return res.json({
                 message: 'Login successful',
+                token,
             });
         } else {
             return res.json({
@@ -101,11 +104,10 @@ const forgotPassword = async (req, res) => {
         return res.status(404).json({ error: 'No user found' });
       }
   
-      // Generate a JWT token with the user's ID and a secret key
+    
       const token = jwt.sign({ id: user._id }, "jwt_secret_key", { expiresIn: "1h" });
   
-      // Send the token via email or any other method you prefer
-      // For demonstration purposes, sending as a JSON response
+
       res.json({ status: "Token generated", token });
     } catch (error) {
       console.error('Error in forgotPassword:', error);
@@ -118,7 +120,7 @@ const forgotPassword = async (req, res) => {
     const { email, newPassword } = req.body;
   
     try {
-      // Find the user by email
+     
       const user = await User.findOne({ email });
   
       if (!user) {

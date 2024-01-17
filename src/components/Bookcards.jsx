@@ -5,6 +5,8 @@ import "../css/bookcard.css";
 import { useCart } from './CartContext';
 import { FaRegHeart } from "react-icons/fa";
 import { useWishlist } from './WishlistContext';
+import toast from 'react-hot-toast';
+// import Wishlist from './Wishlist';
 
 const Bookcards = ({ headline, book }) => {
   const [visibleBooks, setVisibleBooks] = useState(3);
@@ -21,6 +23,7 @@ const Bookcards = ({ headline, book }) => {
 
   const handleAddToWishlist=(bookItem)=>{
     addToWishlist(bookItem);
+    toast.success('Added to wishlist');
   }
 
   if (!Array.isArray(book)) {
@@ -64,6 +67,8 @@ const Bookcards = ({ headline, book }) => {
                   >
                    <FaRegHeart />
                   </button>
+
+
                 </div>
               </div>
             ))}

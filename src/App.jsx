@@ -21,14 +21,18 @@ import AuthorName from "./components/AuthorName";
 import Wishlist from "./components/Wishlist";
 import { AuthProvider } from "./components/AuthContext";
 import ShoppingCart from "./components/shoppingCart";
-
+// import { useState } from 'react';
+import AdminApp from './Admin/AdminApp';
+import AdminUploadBook from './Admin/AdminBookUpload'
 
 axios.defaults.baseURL ='http://localhost:3001';
 axios.defaults.withCredentials = true
 
 const App =()=> {
+
   return (
     <>
+
     <AuthProvider>
       <Navbar />
       <Toaster position='bottom-right' toastOptions={{duration:2000}} />
@@ -44,6 +48,8 @@ const App =()=> {
     <Route path='/author/:authorName' element={<AuthorName />}/>
     <Route path="/Wishlist" element={<Wishlist />}/>
     <Route path="/shopping-cart" element={<ShoppingCart />} />
+    <Route path="/admin" element={<AdminApp/>}/>
+    <Route path="/upload-book" element={<AdminUploadBook/>}/>
 
     </Routes>
     <FooterUI/>

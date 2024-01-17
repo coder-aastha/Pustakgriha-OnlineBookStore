@@ -1,12 +1,11 @@
-const Wishlist = require('../models/wishlistModel');
+// import Wishlist from "../components/Wishlist"
 
 const getWishlist = async (req, res) => {
   try {
-    // const userId = req.userid;
-    const wishlist = await Wishlist.find();
-    // if(!wishlist){
-    //   return res.status(404).json({error: 'Wishlist not found'});
-    // }
+    const { book } = req.body;
+
+    const newWishlist = new Wishlist({ book, rating });
+    await newWishlist.save();
     
     res.json({ wishlist });
   } catch (error) {
@@ -17,15 +16,15 @@ const getWishlist = async (req, res) => {
 
 const addToWishlist = async (req, res) => {
   try {
-    const { bookId } = req.body;
+    const { book} = req.body;
 
-    const existingWishlistItem = await Wishlist.findOne({ bookId });
+    const existingWishlistItem = await Wishlist.findOne({ book });
     if (existingWishlistItem) {
       return res.status(400).json({ error: 'Book already in the wishlist' });
     }
 
     const wishlistItem = new Wishlist({
-      bookId, 
+      book, 
      
     });
 
@@ -40,10 +39,10 @@ const addToWishlist = async (req, res) => {
 
 const removeFromWishlist = async (req, res) => {
   try {
-    const { bookId } = req.body;
+    const { book } = req.body;
 
-    await Wishlist.findOneAndRemove({ bookId });
-    const result = await Wishlist.findOneAndDelete({bookId});
+    await Wishlist.findOneAndRemove({ book });
+    const result = await Wishlist.findOneAndDelete({book});
     if(!result){
       return res.status(404).json({error: 'wishlist item not found'});
     }
@@ -60,3 +59,33 @@ module.exports = {
   addToWishlist,
   removeFromWishlist
 };
+
+// // wishlistController.js
+
+
+
+// const addToWishlist = async (book) => {
+//   try {
+//     const wishlistItem = new Wishlist(book);
+//     await wishlistItem.save();
+//     return wishlistItem;
+//   } catch (error) {
+//     throw error;
+//   }
+// };
+
+// const getWishlist = async () => {
+//   try {
+//     const wishlist = await find();
+//     return wishlist;
+//   } catch (error) {
+//     throw error;
+//   }
+// };
+
+// module.exports = {
+//   addToWishlist,
+//   getWishlist,
+// };
+
+

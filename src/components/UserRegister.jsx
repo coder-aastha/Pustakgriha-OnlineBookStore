@@ -44,7 +44,7 @@ const UserRegister = () => {
       <div className="bacground-image"></div>
       <div>
         <div className="wrapper1">
-          <div className="form-box register">
+          <div className="form-box-register">
             <h2>Register</h2>
 
             <form onSubmit={registerUser}>
