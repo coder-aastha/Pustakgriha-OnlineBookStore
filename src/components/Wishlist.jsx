@@ -9,7 +9,7 @@ const Wishlist = () => {
   // const [setWishlist] = useState([]);
 
   const handleWishlistClick =()=>{
-    saveWishlist(wishlist);
+    setWishlist(wishlist);
     toast.success("Added to wishlist!");
   }
 
@@ -40,12 +40,12 @@ const Wishlist = () => {
     <div className='wishlist'>
       <h2>Your Wishlist</h2>
       {wishlist.length > 0 ? (
-        <ul>
+        <ul className='wishlist-ul'>
           {wishlist.map((bookItem) => (
            
             <li key={bookItem._id} className="wishlist-item"> 
              
-              <img src={bookItem.imageURL} alt=" " className="book-image__img" />
+              <img className="book-image__img" src={bookItem.imageURL} alt=" "  />
 
               <div className='wishlist-details'>
               <p>{bookItem.bookTitle}</p>

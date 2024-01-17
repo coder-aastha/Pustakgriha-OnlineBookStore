@@ -18,7 +18,7 @@ const getAllBooks =async (req,res)=> {
 const book = async (req, res) => {
     try {
         // Destructuring values from the request body
-        const { bookTitle, authorName, category, bookDescription, imageURL, price, available } = req.body;
+        const { bookTitle, authorName, category, bookDescription, imageURL, price, available, section } = req.body;
 
         // Creating a new booklisting using the Booklisting model
         const booklisting = await Booklisting.create({
@@ -29,6 +29,7 @@ const book = async (req, res) => {
             imageURL,
             price,
             available,
+            section
         });
 
         // Sending the created booklisting as the response
@@ -64,7 +65,7 @@ const getById = async (req, res) => {
 const updateById = async (req, res) => {
     try {
         const id = req.params.id;
-        const  {bookTitle,authorName,category,bookDescription,imageURL,price,available}=req.body;
+        const  {bookTitle,authorName,category,bookDescription,imageURL,price,available, section}=req.body;
 
         // Find the book by ID and update it using the Booklisting model
         const book = await Booklisting.findByIdAndUpdate(id, {
@@ -74,7 +75,8 @@ const updateById = async (req, res) => {
             bookDescription,
             imageURL,
             price,
-            available
+            available,
+            section
         });
 
         if (!book) {

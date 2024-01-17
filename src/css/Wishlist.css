@@ -6,36 +6,54 @@
     border: 1px solid #ccc;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+  }
   
-.wishlist h2 {
+  .wishlist h2 {
     color: #333;
-}
+    margin-bottom: 15px;
+  }
   
-.wishlist ul {
+  .wishlist-ul {
     list-style: none;
     padding: 0;
-}
+  }
   
-.wishlist-item {
-    margin-bottom: 10px;
-}
-  
-.book-container {
+  .wishlist-item {
+    margin-bottom: 20px;
     display: flex;
     align-items: center;
-}
+  }
   
-.book-image__img {
-    width: 50px;
-    height: 70px;
+  .book-image__img {
+    width: 80px;
+    height: 120px;
     border-radius: 4px;
     object-fit: cover;
-    margin-right: 10px;
-}
+    margin-right: 20px;
+  }
   
-.wishlist-details {
+  .wishlist-details {
     flex: 1;
-    
+  }
+  
+  .wishlist-details p {
+    margin: 0;
+  }
+  
+  /* Optional: Style for the empty wishlist message */
+  p {
+    color: #555;
+  }
+  
+  /* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+    .wishlist-item {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .book-image__img {
+      margin: 0 auto 10px;
+    }
 }
   

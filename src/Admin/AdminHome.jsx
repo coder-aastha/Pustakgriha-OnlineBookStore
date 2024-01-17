@@ -6,7 +6,6 @@ import { BsCurrencyDollar } from "react-icons/bs";
 
 function Home() {
 
-
   return (
     <main className='main-container-admin'>
         <div className='main-title'>
