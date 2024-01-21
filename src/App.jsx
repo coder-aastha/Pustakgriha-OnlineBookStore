@@ -24,6 +24,7 @@ import ShoppingCart from "./components/shoppingCart";
 // import { useState } from 'react';
 import AdminApp from './Admin/AdminApp';
 import AdminUploadBook from './Admin/AdminBookUpload'
+import AdminManageBook from './Admin/AdminManageBook'
 
 axios.defaults.baseURL ='http://localhost:3001';
 axios.defaults.withCredentials = true
@@ -50,7 +51,7 @@ const App =()=> {
     <Route path="/shopping-cart" element={<ShoppingCart />} />
     <Route path="/admin" element={<AdminApp/>}/>
     <Route path="/upload-book" element={<AdminUploadBook/>}/>
-
+    <Route path="/manage-book" element={<AdminManageBook/>}/>
     </Routes>
     <FooterUI/>
     </AuthProvider>
