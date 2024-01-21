@@ -70,6 +70,8 @@
     cursor: pointer;
     width: 29px;
     padding-top: 10px;
+    padding-left: 46px;
+    width: 85px;
 }
 
 .search-results-container {
@@ -153,6 +155,7 @@ p{
  
   .search-icon{
     left: 5px;
+    
   }
  
   .search-results-container{
