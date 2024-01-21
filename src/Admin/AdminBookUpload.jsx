@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import '../css/UploadBook.css';
-// import AdminSideBar from './AdminSideBar';
-import axios from 'axios';
-// import { authorName } from '../../server/controller/bookController';
 
-const UploadForm = () => {
+import axios from 'axios';
+import toast from 'react-hot-toast';
+
+const UploadBook = () => {
   const [data, setData] = useState({
     bookTitle:'',
     authorName:'',
@@ -13,108 +13,119 @@ const UploadForm = () => {
     imageURL:'',
     price:'',
     available:'',
+    section:''
   })
 
+  const BookUpload = async (e) => { // Added 'e' as a parameter
+    e.preventDefault();
+    const { bookTitle, authorName, category, bookDescription, imageURL, price, available, section } = data;
+    try {
+      const { data } = await axios.post('/upload-book', {
+        bookTitle, authorName, category, bookDescription, imageURL, price, available, section
+      });
 
- const BookUpload=async ()=>{
-  e.preventDefault();
-  const{bookTitle,authorName,category,bookDescription,imageURL,price,available}=data
-  try{
-    const{data}=await axios.post('/upload-book',{
-      bookTitle,authorName,category,bookDescription,imageURL,price,available
-    });
-
-    if(data.error){
-      toast.error(data.error);
-    }
-    else{
-      setData({});
-      toast.success('Book Uploaded Successfully')
+      if (data.error) {
+        toast.error(data.error);
+      } else {
+        setData({
+          bookTitle: '',
+          authorName: '',
+          category: '',
+          bookDescription: '',
+          imageURL: '',
+          price: '',
+          available: '',
+          section: ''
+        });
+        toast.success('Book Uploaded Successfully');
+      }
+    } catch (error) {
+      console.log(error);
     }
   }
-  catch(error){
-    console.log(error)
-  }
- }
 
 
- return (
-  <>
- 
-  <div className="upload-form-container">
-     <h2>Upload A book</h2>
-     <form onSubmit={BookUpload}>
+  return (
+    <>
+      <div className="upload-form-container">
+        <h2>Upload A book</h2>
+        <form onSubmit={BookUpload}>
+          <div className="book_title">Book Title:
+            <input
+              type="text"
+              name="book_title"
+              value={data.bookTitle}
+              onChange={(e) => setData({ ...data, bookTitle: e.target.value })} required />
+          </div>
 
-       <label htmlFor="book_title">Book Title:</label>
-       <input
-         type="text"
-         id="book_title"
-         name="book_title"
-         value={data.bookTitle}
-         onChange={(e) => setData({...data, bookTitle:e.target.value})} required/>
+          <div className="book_title">Author name:
+            <input
+              type='text'
+              name="book_name"
+              value={data.authorName}
+              onChange={(e) => setData({ ...data, authorName: e.target.value })} required />
+          </div>
 
-       <label htmlFor="book_name">Author name:</label>
-       <input
-         type="text"
-         id="book_name"
-         name="book_name"
-         value={data.authorName}
-         onChange={(e) => setData({...data,authorName:e.target.value})} required/>
+          <div className="book_title"> Category
+            <input
+              type='text'
+              name="book_name"
+              value={data.category}
+              onChange={(e) => setData({ ...data, category: e.target.value })} required />
+          </div>
 
-       <label htmlFor="book_category">Book Category:</label>
-       <input
-         type="text"
-         id="book_category"
-         name="book_category"
-         value={data.category}
-         onChange={(e) => setData({...data,category:e.target.value})} required/>
+          <div className="book_title"> Description
+            <input
+              type='text'
+              name="book_name"
+              value={data.bookDescription}
+              onChange={(e) => setData({ ...data, bookDescription: e.target.value })} required />
+          </div>
 
-       <label htmlFor="book_description">Book Description:</label>
-       <textarea
-         id="book_description"
-         name="book_description"
-         value={data.bookDescription}
-         onChange={(e) => setData({...data,bookDescription:e.target.value})} required/>
+          <div className="book_title"> Image
+            <input
+              type='text'
+              name="book_name"
+              value={data.imageURL}
+              onChange={(e) => setData({ ...data, imageURL: e.target.value })} required />
+          </div>
 
-       <label htmlFor="book_image">Book Image URL:</label>
-       <textarea
-         id="book_image"
-         name="book_image"
-         value={data.imageURL}
-         onChange={(e) => setData({data,imageURL:e.target.value})} required/>
+          <div className="book_title"> Price
+            <input
+              type='text'
+              name="book_name"
+              value={data.price}
+              onChange={(e) => setData({ ...data, price: e.target.value })} required />
+          </div>
 
-       <label htmlFor="book_price">Book Price:</label>
-       <textarea
-         id="book_price"
-         name="book_price"
-         value={data.price}
-         onChange={(e) => setData({...data,price:e.target.value})} required/>
+          <div className="book_title"> available
+            <input
+              type='text'
+              name="book_name"
+              value={data.available}
+              onChange={(e) => setData({ ...data, available: e.target.value })} required />
+          </div>
 
-       <label htmlFor="book_available">Book Available:</label>
-       <textarea
-         id="book_available"
-         name="book_available"
-         value={data.available}
-         onChange={(e) => setData({...data,available:e.target.value})} required/>
 
-        <label htmlFor="book_category">Book Category:</label>
-        <select
-          id="book_category"
-          name="book_category"
-          value={data.category}
-          onChange={(e) => setData({ ...data, category: e.target.value })}
-          required
-        >
-          <option value="" disabled>Select a category</option>
-          <option value="bestseller">Bestseller</option>
-          <option value="newArrivals">New Arrivals</option>
-        </select>
+          <div className="book_title">
+            <select
+              id="book_category"
+              name="book_category"
+              value={data.section}
+              onChange={(e) => setData({ ...data, section: e.target.value })}
+              required
+            >
+              <option value="" disabled>Select a Section</option>
+              <option value="bestseller">bestseller</option>
+              <option value="newArrivals">newArrival</option>
+            </select>
+          </div>
 
-       <button type="submit">Submit</button>
-     </form>
-   </div>
-   </>
- );
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </>
+  );
 };
 
-export default UploadForm;
+export default UploadBook;
