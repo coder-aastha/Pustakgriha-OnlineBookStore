@@ -52,7 +52,8 @@ const App =()=> {
     <Route path="/shopping-cart" element={<ShoppingCart />} />
     <Route path="/admin" element={<AdminApp/>}/>
     <Route path="/upload-book" element={<AdminUploadBook/>}/>
-    <Route path="/manage-book" element={<AdminManageBook/>}/>
+    <Route path="/AdminManageBook/:id" element={<AdminManageBook/>}/>
+    {/* <Route path="/manage-book/:id" element={<AdminManageBook/>}/> */}
     <Route path="/booklisting" element={<AdminBookDetail/>}/>
     </Routes>
     <FooterUI/>

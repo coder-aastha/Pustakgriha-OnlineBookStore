@@ -134,7 +134,7 @@ const UpdateBooks = () => {
           <option value="newArrivals">New Arrivals</option>
         </select>
 
-       <button type="submit">Submit</button>
+       <button type="submit">Update</button>
      </form>
    </div>
    </>

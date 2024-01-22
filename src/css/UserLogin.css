@@ -147,6 +147,11 @@
     display: inline-block;
     margin-right: 50px; 
 }
+
+.remember-forgot label {
+    display: inline-block;
+    margin-right: 50px;
+}
  
 .remember-forgot label input{
     accent-color: #162938;

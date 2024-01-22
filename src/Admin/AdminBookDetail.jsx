@@ -2,6 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../css/AdminBookDetail.css';
+import { Link } from 'react-router-dom';
+// import AdminBookDetails from 
 
 
 const product = () => {
@@ -31,16 +33,18 @@ return (
     <div className="Abook-container">
         {Array.isArray(book) && book.length > 0 ? (
         <>
-            {book.map((bookItem) => (
-            <div key={bookItem._id} className='Abook-card'>
+            {book.map((books) => (
+            <div key={books._id} className='Abook-card'>
             
                 <div className="Abook-image">
-                <img src={bookItem.imageURL} alt=" " className="Abook-image__img" />
+                <img src={books.imageURL} alt=" " className="Abook-image__img" />
                 </div>
                 <div className="Abook-info">
-                <h2 className="Abook-title">{bookItem.bookTitle}</h2>
-                <p className="Abook-author">by: {bookItem.authorName}</p>
-                <button>Edit</button>
+                <h2 className="Abook-title">{books.bookTitle}</h2>
+                <p className="Abook-author">by: {books.authorName}</p>
+                <Link to={`/AdminManageBook/${books._id}`}>
+                    <button>Edit</button>
+                </Link>
                 </div>
 
             
