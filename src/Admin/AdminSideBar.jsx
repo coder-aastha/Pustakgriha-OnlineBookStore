@@ -45,7 +45,7 @@ function AdminSideBar({ openSidebarToggle, OpenSidebar }) {
         </li>
  
         <li className='sidebar-list-item'>
-          <NavLink to="/products" className="nav-link_admin" activeClassName="active">
+          <NavLink to="/booklisting" className="nav-link_admin" activeClassName="active">
             <BsFillArchiveFill className='icon' /> Products
           </NavLink>
         </li>

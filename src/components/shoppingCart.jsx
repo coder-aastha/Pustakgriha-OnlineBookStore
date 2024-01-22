@@ -1,20 +1,20 @@
 import React from "react";
-import { useCart } from "./CartContext";
- 
+
+
 const ShoppingCart = () => {
   const { cart, totalQuantity, removeFromCart } = useCart();
- 
+
   const handleRemoveFromCart = (bookId) => {
     removeFromCart(bookId);
   };
- 
+
   const totalPrice = cart.reduce((acc, book) => acc + book.price * book.quantity, 0);
- 
- 
+
+
   return (
     <div>
       <h2>Your Shopping Cart</h2>
- 
+
       {cart.length === 0 ? (
         <p>Your cart is empty.</p>
       ) : (
@@ -31,11 +31,11 @@ const ShoppingCart = () => {
           <p>Total Price:Rs {totalPrice}</p>
         </div>
       )}
- 
-     
+
+    
       <p>Total Quantity: {totalQuantity}</p>
     </div>
   );
 };
- 
+
 export default ShoppingCart;
