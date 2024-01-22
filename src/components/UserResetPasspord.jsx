@@ -11,7 +11,7 @@ function ResetPassword() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-   
+  
     try {
       const response = await axios.post('/resetpassword', {
         email: email,
@@ -34,42 +34,46 @@ function ResetPassword() {
   };
 
   return (
-    <div className='main-Reset-wrapper'>
-    <div className="wrapper">
-      <div className="form-box login">
+    <div className='main-ResetPassword-wrapper'>
+    <div className="wrapper-container-reset">
+    <div className="leftcontent-reset"></div>
+    <div className="wrapper-reset">
+      <div className="form-box-reset">
         <h4>Reset Password</h4>
-        {error && <div className="alert alert-danger">{error}</div>}
-        {successMessage && <div className="alert alert-success">{successMessage}</div>}
+        {error && <div className="error-reset">{error}</div>}
+        {successMessage &&
+        <div className="alert alert-success">{successMessage}</div>}
         <form onSubmit={handleSubmit}>
-        <div className="inputbox">
+        <div className="input-box-reset">
             <input
               type="Email"
               placeholder="Enter Email"
               autoComplete="off"
               name="Email"
-              className="form-control rounded-0"
+              className="form-control"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               
             />
           </div>
-          <div className="inputbox">
+          <div className="input-box-reset">
             <input
               type="password"
               placeholder="Enter Password"
               autoComplete="off"
               name="password"
-              className="form-control rounded-0"
+              className="form-control"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <button type="submit" className="btn">
+          <button type="submit" className="btn-reset">
             Update
           </button>
         </form>
       </div>
-    </div>
+      
+    </div></div>
     </div>
   );
 }

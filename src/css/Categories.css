@@ -72,7 +72,7 @@
   margin-left: 17px;
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
 }
 
 .books-main {
