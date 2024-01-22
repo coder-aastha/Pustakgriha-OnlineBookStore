@@ -8,6 +8,7 @@ const {addToCart, deleteFromCart} = require('../controller/CartController')
 // const { default: SearchBar } = require('../../src/components/Navbar');\
 const {getWishlist,addToWishlist,removeFromWishlist} = require('../controller/wishListController');
 
+
 router.use(
     cors({
         credentials:true,

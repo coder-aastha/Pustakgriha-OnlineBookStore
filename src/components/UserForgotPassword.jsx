@@ -39,27 +39,30 @@ const forgotPassword = async (e) => {
 return (
     
     <div className="main-Forgot-wrapper">
-    <div className="wrapper">
-    <div className="form-box-login">
+        <div class="wrapper-container-forgot">
+        <div className="leftcontent_Forgot"></div>
+    <div className="wrapperForgot">
+    <div className="form-box-forgot">
         <h4>Forgot Password</h4>
         {/* Display error message if there's any */}
-        {error && <div className="error-message">{error}</div>}
+        {error && <div className="error-message-forgot">{error}</div>}
         <form onSubmit={forgotPassword}>
-        <div className="inputbox">
+        <div className="input-box">
             <input
             type="email"
             placeholder="Enter Email"
             autoComplete="off"
             name="email"
-            className="finputbox"
+            className="input-box-forgot"
             value={data.email}
             onChange={(e) => setData({ ...data, email: e.target.value })}
             />
         </div>
-        <button type="submit" className="btn ">
+        <button type="submit" className="btn-Forgot ">
             Send
         </button>
         </form>
+    </div>
     </div>
     </div>
     </div>
