@@ -143,6 +143,10 @@
     justify-content: space-between;    
 }
 
+.label{
+    display: inline-block;
+    margin-right: 50px; 
+}
  
 .remember-forgot label input{
     accent-color: #162938;
