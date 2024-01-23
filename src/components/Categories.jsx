@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
-import FooterUI from "./FooterUI";
+import FooterUI from "../components/FooterUI";
+import Navbar from "../components/Navbar";
 import "../css/Categories.css";
 
 const Categories = () => {
@@ -26,6 +27,7 @@ const Categories = () => {
 
   return (
     <>
+          <Navbar />
           <div className="contents">
             <div className="content-column">
               <div className="list-title">
@@ -66,6 +68,7 @@ const Categories = () => {
               </div>
             </div>
           </div>
+          <FooterUI/>
     </>
   );
 };

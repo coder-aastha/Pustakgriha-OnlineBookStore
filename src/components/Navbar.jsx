@@ -7,24 +7,20 @@ import main_logo from "../images/main_logo.png";
 import { TbWorld } from "react-icons/tb";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import UserLogin from "./UserLogin";
 import { Link } from "react-router-dom";
 import { MdOutlineFavoriteBorder } from "react-icons/md";
-import Wishlist from "./Wishlist";
-// import Wishlist from "./Wishlist";
-// import WishlistDetails from "./WishlistDetails";
-import { useAuth } from "./AuthContext";
-import { useCart } from "./CartContext";
-import { Button } from "bootstrap";
+import { useAuth } from "../Context/AuthContext";
+import { useCart } from "../Context/CartContext";
 import { Dropdown } from "react-bootstrap";
 import { FaRegHeart } from "react-icons/fa";
 import { FiUserCheck } from "react-icons/fi";import { IoMenu } from "react-icons/io5";
+
+
 
 const SearchBar = () => {
   const [book, setBook] = useState([]);
   const [searchTerm, setsearchTerm] = useState("");
   const [isActive, setIsActive] = useState(false);
-  const navigate = useNavigate();
   const { isLoggedIn, logout, user } = useAuth();
   const { totalQuantity } = useCart();
 
@@ -56,14 +52,7 @@ const SearchBar = () => {
     setBook([]);
   };
 
-  const handleShoppingCartClick =() =>{
-    if(isLoggedIn){
-      navigate('/shopping-cart');
-    }
-    else{
-      navigate('/login');
-    }
-  };
+ 
 
   return (
     <>

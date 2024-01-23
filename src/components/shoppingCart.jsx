@@ -1,4 +1,6 @@
 import React from "react";
+import Navbar from "../components/Navbar";
+import FooterUI from "../components/FooterUI";
 
 
 const ShoppingCart = () => {
@@ -12,6 +14,8 @@ const ShoppingCart = () => {
 
 
   return (
+    <>
+     <Navbar />
     <div>
       <h2>Your Shopping Cart</h2>
 
@@ -35,6 +39,8 @@ const ShoppingCart = () => {
     
       <p>Total Quantity: {totalQuantity}</p>
     </div>
+    <FooterUI/>
+    </>
   );
 };
 

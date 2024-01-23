@@ -27,7 +27,7 @@ function AdminSideBar({ openSidebarToggle, OpenSidebar }) {
             </NavLink>
         </li>
         <li className='sidebar-list-item'>
-          <NavLink to="/manage-book" className="nav-link_admin" activeClassName="active">
+          <NavLink to="/AdminManageBook/:id" className="nav-link_admin" activeClassName="active">
             <HiBookmarkSquare className='icon' /> Manage Book
           </NavLink>
         </li>
