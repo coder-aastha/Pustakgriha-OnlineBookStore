@@ -1,5 +1,5 @@
 .Authorcontents {
-    width:120rcap;
+    width:100%;
     height:100%;
     background: white;
     display: flex;
@@ -7,8 +7,8 @@
   }
   .AuthorbooksView-content {
     position: relative;
-    width: 1485px;
-    height: 650px;
+    width: 100%;
+    height: 100%;
     overflow-y: auto; 
     background: white;
     margin-left: 17px;
@@ -96,3 +96,34 @@
   .Authorbook-item-content {
     margin-top: 20px;
   }
+
+    /* Responsive adjustments for smaller screens */
+@media only screen and (max-width: 768px) {
+  .AuthorbooksView-content {
+    width: 100%;
+    max-width: none;
+    margin-left: 0;
+  }
+
+  .books-main {
+    grid-template-columns: 1fr;
+  }
+
+  .Authorbooks-items {
+    width: calc(50% - 20px);
+  }
+}
+
+/* Responsive adjustments for even smaller screens */
+@media only screen and (max-width: 580px) {
+  .category-link {
+    padding: 8px;
+    font-size: 0.9em;
+  }
+
+  .Authorbooks-items {
+    width: 100%; /* One book in a row for even smaller screens */
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
