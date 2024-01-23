@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState,useEffect} from 'react';
 import axios from 'axios';
 import '../css/Review.css';
 import toast from 'react-hot-toast';
@@ -28,6 +28,15 @@ const Review = ({ bookId }) => {
   //   setReview(userReview);
   // }, [userReview]);
 
+  useEffect(() => {
+    const existingReviews = JSON.parse(localStorage.getItem('bookReviews')) || {};
+    const storedReview = existingReviews[bookId];
+
+  if (storedReview !== undefined) {
+    setReview(Number(storedReview));
+  }
+}, [bookId]);
+
   const handleStarClick = (starCount) => {
     setReview(starCount);
     setIsButtonDisabled(false); 
@@ -50,6 +59,11 @@ const Review = ({ bookId }) => {
       .then((response) => {
         console.log('Review submitted successfully:', response.data);
         toast.success('Review submitted successfully');
+
+        const existingReviews = JSON.parse(localStorage.getItem('bookReviews')) || {};
+        existingReviews[bookId] = reviews;
+
+        localStorage.setItem('bookReviews', JSON.stringify(existingReviews));
       })
       .catch((error) => {
         console.error('Error submitting review:', error);
