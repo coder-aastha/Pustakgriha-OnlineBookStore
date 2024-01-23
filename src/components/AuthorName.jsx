@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
-import FooterUI from "./FooterUI";
+import FooterUI from "../components/FooterUI";
+import Navbar from "../components/Navbar";
 import "../css/AuthorName.css";
 
 const AuthorName = () => {
@@ -26,6 +27,7 @@ const AuthorName = () => {
 
   return (
     <>
+     <Navbar />
       <div className="Authorcontents">
             </div>
             <div className="AuthorbooksView-content">
@@ -53,6 +55,7 @@ const AuthorName = () => {
                   ))}
                 </div>
               </div>
+              <FooterUI/>
     </>
   );
 };

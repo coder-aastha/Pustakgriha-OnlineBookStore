@@ -1,11 +1,13 @@
 import React from "react";
+import Navbar from "../components/Navbar";
+import FooterUI from "../components/FooterUI";
 import { RiCompassDiscoverLine } from "react-icons/ri";
 import { BiBookContent } from "react-icons/bi";
 
 const AboutUs = () => {
   return (
     <>
-      {/* <Navbar />  */}
+      <Navbar /> 
       <div className="main-aboutUs-div">
         <div className="aboutUs-main">
           <h4 className="aboutUs-first-heading">
@@ -86,6 +88,7 @@ const AboutUs = () => {
           </div>
         </div>
       </div>
+      <FooterUI/>
     </>
   );
 };
