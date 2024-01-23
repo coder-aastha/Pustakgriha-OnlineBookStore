@@ -4,10 +4,13 @@ import axios from 'axios';
 import FooterUI from "../components/FooterUI";
 import Navbar from "../components/Navbar";
 import "../css/Categories.css";
+import { HiMenuAlt1 } from "react-icons/hi";
 
 const Categories = () => {
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [activeCategory, setActiveCategory] = useState(null);
+  const [menuOpen, setMenuOpen] = useState(localStorage.getItem('menuOpen') === 'true');
   const { category } = useParams();
 
   useEffect(() => {
@@ -23,40 +26,52 @@ const Categories = () => {
     };
 
     fetchData();
+    setActiveCategory(category);
   }, [category]);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+    localStorage.setItem('menuOpen', (!menuOpen).toString());
+  };
 
   return (
     <>
           <Navbar />
-          <div className="contents">
-            <div className="content-column">
-              <div className="list-title">
-                <h3> Genres</h3>
-              </div>
-              <div className="list-box">
-                <Link className="category-link" to="/category/Fiction">Fiction</Link>
-                <Link className="category-link" to="/category/Biography">Biography</Link>
-                <Link className="category-link" to="/category/Historical">Historical</Link>
-                <Link className="category-link" to="/category/Kids & Teen">Kids & Teen</Link>
-                <Link className="category-link" to="/category/Photography">Photography</Link>
-                <Link className="category-link" to="/category/Inventory">Inventory</Link>
-                <Link className="category-link" to="/category/Improvement">Improvement</Link>
-              </div>
+          <div className="genre_contents">
+          <HiMenuAlt1 className="genremenu-icon" onClick={toggleMenu} />
+            {menuOpen &&(
+          <div className="genrecontent-column active">
+            <div className="genrelist-title">
+              <h3> Genres</h3>
             </div>
-            <div className="booksView-content">
-              <div className="books-main">
-                <div className="books-row">
+            <div className="main-category-container">
+              <Link className={`category-link ${activeCategory === 'Fiction' ? 'active' : ''}`} to="/category/Fiction">Fiction</Link>
+              <Link className={`category-link ${activeCategory === 'Biography' ? 'active' : ''}`} to="/category/Biography">Biography</Link>
+              <Link className={`category-link ${activeCategory === 'Historical' ? 'active' : ''}`} to="/category/Historical">Historical</Link>
+              <Link className={`category-link ${activeCategory === 'Kids & Teen' ? 'active' : ''}`} to="/category/Kids & Teen">Kids & Teen</Link>
+              <Link className={`category-link ${activeCategory === 'Photography' ? 'active' : ''}`} to="/category/Photography">Photography</Link>
+              <Link className={`category-link ${activeCategory === 'Inventory' ? 'active' : ''}`} to="/category/Inventory">Inventory</Link>
+              <Link className={`category-link ${activeCategory === 'Improvement' ? 'active' : ''}`} to="/category/Improvement">Improvement</Link>
+            </div>
+          </div>
+        )}
+            <div className="genrebooksView-content">
+            {books.length === 0 ? (
+            <p>No books available!!</p>
+          ) : (
+              <div className="genrebooks-main">
+                <div className="genrebooks-row">
                   {books.map((book) => (
-                    <Link to={`/booklisting/${book._id}`} key={book._id} className="books-items">
+                    <Link to={`/booklisting/${book._id}`} key={book._id} className="genrebooks-items">
                         <div className="book-item-content">
                           <div className="book-cardGenre">
                           <div className="book-img-genre">
                             <img src={book.imageURL} alt={`Cover of ${book.bookTitle}`} />
                             <div>
-                              <div className="book-text">
+                              <div className="genrebook-text">
                                 <h4>{book.bookTitle}</h4>
                                 <p>{'Rs. ' + book.price}</p>
-                                <button className="add-to-cart-btn">ADD TO CART</button>
+                                <button className="genreadd-to-cart-btn">ADD TO CART</button>
                               </div>
                             </div>
                           </div>
@@ -66,6 +81,7 @@ const Categories = () => {
                   ))}
                 </div>
               </div>
+          )}
             </div>
           </div>
           <FooterUI/>

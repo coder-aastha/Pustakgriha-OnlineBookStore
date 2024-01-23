@@ -1,0 +1,43 @@
+.paymentMain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: left;
+  width: 50%;
+}
+
+.paymentMain h3{
+  font-style: italic;
+}
+
+.payment-container {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.Payment_Method1,
+.Payment_Method2 {
+  width: 200px;
+  height: 150px;
+  margin: 10px; 
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.Payment_Method1 img,
+.Payment_Method2 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.QR_Container {
+  display: flex;
+  justify-content: center;
+}
+
+.QR img{
+  width: 200px;
+  height: 215px;
+}
