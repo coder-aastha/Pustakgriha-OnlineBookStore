@@ -1,12 +1,12 @@
 import React, {useEffect}from 'react';
-import { useWishlist } from './WishlistContext';
+import { useWishlist } from '../Context/WishlistContext';
 import toast from 'react-hot-toast';
 import { FaRegHeart } from "react-icons/fa";
 import axios from 'axios';
 
 const Wishlist = () => {
   const { wishlist, setWishlist } = useWishlist();
-  // const [setWishlist] = useState([]);
+  
 
   const handleWishlistClick =()=>{
     setWishlist(wishlist);

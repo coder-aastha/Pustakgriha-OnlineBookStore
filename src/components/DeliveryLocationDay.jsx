@@ -5,7 +5,7 @@ import { PiPencilSimpleLineFill } from "react-icons/pi";
 import { FaMinus } from "react-icons/fa6";
 import { MdAdd } from "react-icons/md";
 import { BsInfoCircle } from "react-icons/bs";
-import { useCart } from './CartContext';
+import { useCart } from '../Context/CartContext';
 
 const DeliveryLocationDay = ({ book }) => {
   const [quantity, setQuantity] = useState(1);
