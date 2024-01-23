@@ -25,11 +25,10 @@ import AdminUploadBook from './Admin/AdminBookUpload'
 import AdminManageBook from './Admin/AdminManageBook'
 import AdminBookDetail from './Admin/AdminBookDetail'
 
-axios.defaults.baseURL ='http://localhost:3001';
-axios.defaults.withCredentials = true
+axios.defaults.baseURL = "http://localhost:3001";
+axios.defaults.withCredentials = true;
 
-const App =()=> {
-
+const App = () => {
   return (
     <>
       <Toaster position='bottom-right' toastOptions={{duration:2000}} />
@@ -56,6 +55,6 @@ const App =()=> {
 
     </>
   );
-}
+};
 
 export default App;
