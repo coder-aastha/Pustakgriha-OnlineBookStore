@@ -25,7 +25,7 @@ const registerUser = async (req, res) => {
             });
         }
 
-        if (password !== confirmpassword) {
+        if (password !==     confirmpassword) {
             return res.json({
                 error: "Passwords don't match",
             });

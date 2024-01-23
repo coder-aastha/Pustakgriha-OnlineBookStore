@@ -8,8 +8,8 @@ function AdminLogin() {
 const navigate = useNavigate();
 
 const [data, setData] = useState({
-    email: '',
-    password: '',
+    email: 'admin@gmail.com',
+    password: 'AdminPassword',
 });
 
 const loginAdmin = async (e) => {
