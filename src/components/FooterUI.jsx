@@ -1,18 +1,11 @@
 import khalti from "../images/khalti.png";
 import cashOnDelivery from "../images/cashOnDelivery.png";
 import { NavLink } from "react-router-dom";
-import { Link } from "react-router-dom";
-import AboutUs from "./AboutUs";
 
 const FooterUI = () => {
   return (
     <>
-      {/* <p>
-        "buy books online in nepal, online bookstore nepal, largest online
-        bookstore in Nepal, buy books nepal, buy nepali books online, onlinegit 
-        bookshop nepal, buy books online nepal, bookshop, Shop books"
-      </p> */}
-
+  
       <div className="footer-main">
         <div className="footer-titles">
           <div className="footer-left-end-section">
