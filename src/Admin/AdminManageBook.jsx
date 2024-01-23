@@ -65,76 +65,84 @@ const UpdateBooks = () => {
   return (
     <>
       <div className="upload-form-container">
-        <h2>Manage Books</h2>
+        <h2>Manage a book</h2>
         <form onSubmit={handleFormSubmit}>
-          <label htmlFor="book_title">Book Title:</label>
-          <input
-            type="text"
-            id="book_title"
-            name="bookTitle"
-            value={data.bookTitle}
-            onChange={handleInputChange}
-            required
-          />
+          <div className="book_title">Book Title:
+            <input
+              type="text"
+              id='book_title'
+              name="bookTitle"
+              value={data.bookTitle}
+              onChange={handleInputChange} required />
+          </div>
 
-          <label htmlFor="book_name">Author name:</label>
-          <input
-            type="text"
-            id="book_name"
-            name="authorName"
-            value={data.authorName}
-            onChange={handleInputChange}
-            required
-          />
+          <div className="book_title">Author name:
+            <input
+              type='text'
+              id='book_name'
+              name="authorName"
+              value={data.authorName}
+              onChange={handleInputChange} required />
+          </div>
 
-          <label htmlFor="book_category">Book Category:</label>
-          <select
-            id="book_category"
-            name="category"
-            value={data.category}
-            onChange={handleInputChange}
-            required
-          >
-            <option value="" disabled>Select a category</option>
-            <option value="bestseller">Bestseller</option>
-            <option value="newArrivals">New Arrivals</option>
-          </select>
+          <div className="book_title"> Category
+            <input
+              type='text'
+              id="book_category"
+              name="category"
+              value={data.category}
+              onChange={handleInputChange} required />
+          </div>
 
-          <label htmlFor="book_description">Book Description:</label>
-          <textarea
-            id="book_description"
-            name="bookDescription"
-            value={data.bookDescription}
-            onChange={handleInputChange}
-            required
-          />
+          <div className="book_title"> Description
+            <input
+              type='text'
+              id='book_description'
+              name="bookDescription"
+              value={data.bookDescription}
+              onChange={handleInputChange} required />
+          </div>
 
-          <label htmlFor="book_image">Book Image URL:</label>
-          <textarea
-            id="book_image"
-            name="imageURL"
-            value={data.imageURL}
-            onChange={handleInputChange}
-            required
-          />
+          <div className="book_title"> Image
+            <input
+              type='text'
+              id='book_image'
+              name="imageURL"
+              value={data.imageURL}
+              onChange={handleInputChange} required />
+          </div>
 
-          <label htmlFor="book_price">Book Price:</label>
-          <textarea
-            id="book_price"
-            name="price"
-            value={data.price}
-            onChange={handleInputChange}
-            required
-          />
+          <div className="book_title"> Price
+            <input
+              type='text'
+              id='book_price'
+              name="price"
+              value={data.price}
+              onChange={handleInputChange} required />
+          </div>
 
-          <label htmlFor="book_available">Book Available:</label>
-          <textarea
-            id="book_available"
-            name="available"
-            value={data.available}
-            onChange={handleInputChange}
-            required
-          />
+          <div className="book_title"> available
+            <input
+              type='text'
+              name="book_name"
+              value={data.available}
+              onChange={handleInputChange} required />
+          </div>
+
+
+          <div className="book_title">
+            <select
+              id="book_category"
+              name="book_category"
+              value={data.section}
+              onChange={(e) => setData({ ...data, section: e.target.value })}
+              required
+            >
+              <option value="" disabled>Select a Section</option>
+              <option value="bestseller">bestseller</option>
+              <option value="newArrivals">newArrival</option>
+            </select>
+          </div>
 
           <button type="submit">Update</button>
         </form>
@@ -144,3 +152,4 @@ const UpdateBooks = () => {
 };
 
 export default UpdateBooks;
+
