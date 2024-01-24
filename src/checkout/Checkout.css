@@ -47,6 +47,10 @@
     margin-bottom: -6px;
   }
 
+  .contact_section h2{
+    text-align: left;
+  }
+
   .inputbox_checkout{
     position: relative;
     width: 100%;
