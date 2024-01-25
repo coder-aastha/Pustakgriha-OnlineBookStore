@@ -6,8 +6,9 @@
   width: 50%;
 }
 
-.paymentMain h3{
-  font-style: italic;
+.receipt_container{
+  border: 2px solid #162938;
+  width: 100%;
 }
 
 .payment-container {
@@ -40,4 +41,21 @@
 .QR img{
   width: 200px;
   height: 215px;
+}
+
+.Continue{
+  height: 35px;
+  width: 25%;
+  border: 2px solid #162938;
+  background: black;
+  margin-left: 50%;
+  margin-top: 5%;
+}
+
+.Continue p{
+  font-size: 0.7em;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  padding: 6px;
 }
