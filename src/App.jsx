@@ -19,6 +19,8 @@ import AboutUs from "./components/AboutUs";
 import AuthorName from "./components/AuthorName";
 import Wishlist from "./components/Wishlist";
 import ShoppingCart from "./components/shoppingCart";
+import Checkout from "./checkout/Checkout";
+import Payment from "./checkout/Payment";
 
 import AdminApp from './Admin/AdminApp';
 import AdminUploadBook from './Admin/AdminBookUpload'
@@ -44,6 +46,8 @@ const App = () => {
     <Route path='/author/:authorName' element={<AuthorName />}/>
     <Route path="/Wishlist" element={<Wishlist />}/>
     <Route path="/shopping-cart" element={<ShoppingCart />} />
+    <Route path="/checkout" element={<Checkout />} />
+    <Route path="/payment" element={<Payment />} />
     
     <Route path="/admin" element={<AdminApp/>}/>
     <Route path="/upload-book" element={<AdminUploadBook/>}/>
