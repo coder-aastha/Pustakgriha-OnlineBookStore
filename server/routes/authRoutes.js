@@ -1,12 +1,11 @@
 const express =require('express');
 const router = express.Router();
 const cors = require('cors')
-const {test,registerUser,loginUser,forgotPassword,resetPassword} =require('../controller/authController')
+const {test,registerUser,loginUser,loginAdmin,forgotPassword,resetPassword,userById} =require('../controller/authController')
 const {getAllBooks,book,getById,updateById,deleteById,searchBooks,reviewSchema,category,authorName,getBooksBySection} =require('../controller/bookController');
 const {addToCart, deleteFromCart} = require('../controller/CartController')
-// const {reviewSchema} = require('../models/reviewModel');
-// const { default: SearchBar } = require('../../src/components/Navbar');\
 const {getWishlist,addToWishlist,removeFromWishlist} = require('../controller/wishListController');
+
 
 
 router.use(
@@ -19,6 +18,7 @@ router.use(
 router.get('/',test)
 router.post('/register',registerUser)
 router.post('/login',loginUser)
+router.post('/login',loginAdmin)
 router.post('/upload-book',book)
 router.get('/booklisting' ,getAllBooks)
 router.get('/booklisting/:id' ,getById)
@@ -36,7 +36,7 @@ router.get('/book/:section', getBooksBySection);
 router.post('/wishlist/add', addToWishlist);
 router.delete('/remove', removeFromWishlist);
 router.get('/wishlist', getWishlist);
-// router.post('wishlist/add',addToWishlist)
+router.get('/user/:id',userById);
 
 
 module.exports=router;

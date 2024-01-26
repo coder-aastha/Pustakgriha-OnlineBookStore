@@ -12,7 +12,6 @@ import UserLogin from "./Auth/UserLogin";
 import UserRegister from "./Auth/UserRegister";
 import UserForgotPassword from './Auth/UserForgotPassword';
 import UserResetPassword from './Auth/UserResetPasspord';
-
 import BookDetail from './components/BookDetail'
 import Categories from "./components/Categories";
 import AboutUs from "./components/AboutUs";
@@ -24,6 +23,8 @@ import AdminApp from './Admin/AdminApp';
 import AdminUploadBook from './Admin/AdminBookUpload'
 import AdminManageBook from './Admin/AdminManageBook'
 import AdminBookDetail from './Admin/AdminBookDetail'
+
+import UserDetail from "./components/UserDetail";
 
 axios.defaults.baseURL = "http://localhost:3001";
 axios.defaults.withCredentials = true;
@@ -44,6 +45,7 @@ const App = () => {
     <Route path='/author/:authorName' element={<AuthorName />}/>
     <Route path="/Wishlist" element={<Wishlist />}/>
     <Route path="/shopping-cart" element={<ShoppingCart />} />
+    <Route path='/user/:id' element={<UserDetail/>} />
     
     <Route path="/admin" element={<AdminApp/>}/>
     <Route path="/upload-book" element={<AdminUploadBook/>}/>

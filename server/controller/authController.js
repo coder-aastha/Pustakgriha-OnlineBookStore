@@ -57,6 +57,25 @@ const registerUser = async (req, res) => {
     }
 };
 
+const userById = async (req, res) => {
+    try {
+        const userId = req.params.id;
+
+       
+        const user = await User.findOne({userId});
+
+        if (!user ) {
+            return res.status(404).json({ error: 'user not found' });
+        }
+
+      
+        res.send(user);
+    } catch (error) {
+        console.error('Error getting user by ID:', error);
+        res.status(500).json({ error: 'An error occurred while getting the user by ID' });
+    }
+};
+
 const loginUser = async (req, res) => {
     try {
         const { email, password } = req.body;
@@ -68,9 +87,9 @@ const loginUser = async (req, res) => {
                 error: 'No user found',
             });
         }
- 
+
         const isPasswordMatch = await comparePassword(password, user.password);
- 
+
         if (isPasswordMatch) {
             const token = jwt.sign({ id: user._id }, "jwt_secret_key", { expiresIn: "1h" });
             return res.json({
@@ -90,12 +109,38 @@ const loginUser = async (req, res) => {
     }
 };
 
+const loginAdmin = async (e) => {
+    e.preventDefault();
+    const { email, password } = data;
+
+    try {
+        const { data: { token, user, error } } = await axios.post('/admin/login', {
+            email,
+            password
+        });
+
+        if (error) {
+            toast.error(error);
+        } else {
+            localStorage.setItem('adminToken', token);
+            localStorage.setItem('adminUser', JSON.stringify(user));
+            setData({
+                email: 'admin@gmail.com',
+                password: 'AdminPassword',
+            });
+            navigate('/admin-dashboard');
+        }
+    } catch (error) {
+        console.log('Error during login:', error);
+        toast.error('An unexpected error occurred during login. Please try again.');
+    }
+};
 
 
 const forgotPassword = async (req, res) => {
     try {
-      const { email } = req.body;
-      
+    const { email } = req.body;
+    
       // Find the user in the database based on the provided email
       const user = await User.findOne({ email });
   
@@ -146,10 +191,15 @@ const forgotPassword = async (req, res) => {
     }
   };
   
+
+
+  
 module.exports = {
     test,
     registerUser,
     loginUser,  
     forgotPassword,
     resetPassword, 
+    userById,
+    loginAdmin,
 };

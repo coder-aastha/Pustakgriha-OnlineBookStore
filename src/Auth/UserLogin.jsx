@@ -5,8 +5,6 @@ import axios from 'axios'
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 
-
-
 function UserLogin() {
   const navigate = useNavigate()
   const[data,setData]=useState({
@@ -65,15 +63,15 @@ const loginUser = async (e) =>{
                   </span>
                 </a>
             </div>
- 
+
             <div className="input-box">
               <input type="password"
               value={data.password}
               onChange={(e) => setData({ ...data, password: e.target.value })}
-               required />
+              required />
               <label>Password</label>
             </div>
- 
+
             <div className="remember-forgot">
               <label>
                 <input type="checkbox" />
@@ -84,11 +82,11 @@ const loginUser = async (e) =>{
                 Forgot Password ?
               </a>
             </div>
- 
+
             <button type="submit" className="btn">
               Login
             </button>
- 
+
             <div className="register">
               <p>
                 Don't have an account?
@@ -105,5 +103,5 @@ const loginUser = async (e) =>{
     </>
   );
 };
- 
+
 export default UserLogin;
