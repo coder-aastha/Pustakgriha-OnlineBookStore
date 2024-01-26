@@ -4,6 +4,7 @@ import { MdEmail } from "react-icons/md";
 import axios from 'axios'
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import Navbar from '../components/Navbar'
 
 
 
@@ -44,6 +45,7 @@ const loginUser = async (e) =>{
 }
   return (
     <>
+    <Navbar/>
     <div className="main-login-wrapper">
       {/* <div className="bacground-image"></div> */}
       <div className="leftcontent_login"></div>

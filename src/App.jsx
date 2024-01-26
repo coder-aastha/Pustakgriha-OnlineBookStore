@@ -53,6 +53,7 @@ const App = () => {
     <Route path="/upload-book" element={<AdminUploadBook/>}/>
     <Route path="/AdminManageBook/:id" element={<AdminManageBook/>}/>
     <Route path="/booklisting" element={<AdminBookDetail/>}/>
+    {/* <Route path="/profile" component={UserProfile} /> */}
     </Routes>
     
 

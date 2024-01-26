@@ -4,7 +4,6 @@ const jwt = require('jsonwebtoken');
 const keysecret = process.env.SECRET_KEY;
 const UserSchema = require('./userSchema');
 
-// Import the user model
 let UserModel;
 
 try {
