@@ -5,9 +5,8 @@ import axios from 'axios';
 import "../css/bookdetail.css";
 import DeliveryLocationDay from './DeliveryLocationDay';
 import Review from './Review';
-import Wishlist from './Wishlist';
-import { FaRegHeart } from "react-icons/fa";
-// import Wishlist from './Wishlist';
+import Navbar from "../components/Navbar";
+import FooterUI from "../components/FooterUI";
 
 
 const BookDetail = () => {
@@ -31,6 +30,7 @@ const BookDetail = () => {
 
   return (
     <>
+     <Navbar />
     <div className='main-book-details-container'>
     <div className="book-detail-container">
       <div className="book-details-wrapper">
@@ -49,23 +49,20 @@ const BookDetail = () => {
         <p className="book-availability">Availability: {book.available ? 'Available' : 'Not Available'}</p>
       </div>
     </div>
-
-
       <div className="review-delivery">
       <div>
         <DeliveryLocationDay book={book} />
       </div>
-
       <div>
         <Review />
       </div>
-
       </div>
-
-      
     </div>
+    <FooterUI/>
       </>
   );
 };
+
+
 
 export default BookDetail;

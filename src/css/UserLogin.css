@@ -21,25 +21,25 @@
 } */
 
 .leftcontent_login{
-    width: 40%;
+    width: 60%;
     background: whitesmoke;
-    max-width: 400px;
-    height: 445px;
+    max-width: 450px;
+    height: 500px;
     background: transparent;
     border: 2px solid rgba(24, 23, 23, 0.5);
     border-bottom-left-radius: 20px;
     border-top-left-radius: 20px;
     display: flex;
     justify-content: center;
-    align-items: center;
-    background-image: url('../images/book.jpg');
+    /* align-items: center; */
+    background-image: url('../images/Login_logo.jpg');
     background-size: cover;
 }
 
 .wrapperLogin{
     position: relative;
     width: 400px;
-    height: 445px;
+    height: 500px;
     background: transparent;
     border: 2px solid rgba(24, 23, 23, 0.5);
     border-bottom-right-radius: 20px;
@@ -47,7 +47,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(210, 172, 145);
+    background-color:white
 }
  
 .wrapper.active{
@@ -143,6 +143,15 @@
     justify-content: space-between;    
 }
 
+.label{
+    display: inline-block;
+    margin-right: 50px; 
+}
+
+.remember-forgot label {
+    display: inline-block;
+    margin-right: 50px;
+}
  
 .remember-forgot label input{
     accent-color: #162938;

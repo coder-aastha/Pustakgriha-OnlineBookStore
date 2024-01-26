@@ -8,34 +8,14 @@ const Review = ({ bookId }) => {
   const [hoveredStar, setHoveredStar] = useState(0);
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
-  // // New state to store the user's review fetched from the server
-  // const [userReview, setUserReview] = useState(0);
-
-  // useEffect(() => {
-  //   // Fetch the user's review for the current book from the server
-  //   axios.get(`/reviews/${bookId}`)
-  //     .then((response) => {
-  //       const userReviewFromServer = response.data.rating;
-  //       setUserReview(userReviewFromServer);
-  //     })
-  //     .catch((error) => {
-  //       console.error('Error fetching user review:', error);
-  //     });
-  // }, [bookId]);
-
-  // useEffect(() => {
-  //   // Initialize the review state with the stored user review
-  //   setReview(userReview);
-  // }, [userReview]);
-
   useEffect(() => {
     const existingReviews = JSON.parse(localStorage.getItem('bookReviews')) || {};
     const storedReview = existingReviews[bookId];
 
-  if (storedReview !== undefined) {
-    setReview(Number(storedReview));
-  }
-}, [bookId]);
+    if (storedReview !== undefined) {
+      setReview(Number(storedReview));
+    }
+  }, [bookId]);
 
   const handleStarClick = (starCount) => {
     setReview(starCount);

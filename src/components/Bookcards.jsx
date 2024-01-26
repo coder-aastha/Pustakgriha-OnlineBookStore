@@ -2,9 +2,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import "../css/bookcard.css";
-import { useCart } from './CartContext';
+import { useCart } from '../Context/CartContext';
 import { FaRegHeart } from "react-icons/fa";
-import { useWishlist } from './WishlistContext';
+import { useWishlist } from '../Context/WishlistContext';
 import toast from 'react-hot-toast';
 // import Wishlist from './Wishlist';
 

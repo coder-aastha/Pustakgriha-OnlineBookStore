@@ -22,7 +22,7 @@ router.post('/login',loginUser)
 router.post('/upload-book',book)
 router.get('/booklisting' ,getAllBooks)
 router.get('/booklisting/:id' ,getById)
-router.patch('/booklisting/:id',updateById)
+router.patch('/AdminManageBook/:id',updateById)
 router.delete('/booklisting/:id', deleteById)
 router.delete('/Cart', deleteFromCart)
 router.post('/shopping-cart', addToCart)
@@ -36,7 +36,11 @@ router.get('/book/:section', getBooksBySection);
 router.post('/wishlist/add', addToWishlist);
 router.delete('/remove', removeFromWishlist);
 router.get('/wishlist', getWishlist);
-// router.post('wishlist/add',addToWishlist)
+router.post('wishlist/add',addToWishlist);
+// router.get('/profile', authMiddleware,(req, res)=>{
+//     const{username, email}=req.user;
+//     res.json({username,email});
+// });
 
 
 module.exports=router;
