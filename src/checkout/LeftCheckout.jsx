@@ -6,7 +6,7 @@ function LeftCheckout({ imageURL,bookName, totalPrice, calculateShippingCost, ca
     <div className='checkout_left'>
       <div className='bookDetail_checkout'>
       <div className="checkout-image">
-        <img src={imageURL} alt=" " className="checkoutbookimage" />
+      <h2 className="checkoutbookimage" >{imageURL} </h2>
         </div>
         <div className="checkout-info">
         <h2 className='checkoutbookname'>Book Name: {bookName}</h2>

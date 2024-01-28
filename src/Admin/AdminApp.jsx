@@ -1,7 +1,6 @@
 import AdminSideBar from "./AdminSideBar";
-import AdminHeader from "./AdminHeader";
 import { useState } from 'react';
-import AdminHome from "./AdminHome";
+import AdminSales from "./AdminSales";
 
 const App =()=> {
     const [openAdminSideBarToggle, setOpenAdminSideBarToggle] = useState(false)
@@ -13,9 +12,8 @@ const App =()=> {
     return (
        
       <div className="grid-container">
-        <AdminHeader OpenAdminSideBar={OpenAdminSideBar}/>
         <AdminSideBar openAdminSideBarToggle={openAdminSideBarToggle} OpenAdminSideBar={OpenAdminSideBar}/>
-        <AdminHome />
+        <AdminSales />
       </div>
     );
 }
