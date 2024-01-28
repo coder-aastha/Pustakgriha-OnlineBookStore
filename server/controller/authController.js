@@ -167,45 +167,41 @@ const forgotPassword = async (req, res) => {
     }
 };
 
-const resetPassword = async (req, res) => {
+  const resetPassword = async (req, res) => {
     const { email, newPassword } = req.body;
-
+  
     try {
-    
-    const user = await User.findOne({ email });
-
-    if (!user) {
+     
+      const user = await User.findOne({ email });
+  
+      if (!user) {
         return res.json({ error: 'User not found' });
-    }
-
+      }
+  
       // Log user and newPassword for debugging
-    console.log('User:', user);
-    console.log('New Password:', newPassword);
-
+      console.log('User:', user);
+      console.log('New Password:', newPassword);
+  
       // Update user's password
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(newPassword, salt);
-
-    user.password = hashedPassword;
-    await user.save();
-
-    console.log('Updated User:', user);
-    return res.json({ success: 'Password updated successfully!' });
+      const salt = await bcrypt.genSalt(10);
+      const hashedPassword = await bcrypt.hash(newPassword, salt);
+  
+      user.password = hashedPassword;
+      await user.save();
+  
+      console.log('Updated User:', user);
+      return res.json({ success: 'Password updated successfully!' });
     } catch (error) {
-    console.log(error);
-    return res.status(500).json({ error: 'An error  while resetting the password' });
+      console.log(error);
+      return res.status(500).json({ error: 'An error  while resetting the password' });
     }
-};
-
-
-
-
+  };
+  
 module.exports = {
     test,
     registerUser,
     loginUser,  
     forgotPassword,
     resetPassword, 
-    userById,
-    loginAdmin,
+    loginAdmin
 };

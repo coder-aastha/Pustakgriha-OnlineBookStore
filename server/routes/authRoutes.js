@@ -23,6 +23,7 @@ router.get('/',test)
 //Authentication routes
 router.post('/register',registerUser)
 router.post('/login',loginUser)
+
 router.post('/forgotpassword',forgotPassword);
 router.post('/resetpassword', resetPassword);
 
@@ -52,6 +53,7 @@ router.post('/wishlist/add', addToWishlist);
 router.delete('/remove', removeFromWishlist);
 router.get('/wishlist', getWishlist);
 router.post('wishlist/add',addToWishlist);
+
 
 // order routes
 router.post('/checkout',createOrder);
