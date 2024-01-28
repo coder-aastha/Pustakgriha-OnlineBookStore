@@ -25,13 +25,28 @@
     display: flex;
     align-items: center;
   }
+
+  .book-imgCheckout{
+    width: 23%;
+    border: 1px solid #162938;
+    border-radius: 10px;
+    align-items: center;
+  }
   .book-imgCheckout img {
-    width: 150px;
-    height: 200px;
+    width: 120px;
+  height: 150px;
+  margin-left: 10%;
+  margin-top: 5%;
   }
   
-  .bookText_checkout p{
+  .bookText_checkout p,
+  .bookText_checkout h4{
+    width: 100%;
     font-size: 1.1em;
+    margin-left: 4%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
                              /* Right bar */
@@ -47,7 +62,8 @@
     margin-bottom: -6px;
   }
 
-  .contact_section h2{
+  .contact_section h2,
+  .contact_section h4{
     text-align: left;
   }
 

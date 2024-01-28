@@ -1,10 +1,8 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { IoSearchOutline } from "react-icons/io5";
-// import { PiShoppingCartSimpleBold } from "react-icons/pi";
 import { BiCartAdd } from "react-icons/bi";
 import { LuUser } from "react-icons/lu";
 import main_logo from "../images/main_logo.png";
-import { TbWorld } from "react-icons/tb";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -21,7 +19,7 @@ const SearchBar = () => {
   const [book, setBook] = useState([]);
   const [searchTerm, setsearchTerm] = useState("");
   const [isActive, setIsActive] = useState(false);
-  const { isLoggedIn, logout, user } = useAuth();
+  const { user, isAuthenticated, logout,getUsername, getEmail  } = useAuth();
   const { totalQuantity } = useCart();
 
   useEffect(() => {
@@ -51,7 +49,10 @@ const SearchBar = () => {
     setsearchTerm("");
     setBook([]);
   };
-
+  const handleLogout = () => {
+    logout();
+  };
+  
  
 
   return (
@@ -103,29 +104,30 @@ const SearchBar = () => {
       </div>
         
 
-        <div className="icon-right">
-          <Dropdown className="login-dropdown-btn">
-          {isLoggedIn ? (
-            <>
+      <div className="icon-right">
+      {isAuthenticated() ? (
+          <Dropdown>
             <Dropdown.Toggle variant="" id="dropdown-basic">
-            <FiUserCheck  />
-            <span>{user && user.username}</span>
+              <LuUser />
             </Dropdown.Toggle>
-            </>
-            ) : (
-            <>
-          <Dropdown.Toggle variant="" id="dropdown-basic">
-          <LuUser />
-          </Dropdown.Toggle>
-          <Dropdown.Menu>
-          <Dropdown.Item href="/login">Login</Dropdown.Item>
-          <Dropdown.Item href="/register">Register</Dropdown.Item>
-          {/* <Dropdown.Item href="/">Logout</Dropdown.Item> */}
-          </Dropdown.Menu>
-          </>
-          )}
+            <Dropdown.Menu>
+              <Dropdown.Item href="#" disabled>
+                Username: {getUsername()}
+              </Dropdown.Item>
+              <Dropdown.Item href="#" disabled>
+                Email: {getEmail()}
+              </Dropdown.Item>
+              <Dropdown.Divider />
+              <Dropdown.Item href="#" onClick={handleLogout}>
+                Logout
+              </Dropdown.Item>
+            </Dropdown.Menu>
           </Dropdown>
-
+        ) : (
+          <NavLink to="/login" className="nav-link">
+            <LuUser />
+          </NavLink>
+        )}
           <NavLink to="/shopping-cart" className="nav-link">
             <BiCartAdd />
             <span className="totalquantity">{totalQuantity}</span>

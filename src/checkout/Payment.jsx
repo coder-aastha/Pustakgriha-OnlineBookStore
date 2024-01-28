@@ -29,8 +29,32 @@ function Payment() {
       <div className="receipt_container">
         <h4>Order details</h4>
         <div className="receiptmain_container">
-        <p>Contact information</p>
-        <a>email</a>
+        <a>Contact information</a>
+        <a className="receiptright">Pay now</a>
+        </div>
+        <div className="receiptmain_container">
+          <label>email</label>
+          <span className="receiptright">Price</span>
+        </div>
+        <div className="receiptmain_container">
+          <a>Shipping address</a>
+          <a className="receiptright">Billing address</a>
+        </div>
+        <div className="receiptmain_container">
+        <label>Name</label>
+          <span className="receiptright">Name</span>
+        </div>
+        <div className="receiptmain_container">
+        <label>Address</label>
+          <span className="receiptright">Address</span>
+        </div>
+        <div className="receiptmain_container">
+        <label>Region</label>
+          <span className="receiptright">Region</span>
+        </div>
+        <div className="receiptmain_container">
+        <label>Phone</label>
+          <span className="receiptright">Phone</span>
         </div>
       </div>
        <h4>Choose any to pay:</h4>

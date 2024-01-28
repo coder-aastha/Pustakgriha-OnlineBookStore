@@ -3,15 +3,13 @@ const User = require('../models/user');
 const  comparePassword  = require('../helpers/auth').comparePassword;
 const jwt = require('jsonwebtoken');
 
-
-
 const test = (req, res) => {
     res.json('test is working');
 };
 
 const registerUser = async (req, res) => {
     try {
-        const { username, email, password, confirmpassword} = req.body;
+        const { username, email, password,confirmpassword} = req.body;
 
         if (!username || !email || !password || !confirmpassword) {
             return res.json({
@@ -45,7 +43,6 @@ const registerUser = async (req, res) => {
             username,
             email,
             password: hashedPassword,
-            confirmpassword:hashedPassword,
         });
 
         return res.json(user);
@@ -53,7 +50,7 @@ const registerUser = async (req, res) => {
         console.log(error);
         return res.json({
             error: 'An error occurred during registration',
-        }); 
+        });
     }
 };
 
@@ -80,7 +77,7 @@ const loginUser = async (req, res) => {
     try {
         const { email, password } = req.body;
         const user = await User.findOne({ email });
- 
+
         if (!user) {
             console.log('User not found:', email);
             return res.json({
@@ -91,12 +88,22 @@ const loginUser = async (req, res) => {
         const isPasswordMatch = await comparePassword(password, user.password);
 
         if (isPasswordMatch) {
-            const token = jwt.sign({ id: user._id }, "jwt_secret_key", { expiresIn: "1h" });
-            return res.json({
-                message: 'Login successful',
-                token,
+            const token = await user.generateAuthToken();
+            console.log(token);
+      
+            res.cookie("jwtoken", token, {
+              expires: new Date(Date.now() + 2589200000),
+              httpOnly: true
             });
+      
+            console.log('Login successful for:', email);
+            return res.json({
+              message: 'Login successful',
+              token,
+            });
+            
         } else {
+            console.log('Incorrect password for:', email);
             return res.json({
                 error: 'Incorrect password',
             });
