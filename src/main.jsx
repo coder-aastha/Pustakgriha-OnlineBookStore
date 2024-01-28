@@ -12,7 +12,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <AuthProvider>
       <CartProvider>
         <WishlistProvider>
-    <App />
+        
+        
+        <App />
+        
     </WishlistProvider>
     </CartProvider>
     </AuthProvider>
@@ -21,3 +24,4 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   
   </React.StrictMode>
 )
+
