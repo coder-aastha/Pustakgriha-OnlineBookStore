@@ -2,18 +2,33 @@ const jwt = require('jsonwebtoken');
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
-    username:String,
+    username:{
+       type: String,
+       require:true
+    },
     email: {
         type:String,
         unique:true
     },
-    password:String,
-    
+    password: {
+      type:String,
+      require:true
+ 
+    },
+    tokens:[
+        {
+            token :{
+                type:String,
+                 require:true
+
+            }
+        }
+    ]
 
 });
 
 // generating token
-userSchema. methods.generateAuthToken = async function (){
+  userSchema. methods.generateAuthToken = async function (){
     try {
         let token = jwt.sign({_id:this._id}, process.env.SECRET_KEY);
         this.tokens = this.tokens.concat({token:token});
@@ -23,6 +38,7 @@ userSchema. methods.generateAuthToken = async function (){
         console.log(err);
     }
   }
+
 
 const UserModel = mongoose.model("User",userSchema);
 module.exports=UserModel;

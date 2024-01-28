@@ -3,15 +3,13 @@ const User = require('../models/user');
 const  comparePassword  = require('../helpers/auth').comparePassword;
 const jwt = require('jsonwebtoken');
 
-
-
 const test = (req, res) => {
     res.json('test is working');
 };
 
 const registerUser = async (req, res) => {
     try {
-        const { username, email, password, confirmpassword} = req.body;
+        const { username, email, password,confirmpassword} = req.body;
 
         if (!username || !email || !password || !confirmpassword) {
             return res.json({
@@ -45,7 +43,6 @@ const registerUser = async (req, res) => {
             username,
             email,
             password: hashedPassword,
-            confirmpassword:hashedPassword,
         });
 
         return res.json(user);
@@ -53,26 +50,29 @@ const registerUser = async (req, res) => {
         console.log(error);
         return res.json({
             error: 'An error occurred during registration',
-        }); 
+        });
     }
 };
+
+
 
 const loginUser = async (req, res) => {
     try {
         const { email, password } = req.body;
         const user = await User.findOne({ email });
- 
+
         if (!user) {
             console.log('User not found:', email);
             return res.json({
                 error: 'No user found',
             });
         }
- 
+       
         const isPasswordMatch = await comparePassword(password, user.password);
- 
+     
+
         if (isPasswordMatch) {
-            const token = await user. generateAuthToken();
+            const token = await user.generateAuthToken();
             console.log(token);
       
             res.cookie("jwtoken", token, {
@@ -85,6 +85,7 @@ const loginUser = async (req, res) => {
               message: 'Login successful',
               token,
             });
+            
         } else {
             console.log('Incorrect password for:', email);
             return res.json({
@@ -100,65 +101,53 @@ const loginUser = async (req, res) => {
 };
 
 
-
 const forgotPassword = async (req, res) => {
-    try {
-      const { email } = req.body;
-      
-      // Find the user in the database based on the provided email
-      const user = await User.findOne({ email });
-  
-      if (!user) {
-        console.log('User not found:', email);
-        return res.status(404).json({ error: 'No user found' });
-      }
-  
-    
-      const token = jwt.sign({ id: user._id }, "jwt_secret_key", { expiresIn: "1h" });
-  
+  try {
+    const { email } = req.body;
 
-      res.json({ status: "Token generated", token });
-    } catch (error) {
-      console.error('Error in forgotPassword:', error);
-      res.status(500).json({ status: "Internal Server Error" });
-    }
-  };
-  
+    const user = await User.findOne({ email });
 
-  const resetPassword = async (req, res) => {
-    const { email, newPassword } = req.body;
-  
-    try {
-     
-      const user = await User.findOne({ email });
-  
-      if (!user) {
-        return res.json({ error: 'User not found' });
-      }
-  
-      // Log user and newPassword for debugging
-      console.log('User:', user);
-      console.log('New Password:', newPassword);
-  
-      // Update user's password
-      const salt = await bcrypt.genSalt(10);
-      const hashedPassword = await bcrypt.hash(newPassword, salt);
-  
-      user.password = hashedPassword;
-      await user.save();
-  
-      console.log('Updated User:', user);
-      return res.json({ success: 'Password updated successfully!' });
-    } catch (error) {
-      console.log(error);
-      return res.status(500).json({ error: 'An error  while resetting the password' });
+    if (!user) {
+      return res.status(404).json({ error: 'No user found' });
     }
-  };
-  
+
+    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET_KEY, { expiresIn: '1h' });
+
+    res.json({ status: 'Token generated', token });
+  } catch (error) {
+    console.error('Error in forgotPassword:', error);
+    res.status(500).json({ status: 'Internal Server Error' });
+  }
+};
+
+const resetPassword = async (req, res) => {
+  const { email, newPassword } = req.body;
+
+  try {
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(newPassword, salt);
+
+    user.password = hashedPassword;
+    await user.save();
+
+    return res.json({ success: 'Password updated successfully!' });
+  } catch (error) {
+    console.error('Error while resetting the password:', error);
+    return res.status(500).json({ error: 'An error occurred while resetting the password' });
+  }
+};
+
 module.exports = {
-    test,
-    registerUser,
-    loginUser,  
-    forgotPassword,
-    resetPassword, 
+  test,
+  registerUser,
+  loginUser,
+  forgotPassword,
+  resetPassword,
+ 
 };
