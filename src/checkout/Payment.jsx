@@ -6,7 +6,7 @@ import QR_code from "../images/QRcode.jpg";
 import QRcode from "../images/QRcode2.jpg";
 import { useNavigate } from "react-router-dom";
 
-function Payment() {
+function Payment({ contactInfo, shippingInfo }) {
   const navigate= useNavigate();
   const [selectedPaymentOption, setSelectedPaymentOption] = useState(() => {
     return localStorage.getItem('showPayment') === 'true';
@@ -33,28 +33,28 @@ function Payment() {
         <a className="receiptright">Pay now</a>
         </div>
         <div className="receiptmain_container">
-          <label>email</label>
-          <span className="receiptright">Price</span>
+        <label>email:{contactInfo.email}</label>
+        <span className="receiptright">Price:{shippingInfo.orderTotal}</span>
         </div>
         <div className="receiptmain_container">
           <a>Shipping address</a>
           <a className="receiptright">Billing address</a>
         </div>
         <div className="receiptmain_container">
-        <label>Name</label>
-          <span className="receiptright">Name</span>
+        <label>Name:{shippingInfo.fullName}</label>
+        <span className="receiptright">Name:{shippingInfo.fullName}</span>
         </div>
         <div className="receiptmain_container">
-        <label>Address</label>
-          <span className="receiptright">Address</span>
+        <label>Address:{shippingInfo.address}</label>
+        <span className="receiptright">Address:{shippingInfo.address}</span>
         </div>
         <div className="receiptmain_container">
-        <label>Region</label>
-          <span className="receiptright">Region</span>
+        <label>Region:{shippingInfo.region}</label>
+        <span className="receiptright">Region:{shippingInfo.region}</span>
         </div>
         <div className="receiptmain_container">
-        <label>Phone</label>
-          <span className="receiptright">Phone</span>
+        <label>Phone:{shippingInfo.phone}</label>
+        <span className="receiptright">Phone:{shippingInfo.phone}</span>
         </div>
       </div>
        <h4>Choose any to pay:</h4>

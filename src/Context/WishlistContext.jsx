@@ -13,16 +13,24 @@ const WishlistProvider = ({ children }) => {
     dispatch({ type: "REMOVE_FROM_WISHLIST", payload: bookId });
   };
  
+  const isBookInWishlist = (book) => {
+    return wishlist.some((item) => item._id === book._id);
+  };
+
   return (
-    <WishlistContext.Provider value={{ wishlist, addToWishlist, removeFromWishlist }}>
+    <WishlistContext.Provider value={{ wishlist, addToWishlist, removeFromWishlist ,isBookInWishlist}}>
       {children}
     </WishlistContext.Provider>
   );
 };
  
-const useWishlist = () => {
-    return useContext(WishlistContext);
-  };
+ const useWishlist = () => {
+  const context = useContext(WishlistContext);
+  if (!context) {
+    throw new Error('useWishlist must be used within a WishlistProvider');
+  }
+  return context;
+};
  
   const wishlistReducer = (state, action) => {
     switch (action.type) {
@@ -34,7 +42,6 @@ const useWishlist = () => {
         return state;
     }
   };
-
  
 export { WishlistProvider, useWishlist };
  
