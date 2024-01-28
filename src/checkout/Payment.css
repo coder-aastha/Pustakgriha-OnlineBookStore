@@ -6,9 +6,59 @@
   width: 50%;
 }
 
+.paymentMain h4{
+  margin-top: 3%;
+}
+
 .receipt_container{
   border: 2px solid #162938;
+  width: 90%;
+  border-radius: 10px;
+  margin: 2%;
+}
+
+.receipt_container h4{
+  margin-left: 1.3%;
+  font-weight: bolder;
+}
+.receiptmain_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2%;
+  margin-left: 2%;
   width: 100%;
+  font-size: 0.9em;
+}
+
+.receiptright {
+  /* flex:0.2; */
+  margin-left: 300px;
+}
+
+
+.receipt_container label,
+.receipt_container span{
+  display: grid;
+  flex-direction: row;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  justify-content: left;
+  padding: 10px;
+  align-items: center;
+  width: 100%;
+  font-weight:normal;
+}
+
+.receipt_container a{
+  display: grid;
+  flex-direction: row;
+  grid-template-columns: repeat(2);
+  gap: 20px;
+  justify-content: left;
+  padding: 7px;
+  width: 100%;
+  font-weight: 550;
 }
 
 .payment-container {
