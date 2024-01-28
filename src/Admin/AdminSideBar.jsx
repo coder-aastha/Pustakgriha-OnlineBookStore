@@ -13,7 +13,7 @@ function AdminSideBar({ openSidebarToggle, OpenSidebar }) {
     <aside id="sidebar" className={openSidebarToggle ? 'sidebar-responsive' : ''}>
       <div className='sidebar-title'>
         <div className='sidebar-brand'>
-          <BsCart3 className='icon_header' /> SHOP
+          <BsCart3 className='icon_header' /> PUSTAKGRIHA
         </div>
         <span className='icon close_icon' onClick={OpenSidebar}>
           X
@@ -26,21 +26,10 @@ function AdminSideBar({ openSidebarToggle, OpenSidebar }) {
             <BsGrid1X2Fill className='icon' /> Dashboard
             </NavLink>
         </li>
-        <li className='sidebar-list-item'>
-          <NavLink to="/AdminManageBook/:id" className="nav-link_admin" activeClassName="active">
-            <HiBookmarkSquare className='icon' /> Manage Book
-          </NavLink>
-        </li>
- 
+    
         <li className='sidebar-list-item'>
           <NavLink to="/upload-book" className="nav-link_admin" activeClassName="active">
             <IoCloudUploadOutline className='icon' /> Upload
-          </NavLink>
-        </li>
- 
-        <li className='sidebar-list-item'>
-          <NavLink to="/customers" className="nav-link_admin" activeClassName="active">
-            <BsPeopleFill className='icon' /> Customers
           </NavLink>
         </li>
  
@@ -52,7 +41,7 @@ function AdminSideBar({ openSidebarToggle, OpenSidebar }) {
  
         <li className='sidebar-list-item'>
           <NavLink to="/settings" className="nav-link_admin" activeClassName="active">
-            <BsFillGearFill className='icon' /> Settings
+            <BsFillGearFill className='icon' /> Logout
           </NavLink>
         </li>
       </ul>

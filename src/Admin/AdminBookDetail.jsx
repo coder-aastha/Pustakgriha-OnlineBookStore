@@ -4,7 +4,7 @@ import axios from 'axios';
 import '../css/AdminBookDetail.css';
 import { Link } from 'react-router-dom';
 // import AdminBookDetails from 
-
+import toast from 'react-hot-toast';
 
 const product = () => {
 const [book, setBook] = useState([]);
@@ -21,6 +21,18 @@ useEffect(() => {
     };
     fetchData();
 }, []);
+
+const handleDelete = async (id) => {
+    try {
+      await axios.delete(`http://localhost:3001/booklisting/${id}`);
+      // Update the state to remove the deleted book
+      setBook((prevBooks) => prevBooks.filter((books) => books._id !== id));
+      toast.success('Book deleted successfully');
+
+    } catch (error) {
+      console.error('Error deleting book:', error);
+    }
+  };
 
 return (
     <div className='Abookcards-container'>
@@ -47,8 +59,10 @@ return (
                 </Link>
                 </div>
 
-            
-            
+                <div className='button-delete'>
+                <button onClick={() => handleDelete(books._id)}>Delete</button>
+                </div>
+
             </div>
             ))}
         </>

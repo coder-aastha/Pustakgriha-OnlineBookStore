@@ -1,0 +1,61 @@
+.paymentMain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: left;
+  width: 50%;
+}
+
+.receipt_container{
+  border: 2px solid #162938;
+  width: 100%;
+}
+
+.payment-container {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.Payment_Method1,
+.Payment_Method2 {
+  width: 200px;
+  height: 150px;
+  margin: 10px; 
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.Payment_Method1 img,
+.Payment_Method2 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.QR_Container {
+  display: flex;
+  justify-content: center;
+}
+
+.QR img{
+  width: 200px;
+  height: 215px;
+}
+
+.Continue{
+  height: 35px;
+  width: 25%;
+  border: 2px solid #162938;
+  background: black;
+  margin-left: 50%;
+  margin-top: 5%;
+}
+
+.Continue p{
+  font-size: 0.7em;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  padding: 6px;
+}

@@ -135,9 +135,6 @@ const SearchBar = () => {
             <MdOutlineFavoriteBorder />
           </NavLink>
 
-          <NavLink to="/world" className="nav-link">
-            <TbWorld />
-          </NavLink>
         </div>
         <span className="menu-icon-span">
           <Dropdown className="menu-dropdown-btn">
@@ -155,9 +152,7 @@ const SearchBar = () => {
               <Dropdown.Item href="/Wishlist">
                 <FaRegHeart className="component-icon"/>
               </Dropdown.Item>
-              <Dropdown.Item href="/world">
-                <TbWorld className="component-icon"/>
-              </Dropdown.Item>
+             
             </Dropdown.Menu>
           </Dropdown>
 

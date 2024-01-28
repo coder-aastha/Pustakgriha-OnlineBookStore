@@ -16,8 +16,12 @@ const Wishlist = () => {
     useEffect(() => {
     const fetchWishlist = async () => {
       try {
+
         const response = await axios.get('/wishlist');
         setWishlist(response.data.wishlist);
+
+        localStorage.setItem('wishlist', JSON.stringify(response.data.wishlist));
+
       } catch (error) {
         console.error('Error fetching wishlist:', error);
       }
@@ -31,6 +35,8 @@ const Wishlist = () => {
           await axios.post('/wishlist/add', { book});
           setWishlist((prevWishlist) => [...prevWishlist, book]);
           toast.success('Added to wishlist')
+
+          localStorage.setItem('wishlist', JSON.stringify([...wishlist, book]));
         } catch (error) {
           console.error('Error adding to wishlist:', error);
         }

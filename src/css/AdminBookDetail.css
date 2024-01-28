@@ -75,9 +75,19 @@ button:hover {
   background-color: #27ae60;
 }
 
+.button-delete{
+  color: red;
+}
+
 p {
   text-align: center;
   color: #555;
+}
+
+a{
+  display: flex;
+  text-decoration: none;
+  margin-bottom: 10px;
 }
 
 /* Responsive Styles */

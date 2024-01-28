@@ -15,24 +15,10 @@ function Home() {
         <div className='main-cards'>
             <div className='card'>
                 <div className='card-inner'>
-                    <h3>Products</h3>
-                    <BsFillArchiveFill className='card_icon'/>
-                </div>
-                <h1>300</h1>
-            </div>
-            <div className='card'>
-                <div className='card-inner'>
                     <h3>Sales</h3>
                     < BsCurrencyDollar className='card_icon'/>
                 </div>
                 <h1>2000</h1>
-            </div>
-            <div className='card'>
-                <div className='card-inner'>
-                    <h3>Customers</h3>
-                    <BsPeopleFill className='card_icon'/>
-                </div>
-                <h1>33</h1>
             </div>
         </div>
     </main>

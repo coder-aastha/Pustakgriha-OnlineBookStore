@@ -92,7 +92,7 @@ const UserRegister = () => {
 
               
               <div className="inputbox">
-                <input type="confirmpassword" 
+                <input type="password" 
                 value={data.confirmpassword}
                 onChange={(e) => setData({ ...data, confirmpassword: e.target.value })}
                 required />
