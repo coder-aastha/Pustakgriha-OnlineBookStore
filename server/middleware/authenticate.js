@@ -1,4 +1,4 @@
-// import { faL } from "@fortawesome/free-solid-svg-icons";
+
 
 const jwt = require("jsonwebtoken");
 const userdb = require("../models/userSchema");

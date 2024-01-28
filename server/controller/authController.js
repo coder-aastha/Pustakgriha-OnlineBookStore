@@ -72,12 +72,21 @@ const loginUser = async (req, res) => {
         const isPasswordMatch = await comparePassword(password, user.password);
  
         if (isPasswordMatch) {
-            const token = jwt.sign({ id: user._id }, "jwt_secret_key", { expiresIn: "1h" });
+            const token = await user. generateAuthToken();
+            console.log(token);
+      
+            res.cookie("jwtoken", token, {
+              expires: new Date(Date.now() + 2589200000),
+              httpOnly: true
+            });
+      
+            console.log('Login successful for:', email);
             return res.json({
-                message: 'Login successful',
-                token,
+              message: 'Login successful',
+              token,
             });
         } else {
+            console.log('Incorrect password for:', email);
             return res.json({
                 error: 'Incorrect password',
             });
