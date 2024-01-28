@@ -5,25 +5,38 @@
     font-family: 'Poppins', sans-serif;
 }
  
-.main-Reset-wrapper{
+.main-register-wrapper{
     display: flex;
     height: 87vh;
     align-items: center;
     justify-content: center;
 }
 
+.leftcontent_register{
+    width: 35%;
+    background: whitesmoke;
+    height: 650px;
+    background: transparent;
+    border: 2px solid rgba(24, 23, 23, 0.5);
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+    display: flex;
+    justify-content: center;
+    background-image: url('../images/img2.jpg');
+    background-size: cover;
+}
 
 .wrapper1{
     position: relative;
-    width: 80%;
-    max-width: 400px;
+    width: 35%;
+    height: 650px;
     background: transparent;
     border: 2px solid rgba(24, 23, 23, 0.5);
-    border-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 auto;
    
 }
 
@@ -153,23 +166,26 @@
 }
 
 .login{
-    font-size: .9em;
-    color: #162938;
+    font-size: 0.9em;
+    color: black;
     text-align: center;
-    font-weight: 500;
+    font-weight: 650;
     margin: 25px 0 10px;
 }
 
 .login p{
-    color: #162938;
+    display: flex;
+    justify-content: center;
 }
 
-.login a{
-    color: #162938;
-    text-decoration: none;
-    font-weight: 600;
-    margin-right: 300px;
-}
+.login-link {
+    margin-left: 10px;
+  }
+  
+  .login p a {
+    font-size: small;
+    color: black;
+  }
 
 .user-icon-register {
     display: flex;

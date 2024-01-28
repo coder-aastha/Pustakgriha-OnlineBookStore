@@ -106,10 +106,12 @@ function UserLogin() {
             <div className="register">
               <p>
                 Don't have an account?
+                <span className="register-link">
                 <a href="register" className="Login-link">
                   {" "}
                   Register
                 </a>
+                </span>
               </p>
             </div>
           </form>
