@@ -1,7 +1,7 @@
 const express =require('express');
 const router = express.Router();
 const cors = require('cors')
-const {test,registerUser,loginUser,forgotPassword,resetPassword} =require('../controller/authController')
+const {test,registerUser,loginUser,loginAdmin,forgotPassword,resetPassword,userById} =require('../controller/authController')
 const {getAllBooks,book,getById,updateById,deleteById,searchBooks,reviewSchema,category,authorName,getBooksBySection} =require('../controller/bookController');
 const { addToCart,  removeFromCart, updateCartItemQuantity,calculateTotalCost,} = require('../controller/shoppingCartController');
 const {getWishlist,addToWishlist,removeFromWishlist} = require('../controller/wishListController');
@@ -23,11 +23,13 @@ router.get('/',test)
 //Authentication routes
 router.post('/register',registerUser)
 router.post('/login',loginUser)
+
 router.post('/forgotpassword',forgotPassword);
 router.post('/resetpassword', resetPassword);
 
 
 //bookroute
+router.post('/login',loginAdmin)
 router.post('/upload-book',book)
 router.get('/booklisting' ,getAllBooks)
 router.get('/booklisting/:id' ,getById)
@@ -51,6 +53,7 @@ router.post('/wishlist/add', addToWishlist);
 router.delete('/remove', removeFromWishlist);
 router.get('/wishlist', getWishlist);
 router.post('wishlist/add',addToWishlist);
+
 
 // order routes
 router.post('/checkout',createOrder);

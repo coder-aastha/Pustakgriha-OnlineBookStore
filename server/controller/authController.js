@@ -23,7 +23,7 @@ const registerUser = async (req, res) => {
             });
         }
 
-        if (password !== confirmpassword) {
+        if (password !==     confirmpassword) {
             return res.json({
                 error: "Passwords don't match",
             });
@@ -54,7 +54,24 @@ const registerUser = async (req, res) => {
     }
 };
 
+const userById = async (req, res) => {
+    try {
+        const userId = req.params.id;
 
+       
+        const user = await User.findOne({userId});
+
+        if (!user ) {
+            return res.status(404).json({ error: 'user not found' });
+        }
+
+      
+        res.send(user);
+    } catch (error) {
+        console.error('Error getting user by ID:', error);
+        res.status(500).json({ error: 'An error occurred while getting the user by ID' });
+    }
+};
 
 const loginUser = async (req, res) => {
     try {
@@ -67,9 +84,8 @@ const loginUser = async (req, res) => {
                 error: 'No user found',
             });
         }
-       
+
         const isPasswordMatch = await comparePassword(password, user.password);
-     
 
         if (isPasswordMatch) {
             const token = await user.generateAuthToken();
@@ -100,54 +116,92 @@ const loginUser = async (req, res) => {
     }
 };
 
+const loginAdmin = async (e) => {
+    e.preventDefault();
+    const { email, password } = data;
+
+    try {
+        const { data: { token, user, error } } = await axios.post('/admin/login', {
+            email,
+            password
+        });
+
+        if (error) {
+            toast.error(error);
+        } else {
+            localStorage.setItem('adminToken', token);
+            localStorage.setItem('adminUser', JSON.stringify(user));
+            setData({
+                email: 'admin@gmail.com',
+                password: 'AdminPassword',
+            });
+            navigate('/admin');
+        }
+    } catch (error) {
+        console.log('Error during login:', error);
+        toast.error('An unexpected error occurred during login. Please try again.');
+    }
+};
+
 
 const forgotPassword = async (req, res) => {
-  try {
+    try {
     const { email } = req.body;
+    
 
     const user = await User.findOne({ email });
 
     if (!user) {
-      return res.status(404).json({ error: 'No user found' });
+        console.log('User not found:', email);
+        return res.status(404).json({ error: 'No user found' });
     }
 
-    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET_KEY, { expiresIn: '1h' });
+    
+    const token = jwt.sign({ id: user._id }, "jwt_secret_key", { expiresIn: "1h" });
 
-    res.json({ status: 'Token generated', token });
-  } catch (error) {
+
+    res.json({ status: "Token generated", token });
+    } catch (error) {
     console.error('Error in forgotPassword:', error);
-    res.status(500).json({ status: 'Internal Server Error' });
-  }
-};
-
-const resetPassword = async (req, res) => {
-  const { email, newPassword } = req.body;
-
-  try {
-    const user = await User.findOne({ email });
-
-    if (!user) {
-      return res.status(404).json({ error: 'User not found' });
+    res.status(500).json({ status: "Internal Server Error" });
     }
-
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(newPassword, salt);
-
-    user.password = hashedPassword;
-    await user.save();
-
-    return res.json({ success: 'Password updated successfully!' });
-  } catch (error) {
-    console.error('Error while resetting the password:', error);
-    return res.status(500).json({ error: 'An error occurred while resetting the password' });
-  }
 };
 
+  const resetPassword = async (req, res) => {
+    const { email, newPassword } = req.body;
+  
+    try {
+     
+      const user = await User.findOne({ email });
+  
+      if (!user) {
+        return res.json({ error: 'User not found' });
+      }
+  
+      // Log user and newPassword for debugging
+      console.log('User:', user);
+      console.log('New Password:', newPassword);
+  
+      // Update user's password
+      const salt = await bcrypt.genSalt(10);
+      const hashedPassword = await bcrypt.hash(newPassword, salt);
+  
+      user.password = hashedPassword;
+      await user.save();
+  
+      console.log('Updated User:', user);
+      return res.json({ success: 'Password updated successfully!' });
+    } catch (error) {
+      console.log(error);
+      return res.status(500).json({ error: 'An error  while resetting the password' });
+    }
+  };
+  
 module.exports = {
-  test,
-  registerUser,
-  loginUser,
-  forgotPassword,
-  resetPassword,
- 
+    test,
+    registerUser,
+    loginUser,  
+    forgotPassword,
+    resetPassword, 
+    loginAdmin
 };
