@@ -6,13 +6,15 @@ import FooterUI from "../components/FooterUI";
 import Navbar from "../components/Navbar";
 import { MdOutlineLocalShipping } from 'react-icons/md';
 import { RiHomeHeartFill } from 'react-icons/ri';
+import { useCheckout } from '../Context/CheckoutContext';
+import axios from 'axios'; 
 
 function Checkout() {
   const [showPayment, setShowPayment] = useState(
-  //   () => {
-  //   return localStorage.getItem('showPayment') === 'true';
-  // }
+   
   );
+  const { checkoutInfo } = useCheckout();
+  const { bookName, totalPrice } = checkoutInfo;
   const [selectedDeliveryOption, setSelectedDeliveryOption] = useState(
     localStorage.getItem('selectedDeliveryOption') || 'ship'
   );
@@ -25,10 +27,15 @@ function Checkout() {
   const [selectedRegion, setSelectedRegion] = useState(
     localStorage.getItem('selectedRegion') || 'Koshi'
   );
-
-  const handleCompleteOrder = () => {
-    setShowPayment(true);
-  };
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [data, setData] = useState({ 
+    email: '',
+    FullName: '',
+    Address: '',
+    City: '',
+    Phone: '',
+  });
 
   useEffect(() => {
     // Save selected options to localStorage whenever they change
@@ -54,25 +61,98 @@ function Checkout() {
     setSelectedRegion(region);
   };
 
-  // useEffect(() => {
-  //   // Save the showPayment value to localStorage whenever it changes
-  //   localStorage.setItem('showPayment', showPayment.toString());
-  // }, [showPayment]);
+ 
+  const calculateShippingCost = () => {
+    if (selectedDeliveryOption === 'ship') {
+      switch (selectedShippingOption) {
+        case 'address':
+          return 120;
+        case 'others':
+          return 220;
+        case 'instant':
+          return 290;
+        default:
+          return 0;
+      }
+    } else if (selectedDeliveryOption === 'pickup') {
+      // Shipping is free for pickup
+      return 0;
+    }
+
+    // Default case
+    return 0;
+  };
+
+  const calculateTotalCost = () => {
+    const shippingCost = calculateShippingCost();
+    return Number(totalPrice) + shippingCost;
+  };
+
+  const handleCompleteOrder = async () => {
+    try {
+      setLoading(true);
+     
+      const orderData = {
+        bookName,
+        totalPrice,
+        deliveryOption: selectedDeliveryOption,
+        paymentOption: selectedPaymentOption,
+        shippingOption: selectedShippingOption,
+        region: selectedRegion,
+        fullName: data.FullName,
+        address: data.Address,
+        city: data.City,
+        phone: data.Phone,
+        orderTotal: calculateTotalCost(), 
+      };
+
+      const response = await axios.post("/checkout", orderData);
+  console.log("Order response:", response.data);
+  setShowPayment(true);
+
+} catch (error) {
+  console.error('Error placing order:', error.response.data);
+  setError('Error placing order. Please try again.');
+} finally {
+  setLoading(false);
+}
+};
+
 
   return (
     <>
     <Navbar/>
     <div className='checkout_mainContainer'>
-      <LeftCheckout />
+    <LeftCheckout
+          bookName={bookName}
+          totalPrice={totalPrice}
+          calculateShippingCost={calculateShippingCost}
+          calculateTotalCost={calculateTotalCost}
+        />
       {showPayment ? (
-        <Payment />
+        <Payment 
+        contactInfo={{ email: data.email }}  
+        shippingInfo={{
+          fullName: data.FullName,
+          address: data.Address,
+          city: data.City,
+          region:selectedRegion,
+          phone: data.Phone,
+          orderTotal: calculateTotalCost(), 
+        }}  
+      />
       ) : (
         <div className='checkout_right'>
           <div className='contact_section'>
             <h2>Contact</h2>
           </div>
           <div className='inputbox_checkout'>
-            <input type="email" required />
+          <input
+              type="email"
+              value={data.email}
+              onChange={(e)=> setData({...data,email:e.target.value})}
+              required
+            />
             <label>Email</label>
           </div>
           <div className='contact_section'>
@@ -120,21 +200,41 @@ function Checkout() {
               </div>
               <div className="form-container">
                 <div className='inputbox_checkout'>
-                  <input type="text" required />
+                <input
+                    type="FullName"
+                    value={data.FullName}
+                    onChange={(e)=> setData({...data,FullName:e.target.value})}
+                    required
+                  />
                   <label>Full Name</label>
                 </div>
               </div>
               <div className='inputbox_checkout'>
-                <input type="text" required />
+              <input
+                  type="Address"
+                  value={data.Address}
+                  onChange={(e)=> setData({...data,Address:e.target.value})}
+                  required
+                />
                 <label>Address</label>
               </div>
               <div className="form-container">
                 <div className='inputbox_checkout'>
-                  <input type="text" required />
+                <input
+                    type="City"
+                    value={data.City}
+                    onChange={(e)=> setData({...data,City:e.target.value})}
+                    required
+                  />
                   <label>City</label>
                 </div>
                 <div className='inputbox_checkout'>
-                  <input type="text" required />
+                <input
+                    type="Phone"
+                    value={data.Phone}
+                    onChange={(e)=> setData({...data,Phone:e.target.value})}
+                    required
+                  />
                   <label>Phone</label>
                 </div>
                 </div>

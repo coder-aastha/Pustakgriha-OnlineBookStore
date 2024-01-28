@@ -1,0 +1,115 @@
+.Shoppingcontainer{
+  font-style: oblique;
+  margin-top: 40px;
+
+  }
+  
+  .shopping-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
+    border-top: 1px solid#ddd;
+  }
+  
+  .cart-item {
+    /* border: 1px solid #ddd; */
+    width: 100%;
+    height:200px;
+    margin-bottom: 25px;
+    padding: 10px;
+    
+  }
+  
+  .total-section {
+    margin-top: 20px;
+    border-top: 1px solid#ddd;
+    padding-top: 10px;
+    font-size: 1.2em;
+    
+  }
+  
+   .shoppingbook-image{
+    max-width: 50%;
+  }
+  .shoppingbookimage__img{
+    width: 100%;
+    margin-top: 2px;
+    margin-right: 20px;
+    
+  }
+  .shoppingbook-info{ 
+  flex: auto;
+  margin-right: 100px;
+  }
+  .shoppingbook-title{
+    font-size: 1.1em;
+    margin-top: -150px;
+    color: black;
+  }
+.shoppingbook-price{
+  font-style: italic;
+  color: black;
+  margin-bottom: 4px;
+  font-size: 1.0em;
+  
+}
+  .QuantityPrice {
+    margin-top: 1px;
+    width:25%;
+    border-radius: 11px;
+    border: 1px solid #ddd;
+    margin-left: 40%;
+  }
+  
+   .Quantity {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1px 20px;
+    height: 45px;
+  }
+ .QuantityText {
+  margin-top: 8px;
+  font-size: 16px;
+}
+
+.Addsub {
+  font-size: 10px;
+  display: flex;
+  border-radius: 15px;
+  width: 30px;
+  height: 30px;
+  align-items: center;
+  justify-content: center;
+}
+
+.delete-icon{
+  margin-left: 70%;
+  margin-top:-9%;
+}
+
+.shoppingtotal{
+  margin-left: 85%;
+  margin-top:-3%;
+}
+
+.header-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1px;
+  margin-top: 25px;
+  font-size: 0.8em;
+  color: darkgray;
+}
+
+.shoppingQuantity{
+  margin-left: 25%;
+}
+
+.Shoppingtotal{
+   margin-right: 10%;                                  
+}
+
+.productname{
+  margin-left: 1%;
+}
