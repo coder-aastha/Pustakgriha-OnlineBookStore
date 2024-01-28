@@ -71,9 +71,9 @@ button {
   font-size: 14px;
 }
 
-button:hover {
+/* button:hover {
   background-color: #27ae60;
-}
+} */
 
 .button-delete{
   color: red;

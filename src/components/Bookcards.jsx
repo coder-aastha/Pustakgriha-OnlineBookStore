@@ -3,28 +3,40 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import "../css/bookcard.css";
 import { useCart } from '../Context/CartContext';
-import { FaRegHeart } from "react-icons/fa";
+import { IoHeart } from "react-icons/io5";
 import { useWishlist } from '../Context/WishlistContext';
 import toast from 'react-hot-toast';
-// import Wishlist from './Wishlist';
+import { useAuth } from '../Context/AuthContext';
+
 
 const Bookcards = ({ headline, book }) => {
   const [visibleBooks, setVisibleBooks] = useState(3);
   const { addToCart } = useCart();
-  const{addToWishlist} =useWishlist();
+  const { addToWishlist, removeFromWishlist, isBookInWishlist } = useWishlist();
+  const { user } = useAuth();
 
   const handleSeeMore = () => {
     setVisibleBooks((prevVisibleBooks) => prevVisibleBooks + 3);
   };
 
   const handleAddToCart = (bookItem) => {
-    addToCart(bookItem);
-  }
+    if (user) {
+      addToCart(bookItem);
+      toast.success('Added to cart');
+    } else {
+      console.error('User is not authenticated. Cannot add item to the cart.');
+      
+    }
+  };
 
   const handleAddToWishlist=(bookItem)=>{
+    if (isBookInWishlist(bookItem)) {
+      removeFromWishlist(bookItem);
+    } else {
     addToWishlist(bookItem);
     toast.success('Added to wishlist');
   }
+};
 
   if (!Array.isArray(book)) {
     console.error("Invalid 'book' prop:", book);
@@ -40,18 +52,21 @@ const Bookcards = ({ headline, book }) => {
           See More
         </button>
       )}
-      <div className="book-container">
+      <div className="bookitem-container">
         {Array.isArray(book) && book.length > 0 ? (
           <>
             {book.slice(0, visibleBooks).map((bookItem) => (
-              <div key={bookItem._id} className='book-card'>
+              <div  key={bookItem._id}
+              className={`book-card ${isBookInWishlist(bookItem) ? 'wishlist-added' : ''}`}
+            >
               <Link to={`/booklisting/${bookItem._id}`} className="book-link">
-                <div className="book-image">
+                <div className="bookitem-image">
                   <img src={bookItem.imageURL} alt=" " className="book-image__img" />
                 </div>
-                <div className="book-info">
-                  <h2 className="book-title">{bookItem.bookTitle}</h2>
-                  <p className="book-author">by: {bookItem.authorName}</p>
+                <div className="bookitem-info">
+                  <h2 className="bookitem-title">{bookItem.bookTitle}</h2>
+                  <p className="bookitem-author">by: {bookItem.authorName}</p>
+                  <p className="bookitem-price">Rs: {bookItem.price}</p>
                 </div>
   
               </Link>
@@ -62,13 +77,11 @@ const Bookcards = ({ headline, book }) => {
                     Add to Cart
                   </button>
 
-                  <button onClick={() => handleAddToWishlist(bookItem)}
-                  className='add-to-Wishlist-btn'
+                  <div onClick={() => handleAddToWishlist(bookItem)}
+                  className='wishlist-icon'
                   >
-                   <FaRegHeart />
-                  </button>
-
-
+                  <IoHeart />
+                  </div>
                 </div>
               </div>
             ))}
