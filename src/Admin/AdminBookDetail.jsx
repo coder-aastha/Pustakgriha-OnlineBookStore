@@ -4,6 +4,7 @@ import axios from 'axios';
 import '../css/AdminBookDetail.css';
 import { Link } from 'react-router-dom';
 // import AdminBookDetails from 
+import AdminSideBar from "./AdminSideBar";
 import toast from 'react-hot-toast';
 
 const product = () => {
@@ -35,6 +36,8 @@ const handleDelete = async (id) => {
   };
 
 return (
+    <>
+    <AdminSideBar/>
     <div className='Abookcards-container'>
     <h2 className='Abookcards-headline'>{product}</h2>
     {book  < book.length && (
@@ -71,6 +74,7 @@ return (
         )}
     </div>
     </div>
+    </>
 );
 };
 

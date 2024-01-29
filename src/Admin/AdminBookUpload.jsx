@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../css/UploadBook.css';
-
+import AdminSideBar from "./AdminSideBar";
 import axios from 'axios';
 import toast from 'react-hot-toast';
 
@@ -54,7 +54,10 @@ const UploadBook = () => {
 
 
   return (
-    <>
+    <div className='uploadBookContainer'>
+    <div className='slibebar_upload'>
+      <AdminSideBar/>
+      </div>
       <div className="upload-form-container">
         <h2>Upload A book</h2>
         <form onSubmit={BookUpload}>
@@ -163,7 +166,7 @@ const UploadBook = () => {
           <button type="submit">Submit</button>
         </form>
       </div>
-    </>
+    </div>
   );
 };
 

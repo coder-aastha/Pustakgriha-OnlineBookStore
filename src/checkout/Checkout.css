@@ -5,49 +5,6 @@
     display: flex;
     align-items:top; 
   }
-  
-  /* .checkout_left,
-  .checkout_right {
-    flex:content;
-    padding: 10px;
-    border: 1px solid transparent;
-  }
-  
-  .checkout_left{
-    flex: 1;
-    width: 450px;
-    display: flex;
-    flex-direction: column;
-    background: whitesmoke;
-  }
-
-  .bookDetail_checkout{
-    display: flex;
-    align-items: center;
-  }
-
-  .book-imgCheckout{
-    width: 23%;
-    border: 1px solid #162938;
-    border-radius: 10px;
-    align-items: center;
-  }
-  .book-imgCheckout img {
-    width: 120px;
-  height: 150px;
-  margin-left: 10%;
-  margin-top: 5%;
-  }
-  
-  .bookText_checkout p,
-  .bookText_checkout h4{
-    width: 100%;
-    font-size: 1.1em;
-    margin-left: 4%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  } */
 
   .checkout_left,
   .checkout_right {
@@ -69,30 +26,23 @@
     align-items: center;
   }
 
-  .checkout-image{
-    width: 23%;
+  .checkout-image h2{
+    font-size: 0.9em;
     border: 1px solid #162938;
-    border-radius: 10px;
+    /* border-radius: 10px; */
     align-items: center;
   }
 
   .checkoutbookimage {
-    width: 120px;
+    width: 140px;
     height: 150px;
     margin-left: 10%;
     margin-top: 5%;
   }
-  
-  .bookText_checkout p,
-  .bookText_checkout h4{
-    width: 100%;
-    font-size: 1.1em;
-    margin-left: 4%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
 
+  .checkout-info {
+    font-size: 14px;
+  }
 
                              /* Right bar */
   .checkout_right {

@@ -7,7 +7,6 @@
  
 .main-login-wrapper {
     display: flex;
-    /* width: 100%; */
     justify-content: center;
     height: 87vh;
     align-items: center;
@@ -180,27 +179,27 @@
 }
  
 .register{
-    font-size: .9em;
-    color: #162938;
-    /* text-align: center; */
-    font-weight: 500;
-    /* margin: 25px 0 10px; */
+    font-size: 0.9em;
+    color: black;
+    text-align: center;
+    font-weight: 650;
+    margin: 25px 0 10px;
 }
  
  
 .register p {
-    color: #162938;
-    text-decoration: none;
-    font-weight: 600;
-   
-}
-
-.register a{
-    color: #162938;
-    flex-direction: row-reverse;
-}
- 
- 
+    display: flex;
+    justify-content: center;
+  }
+  
+  .register-link {
+    margin-left: 10px;
+  }
+  
+  .register p a {
+    font-size: small;
+    color: black;
+  }
  
 @media(min-width: 768px){
     .wrapper{

@@ -14,7 +14,7 @@ function Checkout() {
    
   );
   const { checkoutInfo } = useCheckout();
-  const { bookName, totalPrice } = checkoutInfo;
+  const {imageURL,bookName, totalPrice } = checkoutInfo;
   const [selectedDeliveryOption, setSelectedDeliveryOption] = useState(
     localStorage.getItem('selectedDeliveryOption') || 'ship'
   );
@@ -106,7 +106,7 @@ function Checkout() {
         orderTotal: calculateTotalCost(), 
       };
 
-      const response = await axios.post("/checkout", orderData);
+      const response = await axios.post('/checkout', orderData);
   console.log("Order response:", response.data);
   setShowPayment(true);
 
@@ -124,6 +124,7 @@ function Checkout() {
     <Navbar/>
     <div className='checkout_mainContainer'>
     <LeftCheckout
+          imageURL={imageURL}
           bookName={bookName}
           totalPrice={totalPrice}
           calculateShippingCost={calculateShippingCost}

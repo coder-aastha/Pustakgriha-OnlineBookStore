@@ -6,7 +6,7 @@ import { RiLockPasswordFill } from "react-icons/ri";
 import axios from 'axios'
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
-
+import Navbar from '../components/Navbar'
 
 
 const UserRegister = () => {
@@ -40,9 +40,10 @@ const UserRegister = () => {
   }
 
   return (
+  <>
+  <Navbar/>
     <div className="main-register-wrapper">
-      <div className="bacground-image"></div>
-      <div>
+      <div className="leftcontent_register"></div>
         <div className="wrapper1">
           <div className="form-box-register">
             <h2>Register</h2>
@@ -117,17 +118,19 @@ const UserRegister = () => {
               <div className="login">
                 <p>
                   Already have an account?
+                  <span className="login-link">
                   <a href="login" className="Register-link">
                     {" "}
                     Login
                   </a>
+                  </span>
                 </p>
               </div>
             </form>
           </div>
         </div>
       </div>
-    </div>
+      </>
   );
 };
 
