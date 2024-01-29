@@ -40,7 +40,7 @@ function AdminSideBar({ openSidebarToggle, OpenSidebar }) {
         </li>
  
         <li className='sidebar-list-item'>
-          <NavLink to="/settings" className="nav-link_admin" activeClassName="active">
+          <NavLink to="/" className="nav-link_admin" activeClassName="active">
             <BsFillGearFill className='icon' /> Logout
           </NavLink>
         </li>

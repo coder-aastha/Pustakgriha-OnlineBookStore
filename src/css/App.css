@@ -78,8 +78,8 @@
 }
 
 .search-results-container {
-  max-height: 400px;
-  width: 650px;
+  max-height: 500px;
+  width: 900px;
   overflow-y: auto;
   position: absolute;
   top: 100%;
@@ -378,7 +378,7 @@ p{
 
 .mainDeliveryLocation {
   border: 2px solid rgb(223, 216, 216);
-  width: 200px;
+  /* width: 200px; */
   border-radius: 4px;
   padding-top: 20px;
   padding-left: 13px;
@@ -401,7 +401,7 @@ p{
 }
 
 .deliveryLocation p {
-  line-height: 0.5;
+  /* line-height: 0.5; */
   font-size: 13px;
   color: rgb(136, 134, 134);
 }
