@@ -31,22 +31,22 @@ const booklistingSchem = new mongoose.Schema({
    },
 
    pageCount: {
-      type: Boolean,
+      type: Number,
       required: true,
    },
 
    ISBN: {
-      type: Boolean,
+      type: Number,
       required: true,
    },
 
    weight: {
-      type: Boolean,
+      type: Number,
       required: true,
    },
 
    language: {
-      type: Boolean,
+      type: String,
       required: true,
    },
 

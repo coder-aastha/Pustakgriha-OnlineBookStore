@@ -1,6 +1,7 @@
 .Shoppingcontainer{
   font-style: oblique;
   margin-top: 40px;
+  width: 1470Px;
 
   }
   
@@ -12,8 +13,8 @@
   }
   
   .cart-item {
-    /* border: 1px solid #ddd; */
-    width: 100%;
+
+    width: 90%;
     height:200px;
     margin-bottom: 25px;
     padding: 10px;
@@ -24,7 +25,7 @@
     margin-top: 20px;
     border-top: 1px solid#ddd;
     padding-top: 10px;
-    font-size: 1.2em;
+    font-size: 1.0em;
     
   }
   
@@ -45,12 +46,14 @@
     font-size: 1.1em;
     margin-top: -150px;
     color: black;
+    margin-right: 700px;
   }
 .shoppingbook-price{
   font-style: italic;
   color: black;
   margin-bottom: 4px;
   font-size: 1.0em;
+  margin-right: 700px;
   
 }
   .QuantityPrice {
@@ -58,7 +61,8 @@
     width:25%;
     border-radius: 11px;
     border: 1px solid #ddd;
-    margin-left: 40%;
+    margin-left: 50%;
+    margin-top:-4%;
   }
   
    .Quantity {
@@ -84,32 +88,43 @@
 }
 
 .delete-icon{
-  margin-left: 70%;
-  margin-top:-9%;
+  margin-left: 76%;
+  margin-bottom:10%;
 }
 
 .shoppingtotal{
-  margin-left: 85%;
+  margin-left: 95%;
   margin-top:-3%;
 }
 
 .header-row {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   margin-bottom: 1px;
   margin-top: 25px;
   font-size: 0.8em;
   color: darkgray;
 }
 
-.shoppingQuantity{
-  margin-left: 25%;
+
+.checkout-button{
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 9px 1px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: background-color 0.7s;
+  width: 120px;
+  height: 45px;
+  margin-left: 85%;
 }
 
-.Shoppingtotal{
-   margin-right: 10%;                                  
+.estimatedtotal{
+  margin-left: 85%;
 }
 
-.productname{
-  margin-left: 1%;
+.totalshoppingq{
+  margin-left: 85%;
 }

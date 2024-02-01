@@ -1,14 +1,16 @@
-import React, { createContext, useContext, useReducer ,useEffect} from "react";
+import React, { createContext, useContext, useReducer ,useEffect} from 'react';
 import axios from 'axios';
 import { useAuth } from './AuthContext';
 
 
+
 const CartContext = createContext();
+
 const initialState = {
   cart: [],
   totalQuantity: 0,
 };
- 
+
 const cartReducer = (state, action) => {
   switch (action.type) {
     case 'SET_CART':
@@ -46,7 +48,6 @@ const cartReducer = (state, action) => {
   }
 };
 
- 
 const calculateTotalQuantity = (cart, updatedQuantity) => {
   return cart.reduce((total, item) => total + (item.quantity || updatedQuantity), 0);
 };
@@ -62,44 +63,47 @@ const saveCartToStorage = (cartState) => {
 
 const CartProvider = ({ children }) => {
   const { user } = useAuth();
-  const [cartState, dispatch] = useReducer(cartReducer, initialState);
+  const [cartState, dispatch] = useReducer(cartReducer, initialState, loadCartFromStorage);
   
-  useEffect(() => {
-    if (user) {
-      saveCartToStorage(cartState);
-    }
-  }, [cartState, user]);
-  
-    const addToCart = async (bookId, quantity) => {
-      try {
-        if (!user) {
-          console.error('User is not authenticated. Cannot add item to the cart.');
-          return;
-        }
-    
-        const response = await axios.post(
-          '/add-to-cart',
-          { userId: user._id, bookId, quantity },
-          {
-            headers: {
-              Authorization: `Bearer ${user.authToken}`,
-            },
-          }
-        );
-    
-        if (response.status === 200) {
-          dispatch({ type: 'ADD_TO_CART', payload: bookId });
-          console.log('Item added to the cart successfully');
-          
-        } else {
-          console.error('Failed to add item to the cart:', response.data.error || response.statusText);
-        }
-      } catch (error) {
-        console.error('An error occurred while adding item to the cart:', error.message || error);
-      }
-    };
 
-    
+
+
+  useEffect(() => {
+  if (user) {
+    saveCartToStorage(cartState);
+  }
+}, [cartState, user]);
+
+  const addToCart = async (bookId, quantity) => {
+    try {
+      if (!user) {
+        console.error('User is not authenticated. Cannot add item to the cart.');
+        return;
+      }
+  
+      const response = await axios.post(
+        '/add-to-cart',
+        { userId: user._id, bookId, quantity },
+        {
+          headers: {
+            Authorization: `Bearer ${user.authToken}`,
+          },
+        }
+      );
+  
+      if (response.status === 200) {
+        dispatch({ type: 'ADD_TO_CART', payload: bookId });
+        console.log('Item added to the cart successfully');
+        
+      } else {
+        console.error('Failed to add item to the cart:', response.data.error || response.statusText);
+      }
+    } catch (error) {
+      console.error('An error occurred while adding item to the cart:', error.message || error);
+    }
+  };
+  
+
   const removeFromCart = async (bookId) => {
     try {
       if (user) {
@@ -166,5 +170,3 @@ const useCart = () => {
 };
 
 export { CartProvider, useCart };
-
-    

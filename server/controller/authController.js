@@ -54,24 +54,7 @@ const registerUser = async (req, res) => {
     }
 };
 
-const userById = async (req, res) => {
-    try {
-        const userId = req.params.id;
 
-       
-        const user = await User.findOne({userId});
-
-        if (!user ) {
-            return res.status(404).json({ error: 'user not found' });
-        }
-
-      
-        res.send(user);
-    } catch (error) {
-        console.error('Error getting user by ID:', error);
-        res.status(500).json({ error: 'An error occurred while getting the user by ID' });
-    }
-};
 
 const loginUser = async (req, res) => {
     try {

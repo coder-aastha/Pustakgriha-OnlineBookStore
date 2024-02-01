@@ -20,30 +20,38 @@
     flex-direction: column;
     background: whitesmoke;
   }
-
   .bookDetail_checkout{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    text-decoration: none;
+  color: inherit;
+  width: 80%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 0px solid #ccc;
+  border-radius: 8px;
+  transition: transform 0.1s;
+  height:500px;
   }
 
-  .checkout-image h2{
-    font-size: 0.9em;
-    border: 1px solid #162938;
-    /* border-radius: 10px; */
-    align-items: center;
+  .checkout-image{
+    max-width: 150%;
   }
 
   .checkoutbookimage {
-    width: 140px;
-    height: 150px;
-    margin-left: 10%;
-    margin-top: 5%;
-  }
+      width: 30%; 
+      border-radius: 5px; 
+    }
 
-  .checkout-info {
-    font-size: 14px;
-  }
+    .checkout-info{
+      margin-top: 5%;
+    }
+    .checkoutbookname,
+    .checkoutsubtotal,
+    .checkouttotal,
+    .checkoutshippingcost{
+      font-size: 1.7em;
+      font-style: oblique;
+    }
+  
 
                              /* Right bar */
   .checkout_right {

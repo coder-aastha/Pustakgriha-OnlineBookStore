@@ -17,7 +17,7 @@ const getAllBooks =async (req,res)=> {
 
 const book = async (req, res) => {
     try {
-        // Destructuring values from the request body
+
         const { bookTitle, authorName, category, bookDescription, imageURL, price, available, ISBN, weight, language, pageCount,section } = req.body;
 
         // Creating a new booklisting using the Booklisting model
