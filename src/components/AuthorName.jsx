@@ -4,11 +4,25 @@ import axios from 'axios';
 import FooterUI from "../components/FooterUI";
 import Navbar from "../components/Navbar";
 import "../css/AuthorName.css";
+import { useAuth } from '../Context/AuthContext';
+import { useCart } from '../Context/CartContext';
 
 const AuthorName = () => {
   const [authorbooks, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
   const { authorName } = useParams();
+  const { addToCart } = useCart();
+  const { user } = useAuth();
+
+
+  const handleAddToCart = (book) => {
+    if (user) {
+      addToCart(book);
+    } else {
+      console.error('User is not authenticated. Cannot add item to the cart.');
+      
+    }
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -45,7 +59,7 @@ const AuthorName = () => {
                               <div className="Authorbook-text">
                                 <h4>{book.bookTitle}</h4>
                                 <p>{'Rs. ' + book.price}</p>
-                                <button className="Authoradd-to-cart-btn">ADD TO CART</button>
+                                <button onClick={() => handleAddToCart(book)} className="Authoradd-to-cart-btn">ADD TO CART</button>
                               </div>
                             </div>
                           </div>

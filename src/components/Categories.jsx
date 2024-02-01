@@ -5,6 +5,8 @@ import FooterUI from "../components/FooterUI";
 import Navbar from "../components/Navbar";
 import "../css/Categories.css";
 import { HiMenuAlt1 } from "react-icons/hi";
+import { useAuth } from '../Context/AuthContext';
+import { useCart } from '../Context/CartContext';
 
 const Categories = () => {
   const [books, setBooks] = useState([]);
@@ -12,6 +14,19 @@ const Categories = () => {
   const [activeCategory, setActiveCategory] = useState(null);
   const [menuOpen, setMenuOpen] = useState(localStorage.getItem('menuOpen') === 'true');
   const { category } = useParams();
+  const { addToCart } = useCart();
+  const { user } = useAuth();
+
+
+  
+  const handleAddToCart = (book) => {
+    if (user) {
+      addToCart(book);
+    } else {
+      console.error('User is not authenticated. Cannot add item to the cart.');
+      
+    }
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -71,7 +86,7 @@ const Categories = () => {
                               <div className="genrebook-text">
                                 <h4>{book.bookTitle}</h4>
                                 <p>{'Rs. ' + book.price}</p>
-                                <button className="genreadd-to-cart-btn">ADD TO CART</button>
+                                <button onClick={() => handleAddToCart(book)}  className="genreadd-to-cart-btn">ADD TO CART</button>
                               </div>
                             </div>
                           </div>

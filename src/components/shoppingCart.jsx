@@ -6,8 +6,8 @@ import "../css/ShoppingCart.css";
 import { MdDeleteOutline } from "react-icons/md";
 import { useNavigate } from 'react-router-dom';
 import { useCheckout } from '../Context/CheckoutContext';
-import Navbar from '../components/Navbar'
-import FooterUI from '../components/FooterUI';
+import Navbar from "../components/Navbar";
+import FooterUI from "../components/FooterUI";
 
 const ShoppingCart = () => {
   const navigate = useNavigate();
@@ -38,13 +38,13 @@ const ShoppingCart = () => {
     }
   };
   const handleCheckout = (book) => {
-    const  imageURL = <img src={book.imageURL} alt=" "></img>
+    const  imageURL =  book.imageURL
     const bookName = book.bookTitle ; 
     const totalPrice =  cart.reduce((acc, book) => acc + book.price * book.quantity, 0);
 
   
-    console.log('Checkout Data:', { imageURL,bookName, totalPrice });
-    setCheckoutData( imageURL,bookName, totalPrice);
+    console.log('Checkout Data:', {imageURL, bookName, totalPrice });
+    setCheckoutData(imageURL,bookName, totalPrice);
 
    
     navigate('/checkout');
@@ -66,10 +66,8 @@ const ShoppingCart = () => {
   }
 
   return (
-
     <>
-    <Navbar/>
-   
+     <Navbar /> 
     <div className="Shoppingcontainer">
       <h2>Your Shopping Cart</h2>
  
@@ -116,8 +114,8 @@ const ShoppingCart = () => {
         ))}   
           </div>
           <div className="total-section">
-           <p>Estimated total : Rs {totalPrice}</p>
-           <p>Total Quantity: {totalQuantity}</p>
+           <p className="estimatedtotal">Estimated total : Rs {totalPrice}</p>
+           <p className="totalshoppingq">Total Quantity: {totalQuantity}</p>
            <button className="checkout-button" onClick={() => handleCheckout(cart[0])}>
            Checkout
           </button>
