@@ -6,6 +6,8 @@ import "../css/ShoppingCart.css";
 import { MdDeleteOutline } from "react-icons/md";
 import { useNavigate } from 'react-router-dom';
 import { useCheckout } from '../Context/CheckoutContext';
+import Navbar from '../components/Navbar'
+import FooterUI from '../components/FooterUI';
 
 const ShoppingCart = () => {
   const navigate = useNavigate();
@@ -64,6 +66,9 @@ const ShoppingCart = () => {
   }
 
   return (
+
+    <>
+    <Navbar/>
    
     <div className="Shoppingcontainer">
       <h2>Your Shopping Cart</h2>
@@ -118,6 +123,8 @@ const ShoppingCart = () => {
           </button>
          </div>
       </div>
+      <FooterUI/>
+      </>
     
   );
 };

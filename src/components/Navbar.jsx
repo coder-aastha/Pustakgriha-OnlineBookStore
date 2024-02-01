@@ -111,13 +111,13 @@ const SearchBar = () => {
               <LuUser />
             </Dropdown.Toggle>
             <Dropdown.Menu>
-              <Dropdown.Item href="#" disabled>
+              {/* <Dropdown.Item href="#" disabled>
                 Username: {getUsername()}
               </Dropdown.Item>
               <Dropdown.Item href="#" disabled>
                 Email: {getEmail()}
               </Dropdown.Item>
-              <Dropdown.Divider />
+              <Dropdown.Divider /> */}
               <Dropdown.Item href="#" onClick={handleLogout}>
                 Logout
               </Dropdown.Item>

@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../css/UserForgotPassword.css';
 import toast from 'react-hot-toast';
+import Navbar from '../components/Navbar'
 
 const ForgotPassword = () => {
 const navigate = useNavigate();
@@ -37,7 +38,8 @@ const forgotPassword = async (e) => {
 };
 
 return (
-    
+    <>
+    <Navbar/>
     <div className="main-Forgot-wrapper">
         <div class="wrapper-container-forgot">
         <div className="leftcontent_Forgot"></div>
@@ -66,6 +68,7 @@ return (
     </div>
     </div>
     </div>
+    </>
 );
 };
 
