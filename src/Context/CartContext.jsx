@@ -62,7 +62,7 @@ const saveCartToStorage = (cartState) => {
 
 const CartProvider = ({ children }) => {
   const { user } = useAuth();
-  const [cartState, dispatch] = useReducer(cartReducer, initialState, loadCartFromStorage);
+  const [cartState, dispatch] = useReducer(cartReducer, initialState);
   
   useEffect(() => {
     if (user) {

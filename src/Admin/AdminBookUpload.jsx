@@ -13,6 +13,10 @@ const UploadBook = () => {
     imageURL:'',
     price:'',
     available:'',
+    PageCount:'',
+    ISBN:'',
+    Weight:'',
+    language:'',
     section:''
   })
 
@@ -35,6 +39,10 @@ const UploadBook = () => {
           imageURL: '',
           price: '',
           available: '',
+          PageCount:'',
+          ISBN:'',
+          Weight:'',
+          language:'',
           section: ''
         });
         toast.success('Book Uploaded Successfully');
@@ -101,7 +109,7 @@ const UploadBook = () => {
               onChange={(e) => setData({ ...data, price: e.target.value })} required />
           </div>
 
-          <div className="book_title"> available
+          <div className="book_title"> Available
             <input
               type='text'
               name="book_name"
@@ -109,6 +117,37 @@ const UploadBook = () => {
               onChange={(e) => setData({ ...data, available: e.target.value })} required />
           </div>
 
+          <div className="book_title"> Page Count
+            <input
+              type='text'
+              name="book_name"
+              value={data.PageCount}
+              onChange={(e) => setData({ ...data, PageCount: e.target.value })} required />
+          </div>
+
+          <div className="book_title"> ISBN
+            <input
+              type='text'
+              name="book_name"
+              value={data.ISBN}
+              onChange={(e) => setData({ ...data, ISBN: e.target.value })} required />
+          </div>
+
+          <div className="book_title"> Weight           
+           <input
+              type='text'
+              name="book_name"
+              value={data. Weight}
+              onChange={(e) => setData({ ...data, Weight: e.target.value })} required />
+          </div>
+
+          <div className="book_title"> Language
+            <input
+              type='text'
+              name="book_name"
+              value={data.language}
+              onChange={(e) => setData({ ...data, language: e.target.value })} required />
+          </div>
 
           <div className="book_title">
             <select

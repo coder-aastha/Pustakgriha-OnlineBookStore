@@ -29,6 +29,27 @@ const booklistingSchem = new mongoose.Schema({
       type: Boolean,
       required: true,
    },
+
+   pageCount: {
+      type: Boolean,
+      required: true,
+   },
+
+   ISBN: {
+      type: Boolean,
+      required: true,
+   },
+
+   weight: {
+      type: Boolean,
+      required: true,
+   },
+
+   language: {
+      type: Boolean,
+      required: true,
+   },
+
    section: {
       type: String,
       required: true,
